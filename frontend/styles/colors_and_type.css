@@ -60,9 +60,10 @@
   --type-charcoal: #1A1613;    /* type on cream */
   --type-charcoal-soft: #4A3F34;
 
-  /* Functional greys */
-  --muted: #8E867A;
-  --rule: #7A6F5B;
+  /* Functional greys — bumped 2026-05-23 for legibility (audience read complaint) */
+  --muted: #6B6253;            /* was #8E867A — too faint on cream */
+  --muted-soft: #8E867A;       /* old --muted kept as soft for rare needs */
+  --rule: #5C5343;             /* was #7A6F5B — rules also stronger */
 
   /* ============================================================
      LEGACY NAMES — keep kit files compiling while we migrate

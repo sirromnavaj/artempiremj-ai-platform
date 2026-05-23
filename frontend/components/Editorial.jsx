@@ -158,22 +158,40 @@ function ArticleView({ article, onClose }) {
 function Editorial() {
   const [active, setActive] = React.useState(null);
   const [regionFilter, setRegion] = React.useState("all");
-  const regions = ["all", ...new Set(BLOGS.map(b => b.region))];
-  const filtered = regionFilter === "all" ? BLOGS : BLOGS.filter(b => b.region === regionFilter);
+  const [blogs, setBlogs] = React.useState(BLOGS);
+
+  // Pull live content from production -> site sync (scripts/sync_production_to_site.py)
+  // Falls back to hardcoded BLOGS array if fetch fails.
+  React.useEffect(() => {
+    fetch("content/editorial.json", { cache: "no-cache" })
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data && Array.isArray(data.items) && data.items.length) {
+          // Merge: production items first, hardcoded fallbacks for older.
+          const liveSlugs = new Set(data.items.map(x => x.slug));
+          const merged = [...data.items, ...BLOGS.filter(b => !liveSlugs.has(b.slug))];
+          setBlogs(merged);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const regions = ["all", ...new Set(blogs.map(b => b.region))];
+  const filtered = regionFilter === "all" ? blogs : blogs.filter(b => b.region === regionFilter);
 
   // read hash for slug routing
   React.useEffect(() => {
     const checkHash = () => {
       const m = location.hash.match(/^#article\/(.+)$/);
       if (m) {
-        const a = BLOGS.find(x => x.slug === m[1]);
+        const a = blogs.find(x => x.slug === m[1]);
         if (a) setActive(a);
       }
     };
     checkHash();
     window.addEventListener("hashchange", checkHash);
     return () => window.removeEventListener("hashchange", checkHash);
-  }, []);
+  }, [blogs]);
 
   const openArticle = (a) => {
     setActive(a);
