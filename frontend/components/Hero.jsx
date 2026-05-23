@@ -120,8 +120,11 @@ function HeroPortrait() {
         </h1>
 
         <p className="italic-serif hero-portrait-deck">
-          Graphite and mixed media on paper. By appointment from Nairobi —<br/>
-          shipped worldwide. The archive of one hand, one face, one memory.
+          The studio in Nairobi. MJ&apos;s portrait series, plus work shown<br/>
+          and sold from the gallery floor. The archive begins here.
+        </p>
+        <p className="mono-label" style={{color:'var(--editorial-gold-mist)', marginTop:'1rem', fontSize:'12px', letterSpacing:'0.08em'}}>
+          ABOVE · ART-TO-SOUL NO. 1 · WANGARI MAATHAI · GRAPHITE AND MIXED MEDIA ON PAPER · MJ
         </p>
 
         <div className="hero-cta-row">

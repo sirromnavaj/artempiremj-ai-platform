@@ -148,7 +148,7 @@ function About() {
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>STUDIO &amp; GALLERY</div>
               <h4 className="caps-fraunces">The studio practice.</h4>
-              <p>MJ as artist. Portrait commissions (your face, an artist you admire, or the work-meets-money piece). Original work shown and sold. The making, not just the selling.</p>
+              <p>MJ&apos;s portrait series in graphite and mixed media — your face, an artist you admire, or the work-meets-money piece. Plus work by other artists shown and sold through the gallery floor.</p>
             </div>
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>SUBMIT</div>
