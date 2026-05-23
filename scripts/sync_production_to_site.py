@@ -122,7 +122,7 @@ def sync_editorial():
             "publishDate": pub_date,
             "title": title,
             "slug": slugify(title),
-            "author": "MJ",
+            "author": "Morris Javan",
             "summary": re.sub(r"<[^>]+>", "", body_html).split(". ", 1)[0][:240] + ".",
             "bodyHtml": body_html,
             "coverImage": "painting",
