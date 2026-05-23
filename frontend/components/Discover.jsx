@@ -124,8 +124,22 @@ function statusBadge(status) {
 
 function Discover() {
   const [filter, setFilter] = React.useState("all");
+  const [events, setEvents] = React.useState(DISCOVER_EVENTS);
 
-  const sorted = [...DISCOVER_EVENTS].sort((a, b) => {
+  // Live pull from yaml-sourced JSON (scripts/sync_production_to_site.py).
+  // Falls back to hardcoded DISCOVER_EVENTS if fetch fails.
+  React.useEffect(() => {
+    fetch("content/discover.json", { cache: "no-cache" })
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data && Array.isArray(data.items) && data.items.length) {
+          setEvents(data.items);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const sorted = [...events].sort((a, b) => {
     const sa = computeTimeStatus(a.eventDate, a.endDate);
     const sb = computeTimeStatus(b.eventDate, b.endDate);
     const order = { ongoing: 0, upcoming: 1, past: 2 };

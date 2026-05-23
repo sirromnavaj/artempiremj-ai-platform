@@ -34,8 +34,8 @@ function HeroEditorial() {
             <div className="hero-datum-val">DISCOVER RADAR — 4-field test</div>
           </div>
           <div className="hero-datum">
-            <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>Commissions</div>
-            <div className="hero-datum-val">Pencil on cartridge · By appointment</div>
+            <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>The studio</div>
+            <div className="hero-datum-val">Portraits, original work, the practice</div>
           </div>
         </div>
 
@@ -82,11 +82,12 @@ function HeroTypographic() {
             </p>
           </div>
           <div>
-            <div className="mono-label" style={{color:'var(--badge-orange)'}}>The practice</div>
+            <div className="mono-label" style={{color:'var(--badge-orange)'}}>The studio</div>
             <p className="typographic-copy">
-              The studio in Nairobi takes commissions. The newsletter lands every
-              Tuesday. The DISCOVER calendar names what's open. The studio watches
-              the market; the market reframes the studio.
+              MJ as artist. Portrait commissions across three series. Original
+              work shown and sold. A newsletter that lands every week. A
+              calendar of what's worth seeing. The watching and the making
+              feed each other.
             </p>
           </div>
         </div>

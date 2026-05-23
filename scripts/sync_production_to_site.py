@@ -22,11 +22,18 @@ import sys
 from datetime import date
 from pathlib import Path
 
+try:
+    import yaml
+except ImportError:
+    yaml = None
+
 if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parents[1]
-DRAFTS = Path("C:/Users/User/Desktop/NohvaraContinuum/03_sandboxes/artempire/drafts")
+ARTEMPIRE = Path("C:/Users/User/Desktop/NohvaraContinuum/03_sandboxes/artempire")
+DRAFTS = ARTEMPIRE / "drafts"
+DISCOVER_YAML = ARTEMPIRE / "drafts" / "site_content" / "discover_events.yaml"
 OUT_DIR = ROOT / "frontend" / "content"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -129,8 +136,41 @@ def sync_editorial():
     print(f"[OK] editorial.json -> {len(items)} items")
 
 
+def sync_discover():
+    if yaml is None:
+        print("[SKIP] discover.json — install pyyaml: pip install pyyaml")
+        return
+    if not DISCOVER_YAML.exists():
+        print(f"[SKIP] discover.json — source not found: {DISCOVER_YAML}")
+        return
+    raw = yaml.safe_load(DISCOVER_YAML.read_text(encoding="utf-8"))
+    events_in = raw.get("events", []) if isinstance(raw, dict) else []
+    items = []
+    for e in events_in:
+        items.append({
+            "eventDate": str(e.get("event_date", "")),
+            "endDate": str(e.get("end_date", "")),
+            "eventName": e.get("name", "").strip(),
+            "city": e.get("city", ""),
+            "country": e.get("country", ""),
+            "region": e.get("region", "Global"),
+            "venue": e.get("venue", ""),
+            "description": " ".join((e.get("description") or "").split()),
+            "imageUrl": e.get("image", ""),
+            "credit": e.get("credit", ""),
+            "sourceLink": e.get("source", ""),
+        })
+    out = OUT_DIR / "discover.json"
+    out.write_text(
+        json.dumps({"updated": str(date.today()), "items": items}, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    print(f"[OK] discover.json -> {len(items)} events")
+
+
 def main():
     sync_editorial()
+    sync_discover()
     print("[DONE] production -> site sync complete.")
 
 
