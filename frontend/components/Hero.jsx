@@ -75,17 +75,18 @@ function HeroTypographic() {
           <div>
             <div className="mono-label" style={{color:'var(--badge-orange)'}}>The read</div>
             <p className="typographic-copy">
-              A daily analytical reading of the global art economy — what it means,
-              what it costs, who it is for. Cold observation. Structural X-ray.
-              Precision over generality. Published from Nairobi.
+              What money tells you about value. What artists were making before
+              the headlines moved. What things cost. Who captures the value, who
+              never sees it. Read daily from inside the African art world,
+              addressed to anyone who is also paying attention.
             </p>
           </div>
           <div>
             <div className="mono-label" style={{color:'var(--badge-orange)'}}>The practice</div>
             <p className="typographic-copy">
-              Seven weekly editorial series. Seven divisions. One pencil-portrait
-              commission practice at the centre. The continuum of creativity —
-              connecting studio, culture, and technology.
+              The studio in Nairobi takes commissions. The newsletter lands every
+              Tuesday. The DISCOVER calendar names what's open. The studio watches
+              the market; the market reframes the studio.
             </p>
           </div>
         </div>

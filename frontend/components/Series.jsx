@@ -65,12 +65,12 @@ function Series() {
     <section id="series" className="section surface-cream" data-screen-label="Series">
       <div className="container">
         <div className="series-head">
-          <div className="eyebrow dark">The week · Editorial rhythm</div>
+          <div className="eyebrow dark">The week</div>
           <h2 className="display-caslon series-title">
-            Nine registers, <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>one institution.</em>
+            What lands when, <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>and why.</em>
           </h2>
           <p className="series-deck italic-serif">
-            One series post 09:00 EAT. One DISCOVER signal 12:00 EAT. Every day. Different temperature. Same precision.
+            A read at 09:00. A signal at 12:00. Every day.
           </p>
         </div>
 

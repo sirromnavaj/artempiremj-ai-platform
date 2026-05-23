@@ -58,7 +58,7 @@ function About() {
             <div>
               <div className="mono-label" style={{color:'var(--badge-orange)', marginBottom:'0.8rem'}}>FOR</div>
               <ul style={{fontSize:'16px', lineHeight:1.6, listStyle:'none', padding:0, margin:0}}>
-                <li>· Readers who want the structural read, not the hot take</li>
+                <li>· Readers who want what's actually happening, not the hot take</li>
                 <li>· Buyers choosing meaning over prestige</li>
                 <li>· Artists and writers building a practice</li>
                 <li>· Travelers planning around the art, not around the airport</li>
@@ -98,13 +98,13 @@ function About() {
           <div className="about-grid">
             <div className="about-left">
               <h3 className="display-caslon" style={{fontSize:'clamp(28px,3vw,40px)', lineHeight:1.1, marginBottom:'1rem'}}>
-                One hand at the centre. <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>Seven registers around it.</em>
+                Morris Javan Andanje. <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>One hand. Nairobi.</em>
               </h3>
               <p className="about-p">
-                Morris Javan Andanje — MJ — is an artist and editor based in Nairobi. The commission practice is pencil-on-paper portraiture. The editorial practice is a daily reading of the global art economy. The two inform each other: the portrait watches the market; the market reframes the portrait.
+                Artist and editor. Pencil-on-paper portraits from the studio. Daily reads on what the art world is making, costing, and missing. The portrait watches the market. The market reframes the portrait.
               </p>
               <p className="about-p">
-                Published across Instagram, TikTok, LinkedIn, Facebook, and a beehiiv newsletter. Commissions close on WhatsApp.
+                Published across Instagram, TikTok, LinkedIn, Facebook, and a beehiiv newsletter every Tuesday. Commissions close on WhatsApp.
               </p>
 
               <div className="about-correspondents" style={{marginTop:'2rem'}}>
@@ -148,47 +148,64 @@ function About() {
           <div className="about-offers-grid">
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>READ</div>
-              <h4 className="caps-fraunces">Nine editorial registers, weekly.</h4>
-              <p>Art + Finance Tuesdays. Money Stories Wednesdays. Artist Spotlight Thursdays. Intersections Fridays. Art of Mind Saturdays. Civic / Nude / Ink rotating Sundays. Global Art Spotlight Mondays. The World Through Art when world events ask for it.</p>
+              <h4 className="caps-fraunces">A read worth your Tuesday morning.</h4>
+              <p>Art + Finance Tuesdays. Money Stories Wednesdays. Artist Spotlight Thursdays. Intersections Fridays. Art of Mind Saturdays. Civic, Nude, and Ink rotating Sundays. Global Art Spotlight Mondays. The World Through Art when the world asks for it.</p>
             </div>
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>DISCOVER</div>
-              <h4 className="caps-fraunces">The world art calendar. Daily.</h4>
-              <p>Every fair, biennale, open call, exhibition, deadline — verified entry by entry. Four-week regional rotation. A standing Kenya signal. Built so the door isn't already closed by the time you find it.</p>
+              <h4 className="caps-fraunces">The shows worth crossing a city for.</h4>
+              <p>Every fair, biennale, open call, exhibition, deadline — verified daily. Built so the door isn't already closed by the time you find it.</p>
             </div>
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>COMMISSION</div>
-              <h4 className="caps-fraunces">Pencil portrait, made by hand.</h4>
-              <p>The studio practice anchors everything. A4 study to A2+ with custom background. The detail in the eyes takes three sessions. WhatsApp closes the conversation.</p>
+              <h4 className="caps-fraunces">A portrait, made by hand.</h4>
+              <p>Pencil on cartridge paper. A4 study to A2+ with custom background. The detail in the eyes takes three sessions. WhatsApp closes the conversation.</p>
             </div>
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>SUBMIT</div>
               <h4 className="caps-fraunces">Be in the room.</h4>
-              <p>Artists submit work for Spotlight features. Writers and researchers join as correspondents. Skin-story carriers submit to the Ink archive. The submission door is the relationship door.</p>
+              <p>Artists submit work for Spotlight features. Writers and researchers join as correspondents. Skin-story carriers submit to the Ink archive.</p>
             </div>
           </div>
         </div>
 
-        {/* --- SECTION 5 — The position (the gap nobody else fills) --- */}
+        {/* --- SECTION 5 — Why this exists --- */}
         <div className="about-position" style={{marginBottom:'3rem', background:'var(--cream-2, #E8DFCC)', padding:'2.5rem', borderLeft:'6px solid var(--badge-orange)'}}>
-          <div className="eyebrow dark" style={{marginBottom:'1rem'}}>The position</div>
+          <div className="eyebrow dark" style={{marginBottom:'1rem'}}>Why this exists</div>
           <p className="italic-serif" style={{fontSize:'clamp(20px,2.2vw,28px)', lineHeight:1.45, marginBottom:'1.2rem'}}>
-            ArtTactic does data. Art Network Africa does editorial. Individual artists do commissions. None of them do all of it.
+            ArtTactic charges five hundred dollars a month. Art Network Africa covers what it can. Individual artists take commissions alone. Nobody was doing all of it from where it actually happens.
           </p>
           <p className="about-p" style={{fontSize:'17px'}}>
-            ArtempireMJ is built from the inside of the African art world — not covering it from London or New York, but living in Nairobi, attending the fairs, drawing the portraits, knowing which gallery opened and which one quietly didn't make it.
+            Living in Nairobi. Attending the fairs. Drawing the portraits. Knowing which gallery opened and which one quietly didn't make it.
           </p>
           <p className="about-p" style={{fontSize:'17px'}}>
-            That specificity cannot be generated. It has to be earned by showing up. Daily, since 2023.
+            That cannot be outsourced. It has to be earned by showing up. Daily, since 2023.
           </p>
         </div>
 
-        {/* --- SECTION 6 — In the room with us (proof through naming) --- */}
-        <div className="about-proof">
-          <div className="eyebrow dark" style={{marginBottom:'1.5rem'}}>In the room with us</div>
-          <p className="about-p" style={{fontSize:'17px', maxWidth:'780px'}}>
-            Featured artists, named correspondents, named subjects. Khethiwe Tracy Gumede at ICTAF. Kathleen Mureithi in Money Stories. Olga Moela in Vanderbijlpark. Brush Tu in Buru-Buru. El Anatsui at the Tate. Cleo Sloan in the Art + Finance comments. Boniface Maina on the record. Anne Mwiti on canvas. Real people. Reachable through this site.
-          </p>
+        {/* --- SECTION 6 — Who we work with vs who we cover (honest framing) --- */}
+        <div className="about-people" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'2.5rem', marginTop:'2rem'}}>
+          <div>
+            <div className="eyebrow dark" style={{marginBottom:'1rem'}}>Who we work with</div>
+            <p className="about-p" style={{fontSize:'16px', lineHeight:1.65}}>
+              <strong>Khethiwe Tracy Gumede</strong> — Global Art Correspondent, South Africa. Press-accredited at the Investec Cape Town Art Fair. Field photography + gallery observations.
+            </p>
+            <p className="about-p" style={{fontSize:'16px', lineHeight:1.65}}>
+              <strong>Kathleen Mureithi</strong> — Money Stories co-author. The human financial reality of creative practice.
+            </p>
+            <p className="about-p" style={{fontSize:'15px', color:'var(--muted)', fontStyle:'italic'}}>
+              Network growing in Lagos, Accra, Dakar, and the London diaspora.
+            </p>
+          </div>
+          <div>
+            <div className="eyebrow dark" style={{marginBottom:'1rem'}}>Recently covered</div>
+            <p className="about-p" style={{fontSize:'15px', lineHeight:1.65}}>
+              Brush Tu (Nairobi) · Lagos Biennial 2026 · Gallery 1957 (Accra) · The African Arts Trust (Nairobi) · El Anatsui at Tate Modern · Maboneng Precinct (Johannesburg) · Olga Moela (Vanderbijlpark) · RMB Latitudes Art Fair · Everlyn Nicodemus at Goodman Gallery.
+            </p>
+            <p className="about-p" style={{fontSize:'13px', color:'var(--muted)', marginTop:'1rem'}}>
+              Coverage isn't endorsement. Featured artists keep their own contact lines.
+            </p>
+          </div>
         </div>
 
       </div>
@@ -204,10 +221,10 @@ function Newsletter() {
       <div className="container newsletter-inner">
         <div className="eyebrow">Published Tuesdays · Art + Finance · free</div>
         <h2 className="caps-fraunces newsletter-title">
-          The structural read,<br/>delivered weekly.
+          What's actually happening,<br/>delivered weekly.
         </h2>
         <p className="italic-serif newsletter-deck">
-          What the headlines don't carry. What the institutional reports bury. Read by working artists, gallery professionals, and first-time collectors who are tired of being explained at.
+          What the headlines don't carry. What the institutional reports bury at $500 a month. Read by working artists, gallery professionals, and first-time collectors who are tired of being explained at.
         </p>
 
         {!sent ? (
