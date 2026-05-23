@@ -53,28 +53,17 @@ function About() {
             Where they live is not the point. What they carry is.
           </p>
 
-          {/* --- For / Not for --- */}
-          <div className="about-for-notfor" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'2rem', margin:'2.5rem 0', padding:'1.5rem 0', borderTop:'1px solid var(--rule, #D8D4C8)', borderBottom:'1px solid var(--rule, #D8D4C8)'}}>
-            <div>
-              <div className="mono-label" style={{color:'var(--badge-orange)', marginBottom:'0.8rem'}}>FOR</div>
-              <ul style={{fontSize:'16px', lineHeight:1.6, listStyle:'none', padding:0, margin:0}}>
-                <li>· Readers who want what's actually happening, not the hot take</li>
-                <li>· Buyers choosing meaning over prestige</li>
-                <li>· Artists and writers building a practice</li>
-                <li>· Travelers planning around the art, not around the airport</li>
-                <li>· Anyone whose skin or city or career carries a story art names</li>
-              </ul>
-            </div>
-            <div>
-              <div className="mono-label" style={{color:'var(--muted)', marginBottom:'0.8rem'}}>NOT FOR</div>
-              <ul style={{fontSize:'16px', lineHeight:1.6, listStyle:'none', padding:0, margin:0, color:'var(--type-charcoal)'}}>
-                <li>· Audiences here for hype or what's-hot lists</li>
-                <li>· Investment speculation on art as instrument</li>
-                <li>· Institutional-only readers wanting Bloomberg-terminal data</li>
-                <li>· Anyone who wants the art world described from outside it</li>
-                <li>· Generic art appreciation. The work names specifics.</li>
-              </ul>
-            </div>
+          {/* --- Who this lands for --- */}
+          <div className="about-for" style={{margin:'2.5rem 0', padding:'1.5rem 0', borderTop:'1px solid var(--rule, #D8D4C8)', borderBottom:'1px solid var(--rule, #D8D4C8)'}}>
+            <div className="mono-label" style={{color:'var(--badge-orange)', marginBottom:'0.8rem'}}>This lands for</div>
+            <ul style={{fontSize:'17px', lineHeight:1.7, listStyle:'none', padding:0, margin:0, columnCount:2, columnGap:'2rem'}}>
+              <li>· Readers who want what's actually happening on the floor</li>
+              <li>· Buyers choosing for meaning, looking for the work that holds up</li>
+              <li>· Artists and writers building a practice and want company in it</li>
+              <li>· Travelers planning around the art, the gallery, the fair</li>
+              <li>· Story-carriers whose skin, city, or career a piece of art names</li>
+              <li>· Collectors looking for a portrait that holds a face the long way</li>
+            </ul>
           </div>
 
           {/* --- The anchor narrative --- */}
@@ -123,11 +112,11 @@ function About() {
 
             <div className="about-right">
               <div className="about-portrait">
-                <img src="assets/work/brushtu-handle-with-care.jpg" alt="Installation view, Brush Tu — Handle with Care, Circle Art Gallery Nairobi" loading="lazy" />
+                <img src="assets/work/art-to-soul-01-wangari-maathai.jpg" alt="Wangari Maathai portrait, graphite and mixed media on paper — Art-to-Soul No. 1, by Morris Javan Andanje" loading="lazy" />
                 <div className="about-portrait-caption">
-                  <span className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>FROM INSIDE · NBO</span>
+                  <span className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>ART-TO-SOUL · NO. 1</span>
                   <div className="italic-serif" style={{color:'var(--ivory)', marginTop:6, fontSize:18}}>
-                    Brush Tu · Handle with Care · Circle Art Gallery, Nairobi
+                    Wangari Maathai · graphite and mixed media on paper · Morris Javan Andanje
                   </div>
                 </div>
               </div>

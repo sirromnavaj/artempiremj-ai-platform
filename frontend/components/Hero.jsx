@@ -106,13 +106,13 @@ function HeroPortrait() {
   return (
     <section className="hero-portrait" data-screen-label="Hero">
       <div className="hero-portrait-media">
-        <img src="assets/work/brushtu-handle-with-care.jpg" alt="Installation view, Brush Tu — Handle with Care, Circle Art Gallery Nairobi, May 2026" />
+        <img src="assets/work/art-to-soul-01-wangari-maathai.jpg" alt="Wangari Maathai portrait, graphite and mixed media on paper — Art-to-Soul No. 1, by Morris Javan Andanje" />
         <div className="hero-portrait-scrim" />
       </div>
       <div className="container hero-portrait-inner">
         <div className="hero-top">
-          <div className="eyebrow">STUDIO · GALLERY · COMMISSION</div>
-          <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>ART-TO-SOUL NO. 28</div>
+          <div className="eyebrow">STUDIO &amp; GALLERY · ART-TO-SOUL</div>
+          <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>ART-TO-SOUL NO. 1 · WANGARI MAATHAI</div>
         </div>
 
         <h1 className="hero-portrait-headline caps-fraunces">
@@ -120,7 +120,7 @@ function HeroPortrait() {
         </h1>
 
         <p className="italic-serif hero-portrait-deck">
-          Pencil on cartridge paper. By appointment from Nairobi —<br/>
+          Graphite and mixed media on paper. By appointment from Nairobi —<br/>
           shipped worldwide. The archive of one hand, one face, one memory.
         </p>
 

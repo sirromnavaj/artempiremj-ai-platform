@@ -31,14 +31,14 @@ function Commission() {
             Crafted.<br/>Collected.<br/>Exhibited.
           </h2>
           <p className="italic-serif commission-deck">
-            Pencil on cartridge paper. By appointment from Nairobi —<br/>
+            Graphite and mixed media on paper. By appointment from Nairobi —<br/>
             shipped worldwide. The archive of one hand, one face, one memory.
           </p>
 
           <div className="commission-facts">
             <div className="commission-fact">
               <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>MEDIUM</div>
-              <div className="commission-fact-val">Graphite · cartridge paper · up to 8 sessions</div>
+              <div className="commission-fact-val">Graphite and mixed media on paper · up to 8 sessions</div>
             </div>
             <div className="commission-fact">
               <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>LEAD TIME</div>
