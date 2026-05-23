@@ -301,10 +301,8 @@ function Footer() {
               <li>Studio &amp; Gallery</li>
               <li>.spotlight</li>
               <li>.ink</li>
-              <li>.ai Studio</li>
               <li>Art Itineraries</li>
-              <li>.community <span style={{color:'var(--muted)'}}>(paused — opens at 5k)</span></li>
-              <li>Art Travel</li>
+              <li>.community <span style={{color:'var(--muted)'}}>(opens at 5k)</span></li>
             </ul>
           </div>
           <div>
