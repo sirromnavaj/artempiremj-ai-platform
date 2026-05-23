@@ -1,21 +1,21 @@
-# Netlify deploy config for ArtempireMJ
-# Site: artempiremj.com (custom domain pointed via GoDaddy DNS once cancelled)
-# Stack: static React-CDN site (Babel-in-browser). v1.1 will migrate to Next.js.
+# Netlify deploy config — static React-CDN site, no build step
 
 [build]
+  base = ""
   publish = "frontend"
-  command = ""
+  command = "echo 'No build needed — static site at frontend/'"
+  ignore = "/bin/false"
 
 [build.environment]
   NETLIFY_USE_YARN = "false"
+  NETLIFY_USE_PNPM = "false"
 
-# Single-page-app-style fallback for client-side routing
+# SPA-style fallback for hash routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# Strict security headers (sane defaults)
 [[headers]]
   for = "/*"
   [headers.values]
@@ -24,7 +24,6 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
-# Cache static assets aggressively
 [[headers]]
   for = "/assets/*"
   [headers.values]
