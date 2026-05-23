@@ -33,7 +33,22 @@ This reads every `drafts/*.md` file with a real LinkedIn (article) body,
 extracts title + body + region (from the Week 1/2/3/4 header), and writes
 JSON to `frontend/content/`.
 
-Then commit + push. Netlify auto-deploys. Site reads JSON at runtime.
+Then commit + push, and deploy to Cloudflare Pages:
+
+```powershell
+$env:CLOUDFLARE_API_TOKEN = (Get-Content $HOME\.cloudflare\credentials | Select-String '^CLOUDFLARE_API_TOKEN=' | ForEach-Object { $_.Line.Split('=')[1] })
+wrangler pages deploy frontend --project-name artempiremj --branch main
+```
+
+Or with the env var already set:
+
+```bash
+wrangler pages deploy frontend --project-name artempiremj --branch main
+```
+
+Site reads JSON at runtime. (Migrated from Netlify 2026-05-23 after free
+tier auto-pause on launch day. See `09_workflows/processes/site_hosting_decisions.md`
+for the playbook + decision matrix.)
 
 ## What gets skipped
 
