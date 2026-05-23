@@ -51,7 +51,7 @@ function Commission() {
           </div>
 
           <p className="commission-closing italic-serif">
-            That origin matters. Every commission is documented in Art-to-Soul.
+            Every commission joins the Art-to-Soul archive.
           </p>
         </div>
 
@@ -138,7 +138,7 @@ function Commission() {
           </div>
 
           <p className="commission-footnote italic-serif">
-            Nothing on the web closes a commission. WhatsApp does — that is where the conversation begins.
+            We finish the conversation on WhatsApp.
           </p>
         </div>
       </div>

@@ -1,6 +1,9 @@
 // artempiremj-forms — Cloudflare Worker that accepts POSTs from
-// the four site forms (newsletter, commission, feedback, contributor),
-// validates a honeypot, stores in KV, and emails Morris via MailChannels.
+// the site forms (newsletter, contributor, feedback), validates a
+// honeypot, stores submissions in KV, and forwards a notification
+// email through a cascade of free-tier providers (Resend → Brevo →
+// SendGrid → ...) so we can rotate as monthly limits hit.
+import { sendCascade } from "./providers.js";
 //
 // Endpoints:
 //   POST /submit              — accepts any of the four form types
@@ -52,46 +55,21 @@ async function parseBody(request) {
 }
 
 async function sendNotificationEmail(env, formType, payload) {
-  // MailChannels — free for Cloudflare Workers.
-  // Requires the destination domain to have:
-  //   _mailchannels TXT "v=mc1 cfid=<workers-subdomain>"  (Domain Lockdown — mandatory)
-  //   SPF TXT       "v=spf1 include:relay.mailchannels.net ~all"
-  //   mailchannels._domainkey TXT "v=DKIM1; k=rsa; p=<PUBLIC_KEY>"  (deliverability)
-  // The worker passes its DKIM private key so MailChannels signs the message.
   const subject = `[ArtempireMJ] new ${formType} submission`;
   const lines = Object.entries(payload)
     .filter(([k]) => k !== "bot-field" && k !== "form-name")
     .map(([k, v]) => `${k}: ${v}`)
     .join("\n");
-  const body = `Form: ${formType}\nReceived: ${new Date().toISOString()}\n\n${lines}\n\n--\nartempiremj-forms worker`;
-
-  const fromDomain = (env.NOTIFY_FROM || "").split("@")[1] || "artempiremj.com";
-
-  const message = {
-    personalizations: [{
-      to: [{ email: env.NOTIFY_TO }],
-      ...(env.DKIM_PRIVATE_KEY ? {
-        dkim_domain: fromDomain,
-        dkim_selector: "mailchannels",
-        dkim_private_key: env.DKIM_PRIVATE_KEY,
-      } : {}),
-    }],
+  const text = `Form: ${formType}\nReceived: ${new Date().toISOString()}\n\n${lines}\n\n--\nartempiremj-forms`;
+  const result = await sendCascade({
+    env,
+    to: env.NOTIFY_TO,
     from: { email: env.NOTIFY_FROM, name: "ArtempireMJ Forms" },
     subject,
-    content: [{ type: "text/plain", value: body }],
-  };
-
-  try {
-    const resp = await fetch("https://api.mailchannels.net/tx/v1/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(message),
-    });
-    const text = await resp.text();
-    return { ok: resp.ok, status: resp.status, body: text.slice(0, 300) };
-  } catch (e) {
-    return { ok: false, error: String(e) };
-  }
+    text,
+    log: (msg) => console.log(`[email] ${msg}`),
+  });
+  return result;
 }
 
 async function handleSubmit(request, env) {
@@ -148,7 +126,13 @@ async function handleSubmit(request, env) {
   const emailResult = await sendNotificationEmail(env, formType, payload);
 
   return jsonResponse(
-    { ok: true, form: formType, id: key, notified: emailResult.ok },
+    {
+      ok: true,
+      form: formType,
+      id: key,
+      notified: emailResult.ok,
+      via: emailResult.provider || null,
+    },
     200,
     cors
   );

@@ -52,35 +52,13 @@ function Develop() {
       <div className="container">
         <div className="develop-grid">
           <div className="develop-left">
-            <div className="eyebrow dark">Pillar 03 · Develop</div>
+            <div className="eyebrow dark">Submit your work</div>
             <h2 className="display-caslon develop-title">
-              Submit your practice.<br/>
-              <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>We read every submission.</em>
+              We read <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>every one.</em>
             </h2>
             <p className="develop-deck italic-serif">
-              Artempire is a platform, not a portfolio. If your work belongs in one
-              of the seven series, we want to know. Approved contributors are
-              featured in a weekly dispatch, interviewed on record, and placed
-              in the editorial archive.
+              Artists, writers, photographers, story-carriers — if your work belongs here, send it. Seven to fourteen days for a reply. Every submission is read by a person.
             </p>
-
-            <div className="develop-tests">
-              <div className="develop-test">
-                <div className="mono-label" style={{color:'var(--badge-orange)'}}>WHAT WE LOOK FOR</div>
-                <ul className="develop-ul">
-                  <li>A clear practice, stated in your own language.</li>
-                  <li>Work that is structural, not decorative.</li>
-                  <li>A body of evidence — not one piece.</li>
-                  <li>Consent to publish, unambiguously given.</li>
-                </ul>
-              </div>
-              <div className="develop-test">
-                <div className="mono-label" style={{color:'var(--badge-orange)'}}>RESPONSE TIME</div>
-                <div className="italic-serif" style={{fontSize:18, marginTop:6, color:'var(--type-charcoal)'}}>
-                  Seven to fourteen days. Every submission is read by a person.
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="develop-right">

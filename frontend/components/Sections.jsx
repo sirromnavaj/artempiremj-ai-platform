@@ -27,61 +27,15 @@ function About() {
     <section id="about" className="section surface-cream" data-screen-label="About">
       <div className="container">
 
-        {/* --- SECTION 1 — Category claim (option A) --- */}
-        <div className="about-claim" style={{marginBottom:'4rem'}}>
-          <div className="eyebrow dark">About · ArtempireMJ</div>
-          <h2 className="display-caslon about-claim-title" style={{fontSize:'clamp(40px,5vw,72px)', lineHeight:1.05, marginTop:'1rem'}}>
-            ArtempireMJ holds art and the human <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>together.</em>
-            <span style={{display:'block', fontSize:'0.6em', fontWeight:400, marginTop:'0.4em', color:'var(--type-charcoal)'}}>
-              From inside. Daily.
-            </span>
-          </h2>
-        </div>
-
-        {/* --- SECTION 2 — Reader recognition + the anchor (option C + skill narrative) --- */}
-        <div className="about-recognition" style={{marginBottom:'4rem', maxWidth:'780px'}}>
-          <div className="eyebrow dark" style={{marginBottom:'1rem'}}>Who this is for</div>
-
-          <p className="italic-serif" style={{fontSize:'clamp(22px,2.2vw,30px)', lineHeight:1.5, marginBottom:'1.5rem'}}>
-            For anyone who has been noticing things alone.
-          </p>
-
-          <p className="about-p" style={{fontSize:'18px', lineHeight:1.7}}>
-            The artist at 11pm building a practice with fewer resources than the work deserves. The first-time collector who isn't sure if they paid too much. The art finance professional priced out of the institutional reports. The diaspora reader connecting back through art experiences. The story-carrier whose tattoo or skin marking deserves witnessing.
-          </p>
-          <p className="about-p" style={{fontSize:'18px', lineHeight:1.7}}>
-            Where they live is not the point. What they carry is.
-          </p>
-
-          {/* --- Who this lands for --- */}
-          <div className="about-for" style={{margin:'2.5rem 0', padding:'1.5rem 0', borderTop:'1px solid var(--rule, #D8D4C8)', borderBottom:'1px solid var(--rule, #D8D4C8)'}}>
-            <div className="mono-label" style={{color:'var(--badge-orange)', marginBottom:'0.8rem'}}>This lands for</div>
-            <ul style={{fontSize:'17px', lineHeight:1.7, listStyle:'none', padding:0, margin:0, columnCount:2, columnGap:'2rem'}}>
-              <li>· Readers who want what's actually happening on the floor</li>
-              <li>· Buyers choosing for meaning, looking for the work that holds up</li>
-              <li>· Artists and writers building a practice and want company in it</li>
-              <li>· Travelers planning around the art, the gallery, the fair</li>
-              <li>· Story-carriers whose skin, city, or career a piece of art names</li>
-              <li>· Collectors looking for a portrait that holds a face the long way</li>
-            </ul>
-          </div>
-
-          {/* --- The anchor narrative --- */}
-          <p className="about-p" style={{fontSize:'19px', lineHeight:1.7, marginTop:'2rem'}}>
-            Art is not separate from how people live.
-          </p>
-          <p className="about-p" style={{fontSize:'18px', lineHeight:1.7}}>
-            It is in the spaces they inhabit — the mural on the building they pass every morning, the painting on the café wall they've eaten beneath for years without knowing the artist's name. It is on the skin they carry — the tattoo that holds a migration story, a grief, a ceremony. It is in the cities they move through — the gallery that opened in a neighbourhood changing faster than its residents can afford, the biennale that landed in a city that didn't have one until someone built it.
-          </p>
-          <p className="about-p" style={{fontSize:'18px', lineHeight:1.7}}>
-            It is in the money — what art costs to make, what it sells for, who captures the value, who never sees it. It is in the mind — the question art asks that won't resolve, that stays with you on the commute.
-          </p>
-          <p className="about-p" style={{fontSize:'18px', lineHeight:1.7}}>
-            ArtempireMJ maps all of it. From inside the African art world. Addressed globally to anyone who is also paying attention.
+        {/* Opening: just the line, no preamble. */}
+        <div className="about-claim" style={{marginBottom:'4rem', maxWidth:'780px'}}>
+          <div className="eyebrow dark">About</div>
+          <p className="italic-serif" style={{fontSize:'clamp(26px,3vw,40px)', lineHeight:1.4, marginTop:'1.5rem'}}>
+            Art lives where people live — on their walls, on their skin, in their cities, in their money, in their mind. We read it from there.
           </p>
         </div>
 
-        {/* --- SECTION 3 — Who's writing --- */}
+        {/* Who's writing */}
         <div className="about-who" style={{marginBottom:'4rem'}}>
           <div className="eyebrow dark" style={{marginBottom:'1.5rem'}}>Who's writing</div>
           <div className="about-grid">
@@ -148,81 +102,19 @@ function About() {
                   </div>
                 </div>
               </div>
-              <blockquote className="about-pullquote">
-                <div className="caps-fraunces" style={{fontSize:'clamp(24px,2.6vw,38px)', lineHeight:1.05}}>
-                  We don't tell people<br/>art is valuable.<br/>
-                  <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>We align with what they value.</em>
-                </div>
-                <footer className="mono-label" style={{marginTop:16, color:'var(--muted)'}}>— ArtempireMJ founding principle</footer>
-              </blockquote>
             </div>
           </div>
         </div>
 
-        {/* --- SECTION 4 — What you find here (the offers, audience-job worded) --- */}
-        <div className="about-offers" style={{marginBottom:'4rem'}}>
-          <div className="eyebrow dark" style={{marginBottom:'1.5rem'}}>What you find here</div>
-          <div className="about-offers-grid">
-            <div className="about-offer">
-              <div className="mono-label" style={{color:'var(--badge-orange)'}}>READ</div>
-              <h4 className="caps-fraunces">A read worth your morning.</h4>
-              <p>Art + Finance every week — the work, the money, and how value moves. Inside it, <em>Money Stories</em>: chapter-length writing by Kathleen Mureithi with a portrait by Morris Javan. Plus artists, intersections, mind, and the world read through art.</p>
-            </div>
-            <div className="about-offer">
-              <div className="mono-label" style={{color:'var(--badge-orange)'}}>DISCOVER</div>
-              <h4 className="caps-fraunces">The shows worth crossing a city for.</h4>
-              <p>Every fair, biennale, open call, exhibition, deadline — verified daily. Built so the door isn't already closed by the time you find it.</p>
-            </div>
-            <div className="about-offer">
-              <div className="mono-label" style={{color:'var(--badge-orange)'}}>STUDIO &amp; GALLERY</div>
-              <h4 className="caps-fraunces">The studio practice.</h4>
-              <p>Morris Javan&apos;s portrait series in graphite and mixed media — your face, an artist you admire, or the work-meets-money piece. Plus work by other artists shown and sold through the gallery floor.</p>
-            </div>
-            <div className="about-offer">
-              <div className="mono-label" style={{color:'var(--badge-orange)'}}>SUBMIT</div>
-              <h4 className="caps-fraunces">Be in the room.</h4>
-              <p>Artists submit work for Spotlight features. Writers and researchers join as correspondents. Skin-story carriers submit to the Ink archive.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* --- SECTION 5 — How we work --- */}
-        <div className="about-position" style={{marginBottom:'3rem', background:'var(--cream-2, #E8DFCC)', padding:'2.5rem', borderLeft:'6px solid var(--badge-orange)'}}>
-          <div className="eyebrow dark" style={{marginBottom:'1rem'}}>How we work</div>
-          <p className="italic-serif" style={{fontSize:'clamp(20px,2.2vw,28px)', lineHeight:1.45, marginBottom:'1.2rem'}}>
-            We show, we don't explain. We align with what readers and artists already value, and we add the work of seeing it together.
+        {/* Recently covered — show, not tell. */}
+        <div style={{marginTop:'3rem', paddingTop:'2rem', borderTop:'1px solid var(--rule, #D8D4C8)'}}>
+          <div className="eyebrow dark" style={{marginBottom:'1rem'}}>Recently covered</div>
+          <p className="about-p" style={{fontSize:'15px', lineHeight:1.7, maxWidth:'780px'}}>
+            Brush Tu (Nairobi) · Lagos Biennial 2026 · Gallery 1957 (Accra) · The African Arts Trust (Nairobi) · El Anatsui at Tate Modern · Maboneng Precinct (Johannesburg) · Olga Moela (Vanderbijlpark) · RMB Latitudes Art Fair · Everlyn Nicodemus at Goodman Gallery · Kathleen Mureithi · Wangari Maathai.
           </p>
-          <p className="about-p" style={{fontSize:'17px'}}>
-            Living in Nairobi. Attending the fairs. Drawing the portraits. Reading the room the institutions, galleries, fairs and artists are already shaping — and adding what we see from inside it.
+          <p className="about-p" style={{fontSize:'12px', color:'var(--muted)', marginTop:'0.6rem', fontStyle:'italic'}}>
+            Featured artists keep their own contact lines.
           </p>
-          <p className="about-p" style={{fontSize:'17px'}}>
-            Daily, since 2023. Open to collaborate with the people doing the same work elsewhere.
-          </p>
-        </div>
-
-        {/* --- SECTION 6 — Who we work with vs who we cover (honest framing) --- */}
-        <div className="about-people" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'2.5rem', marginTop:'2rem'}}>
-          <div>
-            <div className="eyebrow dark" style={{marginBottom:'1rem'}}>Who we work with</div>
-            <p className="about-p" style={{fontSize:'16px', lineHeight:1.65}}>
-              <strong>Khethiwe Tracy Gumede</strong> — Global Art Correspondent, South Africa. Press-accredited at the Investec Cape Town Art Fair. Field photography + gallery observations.
-            </p>
-            <p className="about-p" style={{fontSize:'16px', lineHeight:1.65}}>
-              <strong>Kathleen Mureithi</strong> — Money Stories co-author. The human financial reality of creative practice.
-            </p>
-            <p className="about-p" style={{fontSize:'15px', color:'var(--muted)', fontStyle:'italic'}}>
-              Network growing in Lagos, Accra, Dakar, and the London diaspora.
-            </p>
-          </div>
-          <div>
-            <div className="eyebrow dark" style={{marginBottom:'1rem'}}>Recently covered</div>
-            <p className="about-p" style={{fontSize:'15px', lineHeight:1.65}}>
-              Brush Tu (Nairobi) · Lagos Biennial 2026 · Gallery 1957 (Accra) · The African Arts Trust (Nairobi) · El Anatsui at Tate Modern · Maboneng Precinct (Johannesburg) · Olga Moela (Vanderbijlpark) · RMB Latitudes Art Fair · Everlyn Nicodemus at Goodman Gallery.
-            </p>
-            <p className="about-p" style={{fontSize:'13px', color:'var(--muted)', marginTop:'1rem'}}>
-              Coverage isn't endorsement. Featured artists keep their own contact lines.
-            </p>
-          </div>
         </div>
 
       </div>
@@ -305,60 +197,42 @@ function Footer() {
             </div>
           </div>
           <div className="footer-closing italic-serif">
-            "Art and the human, held together. From inside. Daily."
+            Art and the human.
           </div>
         </div>
 
         <div className="footer-cols">
           <div>
-            <div className="mono-label footer-colhead">Series · Weekly</div>
+            <div className="mono-label footer-colhead">The site</div>
             <ul>
-              <li>Mon · Global Art Spotlight</li>
-              <li>Tue · Art + Finance</li>
-              <li>Wed · Money Stories / The World Through Art</li>
-              <li>Thu · Artist Spotlight</li>
-              <li>Fri · Intersections</li>
-              <li>Sat · Art of Mind</li>
-              <li>Sun · Civic · Nude · Ink (rotating)</li>
-              <li>Daily · DISCOVER RADAR — 12:00 EAT</li>
-            </ul>
-          </div>
-          <div>
-            <div className="mono-label footer-colhead">Sub-brands</div>
-            <ul>
-              <li>Studio &amp; Gallery</li>
-              <li>.spotlight</li>
-              <li>.ink</li>
-              <li>Art Itineraries</li>
-              <li>.community <span style={{color:'var(--muted)'}}>(opens at 5k)</span></li>
-            </ul>
-          </div>
-          <div>
-            <div className="mono-label footer-colhead">Channels</div>
-            <ul>
-              <li>Instagram · @artempiremj</li>
-              <li>TikTok · @artempiremj</li>
-              <li>LinkedIn · artempiremj</li>
-              <li>Facebook · Artempiremj</li>
-              <li>Newsletter · beehiiv (Tuesdays)</li>
-              <li>WhatsApp · commission intake</li>
-            </ul>
-          </div>
-          <div>
-            <div className="mono-label footer-colhead">Studio &amp; Connect</div>
-            <ul>
+              <li><a href="#discover">What's on</a></li>
+              <li><a href="#editorial">Read</a></li>
               <li><a href="#commission">Commission a portrait</a></li>
-              <li><a href="#develop">Submit your work / story</a></li>
-              <li><a href="#sustain">Partners &amp; sponsors</a></li>
-              <li>Nairobi, Kenya</li>
+              <li><a href="#develop">Submit your work</a></li>
+              <li><a href="#newsletter">Newsletter</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+          </div>
+          <div>
+            <div className="mono-label footer-colhead">Find us</div>
+            <ul>
+              <li><a href="https://instagram.com/artempiremj" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://www.tiktok.com/@artempiremj" target="_blank" rel="noopener">TikTok</a></li>
+              <li><a href="https://www.linkedin.com/company/artempiremj" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href="https://www.facebook.com/artempiremj" target="_blank" rel="noopener">Facebook</a></li>
+            </ul>
+          </div>
+          <div>
+            <div className="mono-label footer-colhead">Get in touch</div>
+            <ul>
               <li><a href="mailto:mj@artempiremj.com">mj@artempiremj.com</a></li>
+              <li>Nairobi, Kenya</li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <span className="mono-label">ARTEMPIREMJ · DISCOVER · DEVELOP · SUSTAIN</span>
-          <span className="mono-label">© 2026 · NAIROBI · ALL RIGHTS RESERVED</span>
+          <span className="mono-label">© 2026 ARTEMPIREMJ · NAIROBI</span>
         </div>
       </div>
     </footer>

@@ -46,7 +46,7 @@ function HeroEditorial() {
 
         <div className="hero-brand-bar">
           <span className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>ARTEMPIREMJ</span>
-          <span className="italic-serif" style={{fontSize:14, color:'var(--ivory-soft)'}}>Discover · Develop · Sustain</span>
+          <span className="italic-serif" style={{fontSize:14, color:'var(--ivory-soft)'}}>Art and the human</span>
           <span className="mono-label" style={{color:'var(--muted)'}}>NAIROBI</span>
         </div>
       </div>
