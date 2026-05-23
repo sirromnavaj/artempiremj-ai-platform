@@ -3,20 +3,39 @@
 
 const BLOGS = [
   {
+    publishDate: "2026-05-05",
+    title: "The auction room is no longer discovering prices.",
+    slug: "auction-guarantees-discovery",
+    author: "MJ",
+    summary: "Guarantees backed 36% of New York Evening Sale value in 2016. By 2025: 78%. The room isn't finding the price anymore — it's confirming what was agreed in private.",
+    bodyHtml: `
+      <p>In 2016, guarantees backed 36% of the value of New York's Evening Sales. By 2025, that figure was 78%.</p>
+      <p>What a guarantee means: before the auction opens, the seller is protected against the work failing to sell. The auction house — or a third-party guarantor — has agreed to pay a minimum price regardless of what happens in the room. The hammer falls. The room bids. But the floor was already set.</p>
+      <p>When 78% of an evening sale's value is guaranteed, you are not watching a market discover what something is worth. You are watching it confirm what was agreed in private beforehand.</p>
+      <p>This is not corruption. It is the rational response of sellers and auction houses to a market that has cooled at the top end. Sellers want certainty. Auction houses want consignments. Guarantees give both.</p>
+      <p>Meanwhile, at the other end of the market, something different is happening. In 2025, artworks under $50,000 made up 61% of total lots sold, significantly higher than the pre-pandemic average of 48%. More artists. More accessible prices. New collectors entering from the bottom. The number of artists represented at US auctions widened from 2,717 in 2015 to 3,315 in 2025.</p>
+      <p>The market is splitting. The top is pre-negotiated. The bottom is wider than it has been in a decade. The middle is being hollowed out — which is where most emerging artists and mid-career galleries live.</p>
+      <p>This is the structure to watch through Frieze Week New York and the spring marquee auctions. Not the hammer prices. The guarantee floors beneath them.</p>
+    `,
+    coverImage: "gallery",
+    region: "Americas",
+    tags: ["Art + Finance","Auctions","Market"]
+  },
+  {
     publishDate: "2026-04-20",
-    title: "Market Geography is in motion.",
+    title: "Where the centre of the art market is moving.",
     slug: "market-geography-in-motion",
     author: "MJ",
-    summary: "TEFAF Maastricht 2026. London Art Fair 2026. Art Basel Qatar. Investec Cape Town Fair. Four fairs, one structural reading of where the center is moving.",
+    summary: "TEFAF Maastricht. London Art Fair. Art Basel Qatar. Investec Cape Town. Four fairs, one reading of where the centre is moving — and what the old institutions do next.",
     bodyHtml: `
-      <p>For the past decade, the map of the global art market had a defensible center: a Western European axis with a New York satellite and a Hong Kong auction room. That map is no longer accurate, and the four fairs listed in this piece are the proof.</p>
+      <p>For the past decade, the map of the global art market had a defensible centre: a Western European axis with a New York satellite and a Hong Kong auction room. That map is no longer accurate, and four fairs prove it.</p>
       <p>Begin with <em>Art Basel Qatar</em>. The inaugural Gulf edition is not a franchise; it is a repositioning. When Basel — the institution that defined the post-war fair as a category — crosses the Mediterranean, the question is no longer whether Gulf capital can attract Western art. It is whether Western institutions can still refuse to be peripheral to it.</p>
-      <p>Then <em>Investec Cape Town Art Fair</em>. For twelve years the continent's flagship. What is different in 2027 is not the fair itself but the context: African collectors are no longer the audience; they are the market.</p>
-      <p>The question is not whether Africa is becoming a creative capital engine. It already is. The question is what the existing institutions do with that fact.</p>
+      <p>Then <em>Investec Cape Town Art Fair</em>. Twelve years as the continent's flagship. What is different now is not the fair itself but the context: African collectors are no longer the audience. They are the market.</p>
+      <p>The question is not whether Africa is becoming a creative capital engine. It already is. The question is what the existing institutions do with that.</p>
     `,
     coverImage: "painting",
     region: "Global",
-    tags: ["Market Geography","TEFAF","Basel","Cape Town"]
+    tags: ["Art + Finance","Market Geography","Fairs"]
   },
   {
     publishDate: "2026-04-19",
@@ -170,11 +189,13 @@ function Editorial() {
       <div className="container">
         <div className="editorial-head">
           <div>
-            <div className="eyebrow dark">Pillar 02 · Editorial</div>
+            <div className="eyebrow dark">Read</div>
             <h2 className="display-caslon editorial-title">
-              Seven reads.<br/>
-              <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>One structural week.</em>
+              The week's <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>longer reads.</em>
             </h2>
+            <p className="italic-serif" style={{maxWidth:'58ch', color:'var(--muted)', marginTop:'0.5rem', fontSize:'15px'}}>
+              Art + Finance on Tuesdays. Money Stories on Wednesdays. Profiles, intersections, mind. Coverage rotates each week — Americas, Europe, Africa, Asia &amp; the Middle East — so wherever you live, your part of the world comes around.
+            </p>
           </div>
           <div className="editorial-regions">
             {regions.map(r => (
