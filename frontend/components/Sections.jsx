@@ -96,10 +96,11 @@ function About() {
                 Trained in analytical chemistry before turning to a practice that asks the same kind of questions. Based in Nairobi. Travels for the fairs that matter. Publishes across Instagram, TikTok, LinkedIn, Facebook, and a weekly newsletter. Commissions open by WhatsApp.
               </p>
 
-              <div className="about-correspondents" style={{marginTop:'2rem'}}>
-                <div className="mono-label" style={{color:'var(--muted)', marginBottom:'0.5rem'}}>Collaborators</div>
+              {/* Money Stories — co-authored. Kathleen's own practice leads. */}
+              <div className="about-coauthor" style={{marginTop:'2.5rem', padding:'1.5rem', background:'var(--cream-2, #E8DFCC)', borderLeft:'4px solid var(--badge-orange)'}}>
+                <div className="mono-label" style={{color:'var(--badge-orange)', marginBottom:'0.6rem'}}>Money Stories · co-authored</div>
 
-                <div style={{display:'grid', gridTemplateColumns:'160px 1fr', gap:'1.25rem', alignItems:'flex-start', marginTop:'0.8rem'}}>
+                <div style={{display:'grid', gridTemplateColumns:'170px 1fr', gap:'1.25rem', alignItems:'flex-start'}}>
                   <figure style={{margin:0}}>
                     <img src="assets/work/money-stories-01-kathleen-mureithi.jpg"
                          alt="Kathleen Mureithi portrait, graphite and mixed media on paper — Money Stories No. 1, by Morris Javan Andanje"
@@ -110,20 +111,26 @@ function About() {
                     </figcaption>
                   </figure>
                   <div>
-                    <p className="about-p" style={{fontSize:'17px', margin:0}}>
-                      <strong>Kathleen Mureithi</strong> — Research Analyst and Strategy Consultant in Nairobi. Three years at Centonomy running programs that teach Kenyans how money actually works. Before that, KEMRI, climate consulting, health systems, women&apos;s economic empowerment across five countries. A decade of sitting with people and the stories money leaves on them.
+                    <div className="caps-fraunces" style={{fontSize:'22px', lineHeight:1.2, marginBottom:'0.2rem'}}>Kathleen Mureithi</div>
+                    <div className="mono-label" style={{color:'var(--muted)', fontSize:'12px', marginBottom:'0.8rem', letterSpacing:'0.06em'}}>RESEARCH ANALYST · STRATEGY CONSULTANT · NAIROBI</div>
+                    <p className="about-p" style={{fontSize:'16px', margin:0, lineHeight:1.65}}>
+                      Three years at Centonomy running programs that teach Kenyans how money actually works. Before that, KEMRI, climate consulting, health systems, women&apos;s economic empowerment across five countries. A decade of sitting with people and the stories money leaves on them.
                     </p>
-                    <p className="about-p" style={{fontSize:'17px', margin:'0.8rem 0 0'}}>
-                      With MJ she co-authors <em>Money Stories</em>, the chapter series inside Art + Finance. Each chapter is a story she writes; each chapter has a portrait MJ draws. The series opens with hers.
+                    <p className="about-p" style={{fontSize:'16px', margin:'0.7rem 0 0', lineHeight:1.65}}>
+                      <em>Money Stories</em> is hers and MJ&apos;s — chapters she writes inside Art + Finance, with a graphite portrait from MJ on each. Equal credit, equal hand on the work. The series opens with her own portrait.
                     </p>
-                    <p className="mono-label" style={{fontSize:'11px', color:'var(--muted)', marginTop:'0.6rem'}}>
-                      <a href="https://kathleenmureithi.com" target="_blank" rel="noopener">kathleenmureithi.com</a> · <a href="https://instagram.com/kathleenmureithi" target="_blank" rel="noopener">@kathleenmureithi</a>
+                    <p className="mono-label" style={{fontSize:'11px', color:'var(--type-charcoal-soft)', marginTop:'0.8rem'}}>
+                      Her practice → <a href="https://kathleenmureithi.com" target="_blank" rel="noopener" style={{borderBottom:'1px solid currentColor'}}>kathleenmureithi.com</a> · <a href="https://instagram.com/kathleenmureithi" target="_blank" rel="noopener" style={{borderBottom:'1px solid currentColor'}}>@kathleenmureithi</a>
                     </p>
                   </div>
                 </div>
+              </div>
 
-                <p className="about-p" style={{fontSize:'17px', marginTop:'1.5rem'}}>
-                  <strong>Khethiwe Tracy Gumede</strong> — Global Art Correspondent, South Africa. Press-accredited at the Investec Cape Town Art Fair. Field photography and gallery reporting from across the continent.
+              {/* Correspondents — different relationship, different register */}
+              <div className="about-correspondents" style={{marginTop:'2rem'}}>
+                <div className="mono-label" style={{color:'var(--muted)', marginBottom:'0.5rem'}}>Correspondent</div>
+                <p className="about-p" style={{fontSize:'17px', marginTop:'0.5rem'}}>
+                  <strong>Khethiwe Tracy Gumede</strong> — Global Art Correspondent, based in South Africa. Press-accredited at the Investec Cape Town Art Fair. Field photography and gallery reporting from across the continent.
                 </p>
                 <p className="about-p" style={{fontSize:'15px', color:'var(--muted)', fontStyle:'italic'}}>
                   Open to working with artists, writers, photographers, and editors. Lagos, Accra, Dakar, London — wherever the work asks for it.

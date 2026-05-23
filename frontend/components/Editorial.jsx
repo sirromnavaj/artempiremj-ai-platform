@@ -25,7 +25,7 @@ const BLOGS = [
     publishDate: "2026-05-23",
     title: "Money carries stories. A new chapter series inside Art + Finance.",
     slug: "money-stories-intro",
-    author: "Kathleen Mureithi & MJ",
+    author: "By Kathleen Mureithi · Portraits by Morris Andanje",
     summary: "The conversation the family never had about it. The month that changed how you understood what you had. The decision that cost everything and still turned out right. Money Stories begins.",
     bodyHtml: `
       <p>Money carries stories.</p>
