@@ -83,31 +83,11 @@ const BLOGS = [
       <hr/>
       <p style="font-size:14px;color:#6B6253;font-style:italic">This article is part of the Money Stories series — exploring the financial lives, struggles, and wisdom of African women and communities that rarely make the headlines. If you have a money story worth telling, Kathleen would love to hear it.</p>
       <p style="font-size:14px;color:#6B6253"><strong>Kathleen Mureithi</strong> is a financial adviser working with African households to build financial resilience. Connect with her at <a href="tel:+254723158920">+254 723 158920</a> · <a href="https://kathleenmureithi.com" target="_blank" rel="noopener">kathleenmureithi.com</a>.</p>
-      <p style="font-size:14px;color:#6B6253">The accompanying graphite portrait of Wangari Maathai is Art-to-Soul No. 1 by Morris Javan Andanje.</p>
+      <p style="font-size:14px;color:#6B6253">The accompanying portrait is Money Stories No. 1, the series centerpiece — Kathleen Mureithi, graphite and mixed media on paper, by Morris Javan Andanje. (The graphite portrait of Wangari Maathai herself is Art-to-Soul No. 1, also by Morris Javan, accompanying the second chapter.)</p>
     `,
     coverImage: "portrait",
     region: "Africa",
     tags: ["Art + Finance","Money Stories","Wangari Maathai"]
-  },
-  {
-    publishDate: "2026-05-22",
-    title: "Money carries stories. A new chapter series inside Art + Finance.",
-    slug: "money-stories-intro",
-    author: "By Kathleen Mureithi · Portraits by Morris Javan",
-    summary: "The conversation the family never had about it. The month that changed how you understood what you had. The decision that cost everything and still turned out right. Money Stories begins.",
-    bodyHtml: `
-      <p>Money carries stories.</p>
-      <p>The conversation the family never had about it. The month that changed how you understood what you had. The decision that cost everything and still turned out right. The year you finally stopped pretending.</p>
-      <p><em>Money Stories</em> is a new chapter series inside Art + Finance. It sits at the place where finance meets the human — not the market, not the data alone, but the experience of carrying money through a life.</p>
-      <p>Each chapter is a story. Written by Kathleen Mureithi. Accompanied by a graphite portrait by Morris Javan.</p>
-      <p>Kathleen is a Research Analyst and Strategy Consultant based in Nairobi. She spent three years at Centonomy running programs that teach Kenyans how money actually works. Before that — KEMRI, climate consulting, health systems, women's economic empowerment across five countries. A decade of sitting with people and the stories money leaves on them.</p>
-      <p>The portrait gives each chapter a face.</p>
-      <p>The first chapter is coming. If you have a story worth telling — the number that changed something, the conversation that never happened, the year money finally made sense — it starts here.</p>
-      <p><em>Money Stories</em>, by Kathleen Mureithi and Morris Andanje.</p>
-    `,
-    coverImage: "portrait",
-    region: "Africa",
-    tags: ["Art + Finance","Money Stories"]
   },
   {
     publishDate: "2026-04-20",
@@ -219,8 +199,8 @@ function ArticleView({ article, onClose }) {
         <button className="article-close" onClick={onClose} aria-label="Close">×</button>
         <div className="article-cover" data-art={article.coverImage}>
           <img src={`assets/work/${
-            article.slug === 'money-stories-01-wangari-unbowed' ? 'art-to-soul-01-wangari-maathai.jpg'
-            : article.slug === 'money-stories-intro' ? 'money-stories-01-kathleen-mureithi.jpg'
+            article.slug === 'money-stories-01-wangari-unbowed' ? 'money-stories-01-kathleen-mureithi.jpg'
+            : article.slug === 'money-stories-02' ? 'art-to-soul-01-wangari-maathai.jpg'
             : article.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg'
             : article.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg'
             : 'lagos-biennial-2026.jpg'}`} alt={article.title} />
@@ -325,8 +305,8 @@ function Editorial() {
                      onClick={() => openArticle(b)}>
               <div className="edit-card-media">
                 <img src={`assets/work/${
-                  b.slug === 'money-stories-01-wangari-unbowed' ? 'art-to-soul-01-wangari-maathai.jpg'
-                  : b.slug === 'money-stories-intro' ? 'money-stories-01-kathleen-mureithi.jpg'
+                  b.slug === 'money-stories-01-wangari-unbowed' ? 'money-stories-01-kathleen-mureithi.jpg'
+                  : b.slug === 'money-stories-02' ? 'art-to-soul-01-wangari-maathai.jpg'
                   : b.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg'
                   : b.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg'
                   : 'maboneng-arts-on-main.jpg'}`} alt={b.title} loading="lazy" />
