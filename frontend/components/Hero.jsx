@@ -8,8 +8,8 @@ function HeroEditorial() {
       <div className="hero-editorial-bg" aria-hidden="true" />
       <div className="container hero-editorial-inner">
         <div className="hero-top">
-          <div className="eyebrow">MONDAY · GLOBAL ART SPOTLIGHT · W17 · NBO</div>
-          <div className="hero-meta mono-label">ISSUE 0412 · APRIL 20, 2026</div>
+          <div className="eyebrow">SATURDAY · ART OF MIND · W21 · NBO</div>
+          <div className="hero-meta mono-label">ISSUE 030 · MAY 23, 2026</div>
         </div>
 
         <h1 className="hero-headline caps-fraunces">
@@ -27,7 +27,7 @@ function HeroEditorial() {
         <div className="hero-foot">
           <div className="hero-datum">
             <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>This week</div>
-            <div className="hero-datum-val">Seven series. One institution.</div>
+            <div className="hero-datum-val">A read every day. One newsroom.</div>
           </div>
           <div className="hero-datum">
             <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>Daily 12:00 EAT</div>

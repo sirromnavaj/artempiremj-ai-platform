@@ -6,7 +6,7 @@ const DIVISIONS = [
     logo:"assets/logos/master-circle.png", bg:"var(--editorial-dark)", fg:"var(--ivory)", accent:"var(--editorial-gold-mist)" },
   { key:"studio", name:"Studio & Gallery", label:"Commission",
     tagline:"Crafted. Collected. Exhibited.",
-    copy:"Pencil-portrait commissions on cartridge paper. The Art-to-Soul series.",
+    copy:"Hand-drawn pencil portraits, made by MJ in Nairobi. Three series: Art-to-Soul (your face, your hand, your memory), Artist Edition (other artists), Money Stories Edition (when the work and the money meet). Open by WhatsApp.",
     logo:"assets/logos/studio-gallery.png", bg:"var(--cream)", fg:"var(--type-charcoal)", accent:"var(--studio-orange)" },
   { key:"spotlight", name:".spotlight", label:"Curatorial",
     tagline:"Observing the institutions.",
@@ -16,9 +16,9 @@ const DIVISIONS = [
     tagline:"Your Skin. Your Story. Our Archive.",
     copy:"An open call. Real tattoo stories from Africa and beyond — documented with care.",
     logo:"assets/logos/ink-division.png", bg:"var(--ink-forest-deep)", fg:"var(--ivory)", accent:"var(--ink-red)" },
-  { key:"itineraries", name:"Art Itineraries", label:"Travel intelligence",
+  { key:"itineraries", name:"Art Itineraries", label:"Travel",
     tagline:"Where to go to see the work that matters.",
-    copy:"City-specific guides. Anchor event, the galleries worth the detour, what it costs on arrival.",
+    copy:"City guides for art trips. Where to stay, what to see first, what to skip, what it actually costs when you land.",
     logo:"assets/logos/art-travel.png", bg:"var(--travel-navy)", fg:"var(--ivory)", accent:"var(--travel-amber)" },
   { key:"community", name:".community", label:"Collective",
     tagline:"A continent listens to itself.",
@@ -37,7 +37,7 @@ function Divisions() {
             <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>same hand.</em>
           </h2>
           <p className="divisions-deck italic-serif">
-            The main account observes. Studio &amp; Gallery makes. Spotlight covers. Ink archives. Art Itineraries maps the trip.
+            Six accounts, one studio. Daily reads, real portraits, and a calendar of what's worth crossing a city for.
           </p>
         </div>
 
