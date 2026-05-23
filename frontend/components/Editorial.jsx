@@ -111,7 +111,7 @@ function ArticleView({ article, onClose }) {
       <div className="article-sheet">
         <button className="article-close" onClick={onClose} aria-label="Close">×</button>
         <div className="article-cover" data-art={article.coverImage}>
-          <img src={`assets/placeholder-${article.coverImage}.svg`} alt="" />
+          <img src={`assets/work/${article.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg' : article.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg' : 'lagos-biennial-2026.jpg'}`} alt={article.title} />
           <div className="article-cover-meta">
             <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>
               {article.region} · {formatPubDate(article.publishDate)} · {article.author}
@@ -192,7 +192,7 @@ function Editorial() {
             <article key={b.slug} className={"edit-card edit-card-" + (i === 0 ? "feat" : "std")}
                      onClick={() => openArticle(b)}>
               <div className="edit-card-media">
-                <img src={`assets/placeholder-${b.coverImage}.svg`} alt="" />
+                <img src={`assets/work/${b.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg' : b.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg' : 'maboneng-arts-on-main.jpg'}`} alt={b.title} loading="lazy" />
               </div>
               <div className="edit-card-body">
                 <div className="mono-label edit-card-meta">

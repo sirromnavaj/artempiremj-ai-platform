@@ -1,4 +1,5 @@
-// components/Nav.jsx
+// components/Nav.jsx — audience-needs-led labels, not operator-pillar words
+// Refreshed 2026-05-23: Discover · Editorial · Spotlight · Submit · About · Commission + Newsletter CTA chip
 function Nav({ dark }) {
   const [open, setOpen] = React.useState(false);
   return (
@@ -7,15 +8,22 @@ function Nav({ dark }) {
         <a href="#top" className="nav-brand">
           <img src="assets/logos/master-circle.png" alt="" className="nav-logo" />
           <span className="nav-wordmark">artempiremj</span>
-          <span className="nav-tagline">Where Art Meets Everything</span>
+          <span className="nav-tagline">Art and the human · From inside · Daily</span>
         </a>
-        <div className="nav-links">
-          <a href="#discover">Discover</a>
-          <a href="#editorial">Editorial</a>
-          <a href="#develop">Develop</a>
-          <a href="#sustain">Sustain</a>
-          <a href="#commission">Commission</a>
-          <a href="#commission" className="nav-cta">Commission a portrait</a>
+        <button
+          className="nav-toggle"
+          onClick={() => setOpen(o => !o)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+        >☰</button>
+        <div className={"nav-links " + (open ? "open" : "")}>
+          <a href="#discover" onClick={() => setOpen(false)}>Discover</a>
+          <a href="#editorial" onClick={() => setOpen(false)}>Editorial</a>
+          <a href="#spotlight" onClick={() => setOpen(false)}>Spotlight</a>
+          <a href="#develop" onClick={() => setOpen(false)}>Submit</a>
+          <a href="#about" onClick={() => setOpen(false)}>About</a>
+          <a href="#commission" onClick={() => setOpen(false)}>Commission</a>
+          <a href="#newsletter" onClick={() => setOpen(false)} className="nav-cta">Get the newsletter →</a>
         </div>
       </div>
     </nav>

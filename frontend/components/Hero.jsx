@@ -104,7 +104,7 @@ function HeroPortrait() {
   return (
     <section className="hero-portrait" data-screen-label="Hero">
       <div className="hero-portrait-media">
-        <img src="assets/placeholder-portrait.svg" alt="MJ commissioned pencil portrait, April 2025" />
+        <img src="assets/work/brushtu-handle-with-care.jpg" alt="Installation view, Brush Tu — Handle with Care, Circle Art Gallery Nairobi, May 2026" />
         <div className="hero-portrait-scrim" />
       </div>
       <div className="container hero-portrait-inner">
