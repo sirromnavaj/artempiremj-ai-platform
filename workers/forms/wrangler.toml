@@ -1,0 +1,16 @@
+name = "artempiremj-forms"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+workers_dev = true
+
+# KV: every submission stored with timestamped key, queryable later
+[[kv_namespaces]]
+binding = "SUBMISSIONS"
+id = "bb205b38d2284f81a4cad6c14c00c263"
+
+# Where the worker accepts requests in production
+# (custom domain forms.artempiremj.com added separately via Pages routes)
+[vars]
+ALLOWED_ORIGINS = "https://artempiremj.com,https://www.artempiremj.com,https://artempiremj.pages.dev"
+NOTIFY_FROM = "forms@artempiremj.com"
+NOTIFY_TO = "navajsirrom@gmail.com"

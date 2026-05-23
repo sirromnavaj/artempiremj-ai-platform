@@ -34,11 +34,16 @@ function Develop() {
     return false;
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     if (!canAdvance()) return;
-    // Wire to Apps Script: google.script.run.submitContributorForm(form)
-    console.log("submitContributorForm payload:", form);
+    const fd = new FormData();
+    fd.append("form-name", "contributor");
+    fd.append("bot-field", "");
+    Object.entries(form).forEach(([k, v]) => fd.append(k, typeof v === "boolean" ? String(v) : v));
+    try {
+      await fetch("https://artempiremj-forms.navajsirrom.workers.dev/submit", { method: "POST", body: fd });
+    } catch {}
     setSent(true);
   };
 
@@ -314,9 +319,15 @@ function Feedback() {
   const [sent, setSent] = React.useState(false);
   const update = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    console.log("submitForm('feedback', payload):", form);
+    const fd = new FormData();
+    fd.append("form-name", "feedback");
+    fd.append("bot-field", "");
+    Object.entries(form).forEach(([k, v]) => fd.append(k, typeof v === "boolean" ? String(v) : v));
+    try {
+      await fetch("https://artempiremj-forms.navajsirrom.workers.dev/submit", { method: "POST", body: fd });
+    } catch {}
     setSent(true);
     setTimeout(() => { setOpen(false); setSent(false); }, 2500);
   };

@@ -248,12 +248,23 @@ function Newsletter() {
           <form
             name="newsletter"
             method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
+            action="https://artempiremj-forms.navajsirrom.workers.dev/submit"
             className="newsletter-form"
-            onSubmit={(e) => { setSent(true); }}>
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const fd = new FormData(e.target);
+              try {
+                await fetch("https://artempiremj-forms.navajsirrom.workers.dev/submit", {
+                  method: "POST",
+                  body: fd,
+                });
+              } catch {}
+              setSent(true);
+            }}>
             <input type="hidden" name="form-name" value="newsletter" />
-            <p style={{display:'none'}}><input name="bot-field" /></p>
+            <p style={{display:'none', position:'absolute', left:'-9999px'}}>
+              <label>Don't fill this if you're human: <input name="bot-field" tabIndex="-1" autoComplete="off" /></label>
+            </p>
             <input
               type="email"
               name="email"

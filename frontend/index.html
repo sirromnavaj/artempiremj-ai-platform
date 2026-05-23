@@ -92,38 +92,8 @@
 <body>
   <div id="root"></div>
 
-  <!-- Netlify Forms detection: hidden static forms so Netlify can register them at build time -->
-  <form name="commission" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="text" name="bot-field" />
-    <input type="text" name="subject" />
-    <input type="text" name="size" />
-    <input type="text" name="deadline" />
-    <input type="text" name="delivery" />
-    <input type="text" name="contact" />
-  </form>
-  <form name="contributor" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="text" name="bot-field" />
-    <input type="text" name="fullName" />
-    <input type="email" name="email" />
-    <input type="text" name="location" />
-    <input type="text" name="whatsapp" />
-    <input type="text" name="portfolio" />
-    <input type="text" name="discipline" />
-    <input type="text" name="segment" />
-    <textarea name="bio"></textarea>
-    <input type="text" name="workLink" />
-    <input type="checkbox" name="rights" />
-  </form>
-  <form name="feedback" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="text" name="bot-field" />
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
-  </form>
-  <form name="newsletter" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="text" name="bot-field" />
-    <input type="email" name="email" />
-  </form>
+  <!-- Forms post to the artempiremj-forms Cloudflare Worker. KV-stored, MailChannels-notified. -->
+  <!-- See workers/forms/ in this repo. Endpoint configured at runtime in components. -->
 
   <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
