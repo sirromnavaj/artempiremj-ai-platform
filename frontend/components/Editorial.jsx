@@ -6,7 +6,7 @@ const BLOGS = [
     publishDate: "2026-05-05",
     title: "The auction room is no longer discovering prices.",
     slug: "auction-guarantees-discovery",
-    author: "MJ",
+    author: "Morris Javan",
     summary: "Guarantees backed 36% of New York Evening Sale value in 2016. By 2025: 78%. The auction room is doing something different now — and the bottom of the market is doing something different too.",
     bodyHtml: `
       <p>In 2016, guarantees backed 36% of the value of New York's Evening Sales. By 2025, that figure was 78%.</p>
@@ -31,7 +31,7 @@ const BLOGS = [
       <p>Money carries stories.</p>
       <p>The conversation the family never had about it. The month that changed how you understood what you had. The decision that cost everything and still turned out right. The year you finally stopped pretending.</p>
       <p><em>Money Stories</em> is a new chapter series inside Art + Finance. It sits at the place where finance meets the human — not the market, not the data alone, but the experience of carrying money through a life.</p>
-      <p>Each chapter is a story. Written by Kathleen Mureithi. Accompanied by a graphite portrait by MJ.</p>
+      <p>Each chapter is a story. Written by Kathleen Mureithi. Accompanied by a graphite portrait by Morris Javan.</p>
       <p>Kathleen is a Research Analyst and Strategy Consultant based in Nairobi. She spent three years at Centonomy running programs that teach Kenyans how money actually works. Before that — KEMRI, climate consulting, health systems, women's economic empowerment across five countries. A decade of sitting with people and the stories money leaves on them.</p>
       <p>The portrait gives each chapter a face.</p>
       <p>The first chapter is coming. If you have a story worth telling — the number that changed something, the conversation that never happened, the year money finally made sense — it starts here.</p>
@@ -45,7 +45,7 @@ const BLOGS = [
     publishDate: "2026-04-20",
     title: "Where the centre of the art market is moving.",
     slug: "market-geography-in-motion",
-    author: "MJ",
+    author: "Morris Javan",
     summary: "TEFAF Maastricht. London Art Fair. Art Basel Qatar. Investec Cape Town. Four fairs, one reading of where the centre is moving — and what the old institutions do next.",
     bodyHtml: `
       <p>For the past decade, the map of the global art market had a defensible centre: a Western European axis with a New York satellite and a Hong Kong auction room. That map is no longer accurate, and four fairs prove it.</p>
@@ -61,7 +61,7 @@ const BLOGS = [
     publishDate: "2026-04-19",
     title: "Houston Graffiti Park demolished.",
     slug: "houston-graffiti-park-demolished",
-    author: "MJ",
+    author: "Morris Javan",
     summary: "The wall was the archive. What the city erased, and who keeps the record now.",
     bodyHtml: `
       <p>Civic art is tested at the moment of its erasure, not its creation. A commission tells you what a city wants to be. A demolition tells you what it is.</p>
@@ -76,7 +76,7 @@ const BLOGS = [
     publishDate: "2026-04-18",
     title: "The studio is a room for thinking with the hands.",
     slug: "studio-thinking-with-hands",
-    author: "MJ",
+    author: "Morris Javan",
     summary: "Notes from the table. Tools, pauses, and the small geometry of practice.",
     bodyHtml: `
       <p>The studio is not a workshop. A workshop implies output. The studio implies inquiry.</p>
@@ -91,7 +91,7 @@ const BLOGS = [
     publishDate: "2026-04-17",
     title: "Where textile meets code meets the pension fund.",
     slug: "textile-code-pension-fund",
-    author: "MJ",
+    author: "Morris Javan",
     summary: "Anne Mwiti's weave. The provenance database. The allocation board.",
     bodyHtml: `
       <p>Three objects share a table this week. Anne Mwiti's woven panel. A provenance database running on a laptop. The quarterly allocation document of a mid-size European pension fund.</p>
@@ -106,7 +106,7 @@ const BLOGS = [
     publishDate: "2026-04-16",
     title: "An artist's spotlight is a small economic event.",
     slug: "artist-spotlight-as-economic-event",
-    author: "MJ",
+    author: "Morris Javan",
     summary: "What happens to an artist's price sheet when the weekly read lands — and what doesn't.",
     bodyHtml: `
       <p>Every Thursday, one artist gets 800 words and a fixed set of images. The piece is read by roughly 4,000 people. Half of them are other artists. A quarter are curators. The remaining quarter includes a small number of collectors and a smaller number of dealers.</p>
@@ -121,7 +121,7 @@ const BLOGS = [
     publishDate: "2026-04-15",
     title: "What $3.2B in annual auction sales buys.",
     slug: "auction-sales-buy",
-    author: "MJ",
+    author: "Morris Javan",
     summary: "Money Stories, read as structural facts. Where the hammer actually falls.",
     bodyHtml: `
       <p>Three point two billion dollars is the rounded figure for 2025 global public auction sales at the three major houses. That number is usually reported as performance. It should be reported as composition.</p>

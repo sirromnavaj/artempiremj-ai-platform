@@ -107,7 +107,7 @@ function About() {
                          loading="lazy"
                          style={{width:'100%', height:'auto', display:'block', borderRadius:'2px'}} />
                     <figcaption className="mono-label" style={{fontSize:'10px', color:'var(--muted)', marginTop:'6px', lineHeight:1.4}}>
-                      Money Stories No. 1 · Kathleen Mureithi · graphite and mixed media on paper · MJ
+                      Money Stories No. 1 · Kathleen Mureithi · graphite and mixed media on paper · Morris Javan
                     </figcaption>
                   </figure>
                   <div>
@@ -117,7 +117,7 @@ function About() {
                       Three years at Centonomy running programs that teach Kenyans how money actually works. Before that, KEMRI, climate consulting, health systems, women&apos;s economic empowerment across five countries. A decade of sitting with people and the stories money leaves on them.
                     </p>
                     <p className="about-p" style={{fontSize:'16px', margin:'0.7rem 0 0', lineHeight:1.65}}>
-                      <em>Money Stories</em> is hers and MJ&apos;s — chapters she writes inside Art + Finance, with a graphite portrait from MJ on each. Equal credit, equal hand on the work. The series opens with her own portrait.
+                      <em>Money Stories</em> is hers and Morris Javan&apos;s — chapters she writes inside Art + Finance, with a graphite portrait from Morris Javan on each. Equal credit, equal hand on the work. The series opens with her own portrait.
                     </p>
                     <p className="mono-label" style={{fontSize:'11px', color:'var(--type-charcoal-soft)', marginTop:'0.8rem'}}>
                       Her practice → <a href="https://kathleenmureithi.com" target="_blank" rel="noopener" style={{borderBottom:'1px solid currentColor'}}>kathleenmureithi.com</a> · <a href="https://instagram.com/kathleenmureithi" target="_blank" rel="noopener" style={{borderBottom:'1px solid currentColor'}}>@kathleenmureithi</a>
@@ -166,7 +166,7 @@ function About() {
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>READ</div>
               <h4 className="caps-fraunces">A read worth your morning.</h4>
-              <p>Art + Finance every week — the work, the money, and how value moves. Inside it, <em>Money Stories</em>: chapter-length writing by Kathleen Mureithi with a portrait by MJ. Plus artists, intersections, mind, and the world read through art.</p>
+              <p>Art + Finance every week — the work, the money, and how value moves. Inside it, <em>Money Stories</em>: chapter-length writing by Kathleen Mureithi with a portrait by Morris Javan. Plus artists, intersections, mind, and the world read through art.</p>
             </div>
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>DISCOVER</div>
@@ -176,7 +176,7 @@ function About() {
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>STUDIO &amp; GALLERY</div>
               <h4 className="caps-fraunces">The studio practice.</h4>
-              <p>MJ&apos;s portrait series in graphite and mixed media — your face, an artist you admire, or the work-meets-money piece. Plus work by other artists shown and sold through the gallery floor.</p>
+              <p>Morris Javan&apos;s portrait series in graphite and mixed media — your face, an artist you admire, or the work-meets-money piece. Plus work by other artists shown and sold through the gallery floor.</p>
             </div>
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>SUBMIT</div>

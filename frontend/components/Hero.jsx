@@ -84,7 +84,7 @@ function HeroTypographic() {
           <div>
             <div className="mono-label" style={{color:'var(--badge-orange)'}}>The studio</div>
             <p className="typographic-copy">
-              MJ as artist. Portrait commissions across three series. Original
+              Morris Javan as artist. Portrait commissions across three series. Original
               work shown and sold. A newsletter that lands every week. A
               calendar of what's worth seeing. The watching and the making
               feed each other.
@@ -120,11 +120,11 @@ function HeroPortrait() {
         </h1>
 
         <p className="italic-serif hero-portrait-deck">
-          The studio in Nairobi. MJ&apos;s portrait series, plus work shown<br/>
+          The studio in Nairobi. Morris Javan&apos;s portrait series, plus work shown<br/>
           and sold from the gallery floor. The archive begins here.
         </p>
         <p className="mono-label" style={{color:'var(--editorial-gold-mist)', marginTop:'1rem', fontSize:'12px', letterSpacing:'0.08em'}}>
-          ABOVE · ART-TO-SOUL NO. 1 · WANGARI MAATHAI · GRAPHITE AND MIXED MEDIA ON PAPER · MJ
+          ABOVE · ART-TO-SOUL NO. 1 · WANGARI MAATHAI · GRAPHITE AND MIXED MEDIA ON PAPER · MORRIS JAVAN
         </p>
 
         <div className="hero-cta-row">

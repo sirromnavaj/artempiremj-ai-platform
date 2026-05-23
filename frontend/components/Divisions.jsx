@@ -6,7 +6,7 @@ const DIVISIONS = [
     logo:"assets/logos/master-circle.png", bg:"var(--editorial-dark)", fg:"var(--ivory)", accent:"var(--editorial-gold-mist)" },
   { key:"studio", name:"Studio & Gallery", label:"The studio practice",
     tagline:"Crafted. Collected. Exhibited.",
-    copy:"MJ's portrait series in graphite and mixed media — Art-to-Soul (your face), Artist Edition (other artists as subjects), Money Stories Edition (work meets money). Plus work by other artists shown and sold from the gallery floor.",
+    copy:"Morris Javan's portrait series in graphite and mixed media — Art-to-Soul (your face), Artist Edition (other artists as subjects), Money Stories Edition (work meets money). Plus work by other artists shown and sold from the gallery floor.",
     logo:"assets/logos/studio-gallery.png", bg:"var(--cream)", fg:"var(--type-charcoal)", accent:"var(--studio-orange)" },
   { key:"spotlight", name:".spotlight", label:"Curatorial",
     tagline:"Observing the institutions.",
