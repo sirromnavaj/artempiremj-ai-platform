@@ -19,7 +19,6 @@ function Nav({ dark }) {
         <div className={"nav-links " + (open ? "open" : "")}>
           <a href="#discover" onClick={() => setOpen(false)}>What's on</a>
           <a href="#editorial" onClick={() => setOpen(false)}>Read</a>
-          <a href="#spotlight" onClick={() => setOpen(false)}>Artists</a>
           <a href="#commission" onClick={() => setOpen(false)}>Commission a portrait</a>
           <a href="#develop" onClick={() => setOpen(false)}>Submit your work</a>
           <a href="#about" onClick={() => setOpen(false)}>About</a>

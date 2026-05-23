@@ -145,7 +145,7 @@ function Discover() {
         <div className="discover-header">
           <div className="eyebrow dark">What's on</div>
           <h2 className="caps-fraunces discover-title">What's on. Where to go. Who to see.</h2>
-          <p className="discover-deck italic-serif">Verified daily. The shows worth crossing a city for — rotating weekly across the Americas, Europe, Africa, Asia &amp; the Middle East.</p>
+          <p className="discover-deck italic-serif">Verified daily. The shows worth crossing a city for.</p>
           <p className="mono-label" style={{color:'var(--muted)', marginTop:'1em', fontSize:'12px'}}>
             Last refreshed: {lastRefresh}
           </p>

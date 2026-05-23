@@ -211,8 +211,8 @@ function Editorial() {
             <h2 className="display-caslon editorial-title">
               The week's <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>longer reads.</em>
             </h2>
-            <p className="italic-serif" style={{maxWidth:'58ch', color:'var(--muted)', marginTop:'0.5rem', fontSize:'15px'}}>
-              Art + Finance on Tuesdays. Money Stories on Wednesdays. Profiles, intersections, mind. Coverage rotates each week — Americas, Europe, Africa, Asia &amp; the Middle East — so wherever you live, your part of the world comes around.
+            <p className="italic-serif" style={{maxWidth:'58ch', marginTop:'0.5rem', fontSize:'15px'}}>
+              Pick a region. Read what's there. Wherever you live, your part of the world comes around.
             </p>
           </div>
           <div className="editorial-regions">

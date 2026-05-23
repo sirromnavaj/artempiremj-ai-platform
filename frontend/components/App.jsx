@@ -67,11 +67,8 @@ function App() {
       <Ticker />
       <Discover />
       <Editorial />
-      <SeriesIndex />
-      <Divisions />
       <Commission />
       <Develop />
-      <Sustain />
       <About />
       <Newsletter />
       <Feedback />
