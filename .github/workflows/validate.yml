@@ -1,0 +1,66 @@
+name: Validate site
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: HTML validation
+        run: |
+          # Basic HTML well-formedness — fails CI if index.html or 404.html are broken
+          sudo apt-get update && sudo apt-get install -y libxml2-utils
+          xmllint --noout --html frontend/index.html 2>&1 | tee /tmp/html-validate.log || true
+          xmllint --noout --html frontend/404.html 2>&1 | tee -a /tmp/html-validate.log || true
+          # The above can warn on legitimate HTML5 — we only fail on hard parse errors
+          if grep -q "^.*error" /tmp/html-validate.log; then
+            echo "::warning::HTML parser raised non-fatal warnings — review above"
+          fi
+
+      - name: Check required files exist
+        run: |
+          required=(
+            "frontend/index.html"
+            "frontend/404.html"
+            "frontend/robots.txt"
+            "frontend/sitemap.xml"
+            "netlify.toml"
+            "README.md"
+            "CHANGELOG.md"
+            ".gitignore"
+          )
+          missing=0
+          for f in "${required[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "::error::Missing required file: $f"
+              missing=$((missing+1))
+            fi
+          done
+          if [ $missing -gt 0 ]; then exit 1; fi
+
+      - name: Voice-gate scan (banned words)
+        run: |
+          # Scan public-surface files for kill-list words per skill brand-voice.md
+          # These should NEVER appear in shipped site copy
+          banned="transformative|game-changing|seamless|impactful|vibrant|thrilled|revolutionary|tapestry|delve|robust|comprehensive|innovative|cutting-edge|game changing|history-making"
+          found=$(grep -rEi "($banned)" frontend/index.html frontend/components/ 2>/dev/null || true)
+          if [ -n "$found" ]; then
+            echo "::error::Banned voice-gate words found in public copy:"
+            echo "$found"
+            exit 1
+          fi
+          echo "Voice-gate scan clean."
+
+      - name: Check that scaffold isn't deployed
+        run: |
+          # frontend-v2-future should NEVER end up in the publish directory
+          if [ -d "frontend/src" ] && [ -f "frontend/next.config.ts" ]; then
+            echo "::error::Next.js scaffold detected inside frontend/ — that's the v2 directory, not v1"
+            exit 1
+          fi

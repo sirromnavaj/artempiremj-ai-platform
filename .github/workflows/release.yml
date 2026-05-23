@@ -1,0 +1,45 @@
+name: Release
+
+# Tag-driven release. Push a vX.Y.Z tag → GitHub Release is created from the changelog.
+# Netlify auto-deploys from main on every push; this workflow handles the version side.
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract release notes from CHANGELOG
+        id: notes
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          # Pull the section for this tag out of CHANGELOG.md
+          awk -v tag="$TAG" '
+            $0 ~ "^## \\["tag"\\]" { in_section = 1; next }
+            in_section && /^## \[/ { in_section = 0 }
+            in_section { print }
+          ' CHANGELOG.md > /tmp/notes.md
+          if [ ! -s /tmp/notes.md ]; then
+            echo "::error::No CHANGELOG section found for $TAG"
+            exit 1
+          fi
+          echo "release_tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.notes.outputs.release_tag }}
+          body_path: /tmp/notes.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
