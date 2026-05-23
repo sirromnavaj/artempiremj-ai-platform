@@ -22,6 +22,26 @@ const BLOGS = [
     tags: ["Art + Finance","Auctions","Market"]
   },
   {
+    publishDate: "2026-05-23",
+    title: "Money carries stories. A new chapter series inside Art + Finance.",
+    slug: "money-stories-intro",
+    author: "Kathleen Mureithi & MJ",
+    summary: "The conversation the family never had about it. The month that changed how you understood what you had. The decision that cost everything and still turned out right. Money Stories begins.",
+    bodyHtml: `
+      <p>Money carries stories.</p>
+      <p>The conversation the family never had about it. The month that changed how you understood what you had. The decision that cost everything and still turned out right. The year you finally stopped pretending.</p>
+      <p><em>Money Stories</em> is a new chapter series inside Art + Finance. It sits at the place where finance meets the human — not the market, not the data alone, but the experience of carrying money through a life.</p>
+      <p>Each chapter is a story. Written by Kathleen Mureithi. Accompanied by a graphite portrait by MJ.</p>
+      <p>Kathleen is a Research Analyst and Strategy Consultant based in Nairobi. She spent three years at Centonomy running programs that teach Kenyans how money actually works. Before that — KEMRI, climate consulting, health systems, women's economic empowerment across five countries. A decade of sitting with people and the stories money leaves on them.</p>
+      <p>The portrait gives each chapter a face.</p>
+      <p>The first chapter is coming. If you have a story worth telling — the number that changed something, the conversation that never happened, the year money finally made sense — it starts here.</p>
+      <p><em>Money Stories</em>, by Kathleen Mureithi and Morris Andanje.</p>
+    `,
+    coverImage: "portrait",
+    region: "Africa",
+    tags: ["Art + Finance","Money Stories"]
+  },
+  {
     publishDate: "2026-04-20",
     title: "Where the centre of the art market is moving.",
     slug: "market-geography-in-motion",
@@ -130,7 +150,7 @@ function ArticleView({ article, onClose }) {
       <div className="article-sheet">
         <button className="article-close" onClick={onClose} aria-label="Close">×</button>
         <div className="article-cover" data-art={article.coverImage}>
-          <img src={`assets/work/${article.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg' : article.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg' : 'lagos-biennial-2026.jpg'}`} alt={article.title} />
+          <img src={`assets/work/${article.slug === 'money-stories-intro' ? 'money-stories-01-kathleen-mureithi.jpg' : article.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg' : article.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg' : 'lagos-biennial-2026.jpg'}`} alt={article.title} />
           <div className="article-cover-meta">
             <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>
               {article.region} · {formatPubDate(article.publishDate)} · {article.author}
@@ -231,7 +251,7 @@ function Editorial() {
             <article key={b.slug} className={"edit-card edit-card-" + (i === 0 ? "feat" : "std")}
                      onClick={() => openArticle(b)}>
               <div className="edit-card-media">
-                <img src={`assets/work/${b.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg' : b.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg' : 'maboneng-arts-on-main.jpg'}`} alt={b.title} loading="lazy" />
+                <img src={`assets/work/${b.slug === 'money-stories-intro' ? 'money-stories-01-kathleen-mureithi.jpg' : b.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg' : b.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg' : 'maboneng-arts-on-main.jpg'}`} alt={b.title} loading="lazy" />
               </div>
               <div className="edit-card-body">
                 <div className="mono-label edit-card-meta">

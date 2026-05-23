@@ -99,7 +99,7 @@ function About() {
               <div className="about-correspondents" style={{marginTop:'2rem'}}>
                 <div className="mono-label" style={{color:'var(--muted)', marginBottom:'0.5rem'}}>Collaborators</div>
 
-                <div style={{display:'grid', gridTemplateColumns:'120px 1fr', gap:'1rem', alignItems:'flex-start', marginTop:'0.8rem'}}>
+                <div style={{display:'grid', gridTemplateColumns:'160px 1fr', gap:'1.25rem', alignItems:'flex-start', marginTop:'0.8rem'}}>
                   <figure style={{margin:0}}>
                     <img src="assets/work/money-stories-01-kathleen-mureithi.jpg"
                          alt="Kathleen Mureithi portrait, graphite and mixed media on paper — Money Stories No. 1, by Morris Javan Andanje"
@@ -109,9 +109,17 @@ function About() {
                       Money Stories No. 1 · Kathleen Mureithi · graphite and mixed media on paper · MJ
                     </figcaption>
                   </figure>
-                  <p className="about-p" style={{fontSize:'17px', margin:0}}>
-                    <strong>Kathleen Mureithi</strong> — collaborator and co-author of the Money Stories series. The work that asks what art actually costs to live with, to make, and to sell. The series opens with her portrait.
-                  </p>
+                  <div>
+                    <p className="about-p" style={{fontSize:'17px', margin:0}}>
+                      <strong>Kathleen Mureithi</strong> — Research Analyst and Strategy Consultant in Nairobi. Three years at Centonomy running programs that teach Kenyans how money actually works. Before that, KEMRI, climate consulting, health systems, women&apos;s economic empowerment across five countries. A decade of sitting with people and the stories money leaves on them.
+                    </p>
+                    <p className="about-p" style={{fontSize:'17px', margin:'0.8rem 0 0'}}>
+                      With MJ she co-authors <em>Money Stories</em>, the chapter series inside Art + Finance. Each chapter is a story she writes; each chapter has a portrait MJ draws. The series opens with hers.
+                    </p>
+                    <p className="mono-label" style={{fontSize:'11px', color:'var(--muted)', marginTop:'0.6rem'}}>
+                      <a href="https://kathleenmureithi.com" target="_blank" rel="noopener">kathleenmureithi.com</a> · <a href="https://instagram.com/kathleenmureithi" target="_blank" rel="noopener">@kathleenmureithi</a>
+                    </p>
+                  </div>
                 </div>
 
                 <p className="about-p" style={{fontSize:'17px', marginTop:'1.5rem'}}>
@@ -150,8 +158,8 @@ function About() {
           <div className="about-offers-grid">
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>READ</div>
-              <h4 className="caps-fraunces">A read worth your Tuesday morning.</h4>
-              <p>Art + Finance Tuesdays. Money Stories Wednesdays. Artist Spotlight Thursdays. Intersections Fridays. Art of Mind Saturdays. Civic, Nude, and Ink rotating Sundays. Global Art Spotlight Mondays. The World Through Art when the world asks for it.</p>
+              <h4 className="caps-fraunces">A read worth your morning.</h4>
+              <p>Art + Finance every week — the work, the money, and how value moves. Inside it, <em>Money Stories</em>: chapter-length writing by Kathleen Mureithi with a portrait by MJ. Plus artists, intersections, mind, and the world read through art.</p>
             </div>
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>DISCOVER</div>
