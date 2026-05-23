@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Field photography placeholder">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3A2E26"></stop>
+      <stop offset="1" stop-color="#1A120D"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#g)"></rect>
+  <rect x="40" y="60" width="160" height="220" fill="#2A1F17" stroke="#8A7A49" stroke-width="1"></rect>
+  <rect x="220" y="100" width="140" height="180" fill="#2A1F17" stroke="#8A7A49" stroke-width="1"></rect>
+  <rect x="380" y="80" width="180" height="200" fill="#2A1F17" stroke="#8A7A49" stroke-width="1"></rect>
+  <line x1="0" y1="340" x2="600" y2="340" stroke="#A09A87" stroke-width="1"></line>
+  <text x="300" y="370" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="2" fill="#A8905A">FIELD PHOTOGRAPHY · PLACEHOLDER</text>
+</svg>

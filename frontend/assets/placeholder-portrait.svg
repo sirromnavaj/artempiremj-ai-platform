@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Pencil portrait placeholder">
+  <rect width="400" height="500" fill="#E8E0D1"></rect>
+  <g transform="translate(200,260)">
+    <ellipse cx="0" cy="-60" rx="75" ry="90" fill="none" stroke="#2C2520" stroke-width="1.2"></ellipse>
+    <path d="M-95 100 Q-95 20 0 20 Q95 20 95 100 L95 160 L-95 160 Z" fill="none" stroke="#2C2520" stroke-width="1.2"></path>
+    <ellipse cx="-25" cy="-65" rx="6" ry="3" fill="#2C2520"></ellipse>
+    <ellipse cx="25" cy="-65" rx="6" ry="3" fill="#2C2520"></ellipse>
+    <path d="M-10 -30 Q0 -20 10 -30" fill="none" stroke="#2C2520" stroke-width="1.2"></path>
+    <path d="M-18 -10 Q0 0 18 -10" fill="none" stroke="#2C2520" stroke-width="1.2"></path>
+  </g>
+  <text x="200" y="460" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="2" fill="#8A7A49">PENCIL PORTRAIT · PLACEHOLDER</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Oil painting placeholder">
+  <defs>
+    <linearGradient id="p1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5A0A0A"></stop>
+      <stop offset="0.5" stop-color="#8C2E1F"></stop>
+      <stop offset="1" stop-color="#3A0606"></stop>
+    </linearGradient>
+    <radialGradient id="p2" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0" stop-color="#D97E3A" stop-opacity="0.55"></stop>
+      <stop offset="1" stop-color="#D97E3A" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#p1)"></rect>
+  <rect width="600" height="400" fill="url(#p2)"></rect>
+  <g opacity="0.5" stroke="#F1EBDF" stroke-width="0.6" fill="none">
+    <path d="M0 280 Q150 250 300 300 T600 270"></path>
+    <path d="M0 310 Q200 280 400 320 T600 300"></path>
+    <path d="M0 250 Q100 220 220 240 T600 220"></path>
+  </g>
+</svg>

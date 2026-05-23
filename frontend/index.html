@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArtempireMJ — What artists noticed before the news did.</title>
+
+  <meta name="description" content="What artists were making before the headlines moved. A daily reading of the art world from inside it — for anyone who has been paying attention." />
+  <link rel="canonical" href="https://artempiremj.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ArtempireMJ" />
+  <meta property="og:title" content="ArtempireMJ — What artists noticed before the news did." />
+  <meta property="og:description" content="A daily reading of the art world from inside it. What money tells you about value. What artists were registering before the figures moved." />
+  <meta property="og:url" content="https://artempiremj.com/" />
+  <meta property="og:image" content="https://artempiremj.com/assets/logos/master-full.webp" />
+  <meta property="og:locale" content="en_KE" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@artempiremj" />
+  <meta name="twitter:title" content="What artists noticed before the news did." />
+  <meta name="twitter:description" content="A daily reading of the art world from inside it." />
+  <meta name="twitter:image" content="https://artempiremj.com/assets/logos/master-full.webp" />
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ArtempireMJ",
+    "alternateName": "artempiremj",
+    "url": "https://artempiremj.com",
+    "logo": "https://artempiremj.com/assets/logos/master-full.webp",
+    "founder": {
+      "@type": "Person",
+      "name": "Morris Javan Andanje",
+      "jobTitle": "Founder & Editor"
+    },
+    "foundingDate": "2023",
+    "foundingLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nairobi",
+        "addressCountry": "KE"
+      }
+    },
+    "sameAs": [
+      "https://www.instagram.com/artempiremj/",
+      "https://www.linkedin.com/company/artempiremj/",
+      "https://www.tiktok.com/@artempiremj",
+      "https://www.facebook.com/artempiremj"
+    ]
+  }
+  </script>
+
+  <link rel="icon" href="assets/logos/master-circle.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/logos/master-circle.png" />
+
+  <link rel="stylesheet" href="styles/colors_and_type.css" />
+  <link rel="stylesheet" href="styles/site.css" />
+  <link rel="stylesheet" href="styles/hero.css" />
+  <link rel="stylesheet" href="styles/series.css" />
+  <link rel="stylesheet" href="styles/divisions.css" />
+  <link rel="stylesheet" href="styles/spotlight.css" />
+  <link rel="stylesheet" href="styles/commission.css" />
+  <link rel="stylesheet" href="styles/sections.css" />
+  <link rel="stylesheet" href="styles/pillars.css" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Netlify Forms detection: hidden static forms so Netlify can register them at build time -->
+  <form name="commission" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="bot-field" />
+    <input type="text" name="subject" />
+    <input type="text" name="size" />
+    <input type="text" name="deadline" />
+    <input type="text" name="delivery" />
+    <input type="text" name="contact" />
+  </form>
+  <form name="contributor" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="bot-field" />
+    <input type="text" name="fullName" />
+    <input type="email" name="email" />
+    <input type="text" name="location" />
+    <input type="text" name="whatsapp" />
+    <input type="text" name="portfolio" />
+    <input type="text" name="discipline" />
+    <input type="text" name="segment" />
+    <textarea name="bio"></textarea>
+    <input type="text" name="workLink" />
+    <input type="checkbox" name="rights" />
+  </form>
+  <form name="feedback" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="bot-field" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+  </form>
+  <form name="newsletter" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="bot-field" />
+    <input type="email" name="email" />
+  </form>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="components/Nav.jsx"></script>
+  <script type="text/babel" src="components/Hero.jsx"></script>
+  <script type="text/babel" src="components/Discover.jsx"></script>
+  <script type="text/babel" src="components/Editorial.jsx"></script>
+  <script type="text/babel" src="components/Series.jsx"></script>
+  <script type="text/babel" src="components/Divisions.jsx"></script>
+  <script type="text/babel" src="components/Spotlight.jsx"></script>
+  <script type="text/babel" src="components/Commission.jsx"></script>
+  <script type="text/babel" src="components/DevelopSustain.jsx"></script>
+  <script type="text/babel" src="components/Sections.jsx"></script>
+  <script type="text/babel" src="components/App.jsx"></script>
+</body>
+</html>
