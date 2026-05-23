@@ -98,25 +98,25 @@ function About() {
           <div className="about-grid">
             <div className="about-left">
               <h3 className="display-caslon" style={{fontSize:'clamp(28px,3vw,40px)', lineHeight:1.1, marginBottom:'1rem'}}>
-                Morris Javan Andanje. <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>One hand. Nairobi.</em>
+                Morris Javan Andanje. <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>Artist &amp; editor.</em>
               </h3>
               <p className="about-p">
-                Artist and editor. Pencil-on-paper portraits from the studio. Daily reads on what the art world is making, costing, and missing. The portrait watches the market. The market reframes the portrait.
+                Morris Javan Andanje is an artist and the founding editor of ArtempireMJ. He works in graphite on paper — three portrait series held under the Studio &amp; Gallery practice, alongside original work shown and sold. He writes daily on art and the human, the way money, place, mind and skin pass through art and through each other.
               </p>
               <p className="about-p">
-                Published across Instagram, TikTok, LinkedIn, Facebook, and a beehiiv newsletter every Tuesday. Commissions close on WhatsApp.
+                Trained in analytical chemistry before turning to a practice that asks the same kind of questions. Based in Nairobi. Travels for the fairs that matter. Publishes across Instagram, TikTok, LinkedIn, Facebook, and a weekly newsletter. Commissions open by WhatsApp.
               </p>
 
               <div className="about-correspondents" style={{marginTop:'2rem'}}>
-                <div className="mono-label" style={{color:'var(--muted)', marginBottom:'0.5rem'}}>Correspondents</div>
+                <div className="mono-label" style={{color:'var(--muted)', marginBottom:'0.5rem'}}>Collaborators</div>
                 <p className="about-p" style={{fontSize:'17px'}}>
-                  <strong>Khethiwe Tracy Gumede</strong> — Global Art Correspondent, South Africa. Press-accredited at the Investec Cape Town Art Fair. Field photography, gallery observations, artist conversations.
+                  <strong>Kathleen Mureithi</strong> — collaborator and co-author of the Money Stories series. The work that asks what art actually costs to live with, to make, and to sell.
                 </p>
                 <p className="about-p" style={{fontSize:'17px'}}>
-                  <strong>Kathleen Mureithi</strong> — Money Stories co-author. Finance expert. The human financial reality of building a creative practice.
+                  <strong>Khethiwe Tracy Gumede</strong> — Global Art Correspondent, South Africa. Press-accredited at the Investec Cape Town Art Fair. Field photography and gallery reporting from across the continent.
                 </p>
                 <p className="about-p" style={{fontSize:'15px', color:'var(--muted)', fontStyle:'italic'}}>
-                  Correspondent network expanding — West Africa (Lagos, Accra), Francophone West (Dakar), and the diaspora (London).
+                  Open to working with artists, writers, photographers, and editors. Lagos, Accra, Dakar, London — wherever the work asks for it.
                 </p>
               </div>
             </div>
@@ -169,17 +169,17 @@ function About() {
           </div>
         </div>
 
-        {/* --- SECTION 5 — Why this exists --- */}
+        {/* --- SECTION 5 — How we work --- */}
         <div className="about-position" style={{marginBottom:'3rem', background:'var(--cream-2, #E8DFCC)', padding:'2.5rem', borderLeft:'6px solid var(--badge-orange)'}}>
-          <div className="eyebrow dark" style={{marginBottom:'1rem'}}>Why this exists</div>
+          <div className="eyebrow dark" style={{marginBottom:'1rem'}}>How we work</div>
           <p className="italic-serif" style={{fontSize:'clamp(20px,2.2vw,28px)', lineHeight:1.45, marginBottom:'1.2rem'}}>
-            ArtTactic charges five hundred dollars a month. Art Network Africa covers what it can. Individual artists take commissions alone. Nobody was doing all of it from where it actually happens.
+            We show, we don't explain. We align with what readers and artists already value, and we add the work of seeing it together.
           </p>
           <p className="about-p" style={{fontSize:'17px'}}>
-            Living in Nairobi. Attending the fairs. Drawing the portraits. Knowing which gallery opened and which one quietly didn't make it.
+            Living in Nairobi. Attending the fairs. Drawing the portraits. Reading the room the institutions, galleries, fairs and artists are already shaping — and adding what we see from inside it.
           </p>
           <p className="about-p" style={{fontSize:'17px'}}>
-            That cannot be outsourced. It has to be earned by showing up. Daily, since 2023.
+            Daily, since 2023. Open to collaborate with the people doing the same work elsewhere.
           </p>
         </div>
 
@@ -219,12 +219,12 @@ function Newsletter() {
   return (
     <section id="newsletter" className="section surface-dark" data-screen-label="Newsletter">
       <div className="container newsletter-inner">
-        <div className="eyebrow">Published Tuesdays · Art + Finance · free</div>
+        <div className="eyebrow">Published weekly · Art + Finance · free</div>
         <h2 className="caps-fraunces newsletter-title">
           What's actually happening,<br/>delivered weekly.
         </h2>
         <p className="italic-serif newsletter-deck">
-          What the headlines don't carry. What the institutional reports bury at $500 a month. Read by working artists, gallery professionals, and first-time collectors who are tired of being explained at.
+          A read on what the work costs to make, where the value lands, and what's worth seeing this week. Written from inside, sent to anyone paying attention.
         </p>
 
         {!sent ? (

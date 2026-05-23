@@ -65,6 +65,7 @@ function App() {
       <Nav dark={tweaks.darkNav} />
       <Hero variant={tweaks.heroVariant} />
       <Ticker />
+      <Principle />
       <Discover />
       <Editorial />
       <Commission />

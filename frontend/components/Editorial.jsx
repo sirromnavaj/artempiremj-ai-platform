@@ -7,7 +7,7 @@ const BLOGS = [
     title: "The auction room is no longer discovering prices.",
     slug: "auction-guarantees-discovery",
     author: "MJ",
-    summary: "Guarantees backed 36% of New York Evening Sale value in 2016. By 2025: 78%. The room isn't finding the price anymore — it's confirming what was agreed in private.",
+    summary: "Guarantees backed 36% of New York Evening Sale value in 2016. By 2025: 78%. The auction room is doing something different now — and the bottom of the market is doing something different too.",
     bodyHtml: `
       <p>In 2016, guarantees backed 36% of the value of New York's Evening Sales. By 2025, that figure was 78%.</p>
       <p>What a guarantee means: before the auction opens, the seller is protected against the work failing to sell. The auction house — or a third-party guarantor — has agreed to pay a minimum price regardless of what happens in the room. The hammer falls. The room bids. But the floor was already set.</p>

@@ -11,7 +11,7 @@ const SERIES_DATA = [
   { day: "TUE", name: "Art + Finance",
     headline: "What money reveals about value, who captures it, who never sees it.",
     kicker: "Analytical · LinkedIn lead",
-    read: "The read at accessible depth. Where ArtTactic charges five hundred a month, this is free.",
+    read: "Plain language on what work costs, who captures the value, and what that means for the rest of the room.",
     accent: "var(--master-teal)" },
   { day: "WED", name: "Money Stories",
     headline: "The human financial reality behind making, selling, owning, losing art.",
