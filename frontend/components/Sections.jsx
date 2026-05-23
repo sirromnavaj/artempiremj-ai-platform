@@ -157,9 +157,9 @@ function About() {
               <p>Every fair, biennale, open call, exhibition, deadline — verified daily. Built so the door isn't already closed by the time you find it.</p>
             </div>
             <div className="about-offer">
-              <div className="mono-label" style={{color:'var(--badge-orange)'}}>COMMISSION</div>
-              <h4 className="caps-fraunces">A portrait, made by hand.</h4>
-              <p>Pencil on cartridge paper. A4 study to A2+ with custom background. The detail in the eyes takes three sessions. WhatsApp closes the conversation.</p>
+              <div className="mono-label" style={{color:'var(--badge-orange)'}}>STUDIO &amp; GALLERY</div>
+              <h4 className="caps-fraunces">The studio practice.</h4>
+              <p>MJ as artist. Portrait commissions (your face, an artist you admire, or the work-meets-money piece). Original work shown and sold. The making, not just the selling.</p>
             </div>
             <div className="about-offer">
               <div className="mono-label" style={{color:'var(--badge-orange)'}}>SUBMIT</div>

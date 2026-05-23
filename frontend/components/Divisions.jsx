@@ -4,9 +4,9 @@ const DIVISIONS = [
   { key:"main", name:"artempiremj", label:"Main", tagline:"Where Art Meets Everything",
     copy:"The main account. Daily reads on what the art world is making, costing, and missing.",
     logo:"assets/logos/master-circle.png", bg:"var(--editorial-dark)", fg:"var(--ivory)", accent:"var(--editorial-gold-mist)" },
-  { key:"studio", name:"Studio & Gallery", label:"Commission",
+  { key:"studio", name:"Studio & Gallery", label:"The studio practice",
     tagline:"Crafted. Collected. Exhibited.",
-    copy:"Hand-drawn pencil portraits, made by MJ in Nairobi. Three series: Art-to-Soul (your face, your hand, your memory), Artist Edition (other artists), Money Stories Edition (when the work and the money meet). Open by WhatsApp.",
+    copy:"MJ as artist. Three portrait series — Art-to-Soul (your face), Artist Edition (other artists), Money Stories Edition (work meets money). Original work shown and sold through the gallery function. The first-person sub-brand.",
     logo:"assets/logos/studio-gallery.png", bg:"var(--cream)", fg:"var(--type-charcoal)", accent:"var(--studio-orange)" },
   { key:"spotlight", name:".spotlight", label:"Curatorial",
     tagline:"Observing the institutions.",
@@ -31,13 +31,12 @@ function Divisions() {
     <section id="divisions" className="section surface-cream-2" data-screen-label="Divisions">
       <div className="container">
         <div className="divisions-head">
-          <div className="eyebrow dark">Sub-brands</div>
+          <div className="eyebrow dark">If you want more</div>
           <h2 className="display-caslon divisions-title">
-            Different work,<br/>
-            <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>same hand.</em>
+            Wherever <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>you came in</em> for.
           </h2>
           <p className="divisions-deck italic-serif">
-            Six accounts, one studio. Daily reads, real portraits, and a calendar of what's worth crossing a city for.
+            A portrait of your face. A read on the exhibition you missed. A tattoo story you've never heard. A trip planned around what's worth seeing.
           </p>
         </div>
 

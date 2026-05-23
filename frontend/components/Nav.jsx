@@ -6,9 +6,9 @@ function Nav({ dark }) {
     <nav className={"nav " + (dark ? "dark" : "")}>
       <div className="nav-inner">
         <a href="#top" className="nav-brand">
-          <img src="assets/logos/master-circle.png" alt="ArtempireMJ — African art news and pencil portraits from Nairobi" className="nav-logo" />
+          <img src="assets/logos/master-circle.png" alt="ArtempireMJ — art and the human" className="nav-logo" />
           <span className="nav-wordmark">artempiremj</span>
-          <span className="nav-tagline">African art · From inside · Daily</span>
+          <span className="nav-tagline">Art and the human · Daily</span>
         </a>
         <button
           className="nav-toggle"

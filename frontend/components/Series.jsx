@@ -67,10 +67,10 @@ function Series() {
         <div className="series-head">
           <div className="eyebrow dark">The week</div>
           <h2 className="display-caslon series-title">
-            What lands when, <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>and why.</em>
+            Something to read <em style={{fontFamily:'var(--font-display-serif)', fontStyle:'italic', color:'var(--badge-orange)'}}>every day.</em>
           </h2>
           <p className="series-deck italic-serif">
-            A read at 09:00. A signal at 12:00. Every day.
+            One read in the morning. One thing worth seeing at midday. Pick what you want.
           </p>
         </div>
 

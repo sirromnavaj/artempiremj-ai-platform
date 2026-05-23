@@ -27,7 +27,7 @@ function HeroEditorial() {
         <div className="hero-foot">
           <div className="hero-datum">
             <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>This week</div>
-            <div className="hero-datum-val">A read every day. One newsroom.</div>
+            <div className="hero-datum-val">Something to read every day.</div>
           </div>
           <div className="hero-datum">
             <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>Daily 12:00 EAT</div>

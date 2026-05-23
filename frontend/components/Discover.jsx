@@ -56,13 +56,33 @@ const DISCOVER_EVENTS = [
     sourceLink: "https://www.tate.org.uk/whats-on/tate-modern/el-anatsui"
   },
   {
-    eventDate: "2027-02-18", endDate: "2027-02-21",
+    eventDate: "2026-09-11", endDate: "2026-09-13",
+    eventName: "FNB Art Joburg 2026 · 18th edition",
+    city: "Johannesburg", country: "South Africa", region: "Africa",
+    venue: "Sandton Convention Centre",
+    description: "South Africa's longest-running contemporary art fair. Coverage from the floor with our correspondent Khethiwe Tracy Gumede — returning after the 2025 edition.",
+    imageUrl: "work/fnb-joburg-2025-aerial.jpg",
+    credit: "Photo: Khethiwe Tracy Gumede · FNB Art Joburg 2025, 18th edition · Courtesy ArtempireMJ",
+    sourceLink: "https://fnbartjoburg.com/"
+  },
+  {
+    eventDate: "2026-02-20", endDate: "2026-02-22",
+    eventName: "Investec Cape Town Art Fair 2026 · Listen",
+    city: "Cape Town", country: "South Africa", region: "Africa",
+    venue: "Cape Town International Convention Centre",
+    description: "The 13th edition, themed Listen. Our correspondent Khethiwe Tracy Gumede was on the floor for VIP opening — full coverage in Spotlight.",
+    imageUrl: "work/ictaf-2026-vip-opening.jpg",
+    credit: "Photo: Khethiwe Tracy Gumede · Investec Cape Town Art Fair 2026 VIP Opening · Courtesy ArtempireMJ",
+    sourceLink: "https://www.investeccapetownartfair.co.za/"
+  },
+  {
+    eventDate: "2027-02-19", endDate: "2027-02-21",
     eventName: "Investec Cape Town Art Fair 2027",
     city: "Cape Town", country: "South Africa", region: "Africa",
     venue: "Cape Town International Convention Centre",
-    description: "Africa's flagship fair. ArtempireMJ Global Art Correspondent Khethiwe Tracy Gumede attends with press accreditation for live reporting from the floor.",
-    imageUrl: "work/maboneng-revolution-house.jpg",
-    credit: "Courtesy ICTAF",
+    description: "The 14th edition. Press accreditation requested. Returning with our correspondent on the floor.",
+    imageUrl: "work/ictaf-cape-town-fair.jpg",
+    credit: "Photo: Courtesy Investec Cape Town Art Fair · Press Pack 2026",
     sourceLink: "https://www.investeccapetownartfair.co.za/"
   },
 ];
