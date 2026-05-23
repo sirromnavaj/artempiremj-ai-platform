@@ -23,9 +23,77 @@ const BLOGS = [
   },
   {
     publishDate: "2026-05-23",
+    title: "She was planting trees while the world called her dangerous.",
+    slug: "money-stories-01-wangari-unbowed",
+    author: "By Kathleen Mureithi · Financial Adviser · Portrait by Morris Javan",
+    summary: "Before the Nobel Prize, there was a woman planting trees alone. Money Stories begins with Wangari Maathai — and the long years before the world caught up.",
+    bodyHtml: `
+      <p><em>Before the Nobel Prize, there was a woman planting trees alone.</em></p>
+      <p>Before the standing ovations in Oslo, there were police batons. Before the honorary doctorates and the UN podiums and the streets renamed in her honour, there was a government that called her work subversive, a husband who left her because she was too strong-minded for a woman, and a judge who jailed her for daring to say he was corrupt.</p>
+      <p>Before Wangari Maathai was celebrated, she was resisted. Loudly. Repeatedly. By people with the power to make resistance painful.</p>
+      <p>And she planted trees anyway.</p>
+      <p>I have been thinking about her story a great deal lately — not because of the prize, but because of the years before it. The twenty-seven years between the first seven seedlings she planted on World Environment Day in 1977 and the Nobel Peace Prize Committee calling her name in 2004. What happened in those years is not a footnote. It is the whole story. And I think it is a story that speaks directly to something I encounter in my work every single day — the money stories that people carry long before anyone else recognises their worth.</p>
+
+      <h3>What was always true, before it was seen</h3>
+      <p>Wangari Maathai did not begin planting trees because she expected recognition. She began because she saw something that others refused to see — that the deforestation stripping Kenya's hills was not just an environmental problem. It was an economic one. A food security problem. A women's empowerment problem. A democracy problem.</p>
+      <p>She understood, before the language for it existed in policy circles, that you cannot separate the health of the land from the financial health of the household. That a woman walking six hours for firewood is a woman who cannot plant crops, cannot earn income, cannot educate her children.</p>
+      <p>She saw the whole picture. And she acted on it — not with a grand strategy backed by donors and government support, but with seven seedlings and a backyard nursery and a belief that ordinary women, given tools and agency, would do the rest.</p>
+      <p>She was right. The movement planted over 51 million trees across Kenya. But that number did not arrive fully formed. It arrived one tree at a time, across decades, in the face of a government that saw her not as a conservationist but as a threat.</p>
+      <p><em>The value was always there. The world just hadn't decided to see it yet.</em></p>
+
+      <h3>The cost of being right too early</h3>
+      <p>This is the part of Wangari's story that I think we skip too quickly, because the Nobel Prize ending makes it feel inevitable. It was not inevitable. It was hard-won in ways that most people will never have to experience.</p>
+      <p>Her vocal opposition to a 60-story development planned for the middle of Uhuru Park led the government of President Daniel arap Moi to label both Maathai and the Green Belt Movement "subversive." She was vilified in Parliament and in the press and forced to vacate her office of ten years with 24 hours' notice.</p>
+      <p>In 1992, Uhuru Park became the site of a hunger strike to secure the release of political prisoners — at which Professor Maathai was beaten unconscious by police.</p>
+      <p>Her husband divorced her, publicly calling her too educated, too strong, too successful. The judge who ruled in his favour — whom she then called out publicly — had her jailed for contempt of court.</p>
+      <p>She was beaten. Jailed. Ridiculed. Dismissed. And called dangerous by the very people who needed her work the most.</p>
+      <blockquote><p>"Nobody would have bothered me if all I did was encourage women to plant trees."<br/><em>— Wangari Maathai</em></p></blockquote>
+      <p>That line has stayed with me. Because what it reveals is this: the moment her work began to threaten existing power structures — the moment it was clearly working — was the moment the resistance intensified. The persecution was not a sign that she was wrong. It was a sign that she was right, and that the right thing she was doing made powerful people uncomfortable.</p>
+
+      <h3>Money Stories and the Wangari Principle</h3>
+      <p>In my work as a financial adviser, I sit with people's money stories every day. And I have come to believe something that I want to name plainly here:</p>
+      <p><strong>The value of your financial story is not determined by the moment someone else recognises it.</strong></p>
+      <p>I meet women — and it is often women — who have been building quietly for years. Running households on impossible budgets. Raising children while servicing debt taken on by someone else. Saving $11 a month in a stokvel that nobody in their professional circle takes seriously. Making micro-decisions every single day that, compounded over time, represent extraordinary financial discipline and intelligence.</p>
+      <p>And yet they come to me apologising. For not having started sooner. For not having more. For not looking like the version of financial success that gets celebrated on magazine covers.</p>
+      <p>Wangari Maathai did not wait for the Nobel Prize to validate her work. She planted her next tree on the day she was released from prison. She rebuilt her office after she was forced out. She went back to Uhuru Park.</p>
+      <p><em>The work was the work. The value was the value. The recognition was just the world catching up.</em></p>
+
+      <h3>What had to survive before the value was seen</h3>
+      <p>What had to survive before Wangari Maathai's vision was celebrated?</p>
+      <p>Her marriage. Her reputation. Her physical safety. Her freedom. Her office. Her certainty, on the worst days, that what she was doing mattered at all.</p>
+      <p>She survived all of it. And she kept planting.</p>
+      <p>I think about the women in the villages who planted trees alongside her — the thousands who never got a prize, never gave a speech, never had a road named after them. Women who simply showed up, year after year, and put something living in the ground because a woman they trusted told them it mattered. Their contribution is in the roots of 51 million trees. It is real. It always was.</p>
+      <p><em>Recognition came last. But value came first.</em></p>
+
+      <h3>What this means for your money story</h3>
+      <p>If you are reading this and you recognise yourself in the part of Wangari's story that came before Oslo — the part where you are doing the work and the world hasn't caught up yet — I want to say something directly to you.</p>
+      <p><strong>The absence of recognition is not evidence of the absence of value.</strong></p>
+      <p>The financial journey that looks modest from the outside may be extraordinary from the inside. The stokvel that gets dismissed at the dinner party is building real wealth. The budget that gets maintained through a job loss, a fuel price spike, a school fee increase, and a sick parent — that is a masterclass in financial resilience that no MBA programme teaches. The woman who started with nothing and built something small but solid — she is not behind. She is the story.</p>
+      <blockquote><p>"Until you dig a hole, you plant a tree, you water it, and make it survive, you haven't done a thing. You're just talking."<br/><em>— Wangari Maathai</em></p></blockquote>
+      <p>That is financial advice as much as it is environmental philosophy. The doing is everything. The planting is everything. Not the prize. Not the moment someone finally looks at what you have built and declares it worthy.</p>
+      <p><em>The worth was there in the digging.</em></p>
+
+      <h3>The Unbowed lesson</h3>
+      <p>Wangari Maathai named her memoir <em>Unbowed</em>. Not Triumphant. Not Celebrated. Unbowed.</p>
+      <p>Because the thing worth preserving — through the beatings and the jailings and the divorce and the vilification — was not her comfort or her reputation. It was her direction. The refusal to be turned around by pressure. The commitment to keep moving toward the thing she knew was right, even when the world insisted she was wrong.</p>
+      <p>I think that is the deepest financial lesson her life teaches. Not the lesson of the prize. The lesson of the years before it.</p>
+      <p>Stay unbowed toward your financial future. Not because the recognition will definitely come — it may not, not in the form you imagine. But because the work of building security, of planting something that will outlast this difficult season, is worth doing for its own sake.</p>
+      <p><em>The trees are real. The roots are deep. Even when nobody is looking.</em></p>
+
+      <hr/>
+      <p style="font-size:14px;color:#6B6253;font-style:italic">This article is part of the Money Stories series — exploring the financial lives, struggles, and wisdom of African women and communities that rarely make the headlines. If you have a money story worth telling, Kathleen would love to hear it.</p>
+      <p style="font-size:14px;color:#6B6253"><strong>Kathleen Mureithi</strong> is a financial adviser working with African households to build financial resilience. Connect with her at <a href="tel:+254723158920">+254 723 158920</a> · <a href="https://kathleenmureithi.com" target="_blank" rel="noopener">kathleenmureithi.com</a>.</p>
+      <p style="font-size:14px;color:#6B6253">The accompanying graphite portrait of Wangari Maathai is Art-to-Soul No. 1 by Morris Javan Andanje.</p>
+    `,
+    coverImage: "portrait",
+    region: "Africa",
+    tags: ["Art + Finance","Money Stories","Wangari Maathai"]
+  },
+  {
+    publishDate: "2026-05-22",
     title: "Money carries stories. A new chapter series inside Art + Finance.",
     slug: "money-stories-intro",
-    author: "By Kathleen Mureithi · Portraits by Morris Andanje",
+    author: "By Kathleen Mureithi · Portraits by Morris Javan",
     summary: "The conversation the family never had about it. The month that changed how you understood what you had. The decision that cost everything and still turned out right. Money Stories begins.",
     bodyHtml: `
       <p>Money carries stories.</p>
@@ -150,7 +218,12 @@ function ArticleView({ article, onClose }) {
       <div className="article-sheet">
         <button className="article-close" onClick={onClose} aria-label="Close">×</button>
         <div className="article-cover" data-art={article.coverImage}>
-          <img src={`assets/work/${article.slug === 'money-stories-intro' ? 'money-stories-01-kathleen-mureithi.jpg' : article.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg' : article.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg' : 'lagos-biennial-2026.jpg'}`} alt={article.title} />
+          <img src={`assets/work/${
+            article.slug === 'money-stories-01-wangari-unbowed' ? 'art-to-soul-01-wangari-maathai.jpg'
+            : article.slug === 'money-stories-intro' ? 'money-stories-01-kathleen-mureithi.jpg'
+            : article.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg'
+            : article.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg'
+            : 'lagos-biennial-2026.jpg'}`} alt={article.title} />
           <div className="article-cover-meta">
             <div className="mono-label" style={{color:'var(--editorial-gold-mist)'}}>
               {article.region} · {formatPubDate(article.publishDate)} · {article.author}
@@ -251,7 +324,12 @@ function Editorial() {
             <article key={b.slug} className={"edit-card edit-card-" + (i === 0 ? "feat" : "std")}
                      onClick={() => openArticle(b)}>
               <div className="edit-card-media">
-                <img src={`assets/work/${b.slug === 'money-stories-intro' ? 'money-stories-01-kathleen-mureithi.jpg' : b.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg' : b.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg' : 'maboneng-arts-on-main.jpg'}`} alt={b.title} loading="lazy" />
+                <img src={`assets/work/${
+                  b.slug === 'money-stories-01-wangari-unbowed' ? 'art-to-soul-01-wangari-maathai.jpg'
+                  : b.slug === 'money-stories-intro' ? 'money-stories-01-kathleen-mureithi.jpg'
+                  : b.coverImage === 'portrait' ? 'el-anatsui-mans-cloth.jpg'
+                  : b.coverImage === 'gallery' ? 'gallery-1957-unlimited.jpg'
+                  : 'maboneng-arts-on-main.jpg'}`} alt={b.title} loading="lazy" />
               </div>
               <div className="edit-card-body">
                 <div className="mono-label edit-card-meta">

@@ -112,7 +112,7 @@ function About() {
                   </figure>
                   <div>
                     <div className="caps-fraunces" style={{fontSize:'22px', lineHeight:1.2, marginBottom:'0.2rem'}}>Kathleen Mureithi</div>
-                    <div className="mono-label" style={{color:'var(--muted)', fontSize:'12px', marginBottom:'0.8rem', letterSpacing:'0.06em'}}>RESEARCH ANALYST · STRATEGY CONSULTANT · NAIROBI</div>
+                    <div className="mono-label" style={{color:'var(--muted)', fontSize:'12px', marginBottom:'0.8rem', letterSpacing:'0.06em'}}>FINANCIAL ADVISER · RESEARCH ANALYST · STRATEGY CONSULTANT · NAIROBI</div>
                     <p className="about-p" style={{fontSize:'16px', margin:0, lineHeight:1.65}}>
                       Three years at Centonomy running programs that teach Kenyans how money actually works. Before that, KEMRI, climate consulting, health systems, women&apos;s economic empowerment across five countries. A decade of sitting with people and the stories money leaves on them.
                     </p>
