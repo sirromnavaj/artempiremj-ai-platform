@@ -98,10 +98,23 @@ function About() {
 
               <div className="about-correspondents" style={{marginTop:'2rem'}}>
                 <div className="mono-label" style={{color:'var(--muted)', marginBottom:'0.5rem'}}>Collaborators</div>
-                <p className="about-p" style={{fontSize:'17px'}}>
-                  <strong>Kathleen Mureithi</strong> — collaborator and co-author of the Money Stories series. The work that asks what art actually costs to live with, to make, and to sell.
-                </p>
-                <p className="about-p" style={{fontSize:'17px'}}>
+
+                <div style={{display:'grid', gridTemplateColumns:'120px 1fr', gap:'1rem', alignItems:'flex-start', marginTop:'0.8rem'}}>
+                  <figure style={{margin:0}}>
+                    <img src="assets/work/money-stories-01-kathleen-mureithi.jpg"
+                         alt="Kathleen Mureithi portrait, graphite and mixed media on paper — Money Stories No. 1, by Morris Javan Andanje"
+                         loading="lazy"
+                         style={{width:'100%', height:'auto', display:'block', borderRadius:'2px'}} />
+                    <figcaption className="mono-label" style={{fontSize:'10px', color:'var(--muted)', marginTop:'6px', lineHeight:1.4}}>
+                      Money Stories No. 1 · Kathleen Mureithi · graphite and mixed media on paper · MJ
+                    </figcaption>
+                  </figure>
+                  <p className="about-p" style={{fontSize:'17px', margin:0}}>
+                    <strong>Kathleen Mureithi</strong> — collaborator and co-author of the Money Stories series. The work that asks what art actually costs to live with, to make, and to sell. The series opens with her portrait.
+                  </p>
+                </div>
+
+                <p className="about-p" style={{fontSize:'17px', marginTop:'1.5rem'}}>
                   <strong>Khethiwe Tracy Gumede</strong> — Global Art Correspondent, South Africa. Press-accredited at the Investec Cape Town Art Fair. Field photography and gallery reporting from across the continent.
                 </p>
                 <p className="about-p" style={{fontSize:'15px', color:'var(--muted)', fontStyle:'italic'}}>
