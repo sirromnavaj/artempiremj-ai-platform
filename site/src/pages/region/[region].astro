@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import { OPPORTUNITIES, type Region } from '../../data/calendar.ts';
+
+const slugs: Record<string, Region> = {
+  'africa': 'Africa', 'europe': 'Europe', 'americas': 'Americas', 'asia-middle-east': 'Asia/Middle East',
+};
+export function getStaticPaths() {
+  return [
+    { params: { region: 'africa' } }, { params: { region: 'europe' } },
+    { params: { region: 'americas' } }, { params: { region: 'asia-middle-east' } },
+  ];
+}
+const { region } = Astro.params;
+const name = slugs[region as string];
+const items = OPPORTUNITIES.filter((o) => o.region === name);
+const site = 'https://artempiremj.com';
+const kindLabel: Record<string, string> = {
+  'open-call': 'Open call', residency: 'Residency', grant: 'Grant', fair: 'Fair', biennial: 'Biennial', prize: 'Prize',
+};
+// ItemList of the region's opportunities (AEO: the clean answer to "what is open in [region]").
+const itemList = {
+  '@context': 'https://schema.org', '@type': 'ItemList',
+  name: `Art opportunities in ${name}`,
+  itemListElement: items.map((o, i) => ({
+    '@type': 'ListItem', position: i + 1, name: o.title, url: `${site}/opportunity/${o.id}`,
+  })),
+};
+---
+<Base path={`/region/${region}`} title={`What is open in ${name}`}
+  description={`Open calls, residencies, grants, fairs and biennials in ${name}, the full list, kept current by ArtempireMJ. The whole calendar, not only this week's rotation.`}>
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(itemList)}</script>`} />
+
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="muted" style="font-family:var(--sans);font-size:0.85rem;"><a href="/">Calendar</a> · {name}</p>
+    <h1>What is open in {name}</h1>
+    <p class="lede prose">The full list for {name}, all of it, whenever you want it. Our weekly rotation
+      decides what we feature; the calendar stays open to every region, all the time.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem 3rem;">
+    <ul class="ops">
+      {items.map((o) => (
+        <li class="op"><a href={`/opportunity/${o.id}`}>
+          <span class="eyebrow">{kindLabel[o.kind]}</span>
+          <span class="op-title">{o.title}</span>
+          <span class="muted">{o.organizer} · {o.city}, {o.country}</span>
+          <span class="muted">{o.verified && o.deadline ? `Deadline ${o.deadline}` : o.window}</span>
+        </a></li>
+      ))}
+    </ul>
+    <p class="muted" style="margin-top:1.5rem;">
+      Browse the rest: {Object.entries(slugs).filter(([s]) => s !== region).map(([s, n]) => (<a href={`/region/${s}`} style="margin-right:0.8rem;">{n}</a>))}
+    </p>
+  </section>
+
+  <style>
+    .ops { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .op { border: 1px solid var(--line); border-radius: 3px; background: var(--paper); }
+    .op a { display: grid; gap: 0.25rem; padding: 1rem; text-decoration: none; }
+    .op-title { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; }
+  </style>
+</Base>

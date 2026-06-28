@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import { OPPORTUNITIES, type Kind } from '../../data/calendar.ts';
+
+const labels: Record<string, { label: string; plural: string }> = {
+  'open-call': { label: 'Open call', plural: 'Open calls' },
+  residency: { label: 'Residency', plural: 'Residencies' },
+  grant: { label: 'Grant', plural: 'Grants' },
+  fair: { label: 'Fair', plural: 'Fairs' },
+  biennial: { label: 'Biennial', plural: 'Biennials' },
+  prize: { label: 'Prize', plural: 'Prizes' },
+};
+export function getStaticPaths() {
+  return Object.keys(labels).map((kind) => ({ params: { kind } }));
+}
+const { kind } = Astro.params;
+const meta = labels[kind as string];
+const items = OPPORTUNITIES.filter((o) => o.kind === (kind as Kind));
+const site = 'https://artempiremj.com';
+const itemList = {
+  '@context': 'https://schema.org', '@type': 'ItemList',
+  name: `${meta.plural} for artists, worldwide`,
+  itemListElement: items.map((o, i) => ({ '@type': 'ListItem', position: i + 1, name: o.title, url: `${site}/opportunity/${o.id}` })),
+};
+---
+<Base path={`/type/${kind}`} title={`${meta.plural} for artists`}
+  description={`${meta.plural} open to artists right now, worldwide, kept current by ArtempireMJ. Browse the whole calendar by type, any time.`}>
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(itemList)}</script>`} />
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="muted" style="font-family:var(--sans);font-size:0.85rem;"><a href="/">Calendar</a> · {meta.plural}</p>
+    <h1>{meta.plural} for artists</h1>
+    <p class="lede prose">Every {meta.label.toLowerCase()} on the radar, worldwide, in one place. Browse
+      the whole calendar by type whenever you want, beyond what we feature this week.</p>
+  </section>
+  <section class="wrap" style="padding-block: 1rem 3rem;">
+    <ul class="ops">
+      {items.map((o) => (
+        <li class="op"><a href={`/opportunity/${o.id}`}>
+          <span class="eyebrow">{o.region}</span>
+          <span class="op-title">{o.title}</span>
+          <span class="muted">{o.organizer} · {o.city}, {o.country}</span>
+          <span class="muted">{o.verified && o.deadline ? `Deadline ${o.deadline}` : o.window}</span>
+        </a></li>
+      ))}
+    </ul>
+    <p class="muted" style="margin-top:1.5rem;">By type:
+      {Object.entries(labels).filter(([k]) => k !== kind).map(([k, m]) => (<a href={`/type/${k}`} style="margin-right:0.8rem;">{m.plural}</a>))}
+    </p>
+  </section>
+  <style>
+    .ops { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .op { border: 1px solid var(--line); border-radius: 3px; background: var(--paper); }
+    .op a { display: grid; gap: 0.25rem; padding: 1rem; text-decoration: none; }
+    .op-title { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; }
+  </style>
+</Base>
