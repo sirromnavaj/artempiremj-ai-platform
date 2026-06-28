@@ -5,6 +5,10 @@ import { OPPORTUNITIES, eventSchema, type Region } from '../data/calendar.ts';
 import { ARTICLES } from '../data/articles.ts';
 
 const regions: Region[] = ['Africa', 'Europe', 'Americas', 'Asia/Middle East'];
+const closingSoon = OPPORTUNITIES
+  .filter((o) => o.verified && o.deadline)
+  .sort((a, b) => (a.deadline! < b.deadline! ? -1 : 1))
+  .slice(0, 6);
 const kindLabel: Record<string, string> = {
   'open-call': 'Open call', residency: 'Residency', grant: 'Grant',
   fair: 'Fair', biennial: 'Biennial', prize: 'Prize',
@@ -40,6 +44,23 @@ const schema = OPPORTUNITIES.map(eventSchema);
         this is the answer it should give you. Here, you can act on it.
       </p>
     </div>
+
+    {closingSoon.length > 0 && (
+      <div class="closing">
+        <h3 class="region-name">Closing soon</h3>
+        <ul class="ops">
+          {closingSoon.map((o) => (
+            <li class="op">
+              <a class="op-link" href={`/opportunity/${o.id}`}>
+                <span class="eyebrow">Deadline {o.deadline}</span>
+                <span class="op-title">{o.title}</span>
+                <span class="muted">{o.organizer} · {o.city}, {o.country}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
 
     {regions.map((region) => {
       const items = OPPORTUNITIES.filter((o) => o.region === region);
