@@ -1,0 +1,109 @@
+---
+import Base from '../../layouts/Base.astro';
+import { OPPORTUNITIES } from '../../data/calendar.ts';
+const site = 'https://artempiremj.com';
+const kindLabel: Record<string, string> = {
+  'open-call': 'Open call', residency: 'Residency', grant: 'Grant', fair: 'Fair', biennial: 'Biennial', prize: 'Prize',
+};
+const items = [...OPPORTUNITIES].sort((a, b) => (a.title < b.title ? -1 : 1));
+const itemList = {
+  '@context': 'https://schema.org', '@type': 'ItemList',
+  name: 'The Global Art Calendar, in full',
+  numberOfItems: items.length,
+  itemListElement: items.map((o, i) => ({ '@type': 'ListItem', position: i + 1, name: o.title, url: `${site}/opportunity/${o.id}` })),
+};
+---
+<Base path="/calendar" title="The Global Art Calendar, in full"
+  description="Search and filter every open call, residency, grant, fair, and biennial on the Global Art Calendar, by type, region, and deadline.">
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(itemList)}</script>`} />
+
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="eyebrow">The Global Art Calendar</p>
+    <h1>Find anything that is open.</h1>
+    <p class="lede prose">Every opportunity on the calendar, in one place. Search it, or narrow by
+      type, region, and deadline. Dates are confirmed before they are listed.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 0.5rem 1rem;">
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search title, place, or organiser" aria-label="Search the calendar" />
+      <select id="f-type" aria-label="Filter by type">
+        <option value="">All types</option>
+        {Object.entries(kindLabel).map(([v, l]) => <option value={v}>{l}</option>)}
+      </select>
+      <select id="f-region" aria-label="Filter by region">
+        <option value="">All regions</option>
+        <option value="Africa">Africa</option><option value="Europe">Europe</option>
+        <option value="Americas">Americas</option><option value="Asia/Middle East">Asia and the Middle East</option>
+      </select>
+      <select id="f-deadline" aria-label="Filter by deadline">
+        <option value="">Any deadline</option>
+        <option value="dated">Has a confirmed deadline</option>
+        <option value="rolling">Rolling or window</option>
+      </select>
+    </div>
+    <p class="count muted" id="count">{items.length} open</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 0 3rem;">
+    <ul class="ops" id="list">
+      {items.map((o) => (
+        <li class="op" data-type={o.kind} data-region={o.region}
+            data-deadline={o.verified && o.deadline ? 'dated' : 'rolling'}
+            data-text={`${o.title} ${o.organizer} ${o.city} ${o.country} ${o.summary}`.toLowerCase()}>
+          <a href={`/opportunity/${o.id}`}>
+            <span class="eyebrow">{kindLabel[o.kind]} · {o.region}</span>
+            <span class="op-title">{o.title}</span>
+            <span class="muted">{o.organizer} · {o.city}, {o.country}</span>
+            <span class="muted">{o.verified && o.deadline ? `Deadline ${o.deadline}` : o.window}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="empty muted" id="empty" hidden>Nothing matches that yet. Try a wider search, or
+      <a href="/submit">tell us what you are looking for</a>.</p>
+  </section>
+
+  <style>
+    .filters { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 0.6rem; }
+    @media (max-width: 760px) { .filters { grid-template-columns: 1fr 1fr; } }
+    .filters input, .filters select { padding: 0.65em 0.8em; border: 1px solid var(--line); border-radius: 2px; font-family: var(--sans); font-size: 0.95rem; background: var(--paper); }
+    .count { margin: 0.8rem 0 0; font-family: var(--sans); font-size: 0.85rem; }
+    .ops { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .op { border: 1px solid var(--line); border-radius: 3px; background: var(--paper); }
+    .op a { display: grid; gap: 0.25rem; padding: 1rem; text-decoration: none; }
+    .op:hover { border-color: var(--warm); }
+    .op-title { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; }
+    .op[hidden] { display: none; }
+  </style>
+
+  <script>
+    const q = document.getElementById('q') as HTMLInputElement;
+    const fType = document.getElementById('f-type') as HTMLSelectElement;
+    const fRegion = document.getElementById('f-region') as HTMLSelectElement;
+    const fDeadline = document.getElementById('f-deadline') as HTMLSelectElement;
+    const list = document.getElementById('list') as HTMLElement;
+    const count = document.getElementById('count') as HTMLElement;
+    const empty = document.getElementById('empty') as HTMLElement;
+    const ops = Array.from(list.querySelectorAll('.op')) as HTMLElement[];
+
+    function apply() {
+      const text = q.value.trim().toLowerCase();
+      const t = fType.value, r = fRegion.value, d = fDeadline.value;
+      let shown = 0;
+      for (const op of ops) {
+        const ok = (!t || op.dataset.type === t)
+          && (!r || op.dataset.region === r)
+          && (!d || op.dataset.deadline === d)
+          && (!text || (op.dataset.text || '').includes(text));
+        op.hidden = !ok;
+        if (ok) shown++;
+      }
+      count.textContent = `${shown} open`;
+      empty.hidden = shown !== 0;
+    }
+    [q, fType, fRegion, fDeadline].forEach((el) => {
+      el.addEventListener('input', apply); el.addEventListener('change', apply);
+    });
+  </script>
+</Base>
