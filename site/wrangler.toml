@@ -7,3 +7,8 @@ compatibility_date = "2026-01-01"
 binding = "DB"
 database_name = "artempiremj"
 database_id = "d7cc2c09-3bcd-4af4-8fcc-fe31df71a442"
+
+# Binds R2 so uploads (artist portfolios, listing photos) get env.UPLOADS.
+[[r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "artempiremj-uploads"
