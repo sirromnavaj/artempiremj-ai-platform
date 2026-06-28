@@ -58,6 +58,7 @@ const nav = [
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -74,7 +75,10 @@ const nav = [
   <body>
     <header class="masthead">
       <div class="wrap masthead-row">
-        <a class="mark" href="/">ArtempireMJ</a>
+        <a class="mark" href="/">
+          <img class="mark-logo" src="/logo-mark.svg" alt="" width="34" height="34" />
+          <span>ArtempireMJ</span>
+        </a>
         <nav class="nav" aria-label="Primary">
           {nav.map((n) => <a href={n.href} aria-current={n.href === path ? 'page' : undefined}>{n.label}</a>)}
         </nav>
@@ -108,10 +112,12 @@ const nav = [
     <style>
       .masthead { border-bottom: 1px solid var(--line); background: var(--cream); }
       .masthead-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-block: 1.1rem; flex-wrap: wrap; }
-      .mark { font-family: var(--display); font-weight: 600; font-size: 1.5rem; letter-spacing: -0.02em; text-decoration: none; }
+      .mark { font-family: var(--display); font-weight: 600; font-size: 1.5rem; letter-spacing: -0.02em; text-decoration: none; display: inline-flex; align-items: center; gap: 0.55rem; color: var(--ink); }
+      .mark-logo { width: 34px; height: 34px; flex: none; }
+      .masthead { border-bottom: 1px solid var(--line); background: var(--cream); border-top: 3px solid var(--teal); }
       .nav { display: flex; gap: 1.15rem; font-family: var(--sans); font-size: 0.9rem; flex-wrap: wrap; }
       .nav a { text-decoration: none; color: var(--ink-soft); }
-      .nav a[aria-current="page"] { color: var(--ember); }
+      .nav a[aria-current="page"] { color: var(--orange); font-weight: 600; }
       .footer { border-top: 1px solid var(--line); background: var(--cream); margin-top: 4rem; }
       .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; padding-block: 2.5rem; }
       @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; } }

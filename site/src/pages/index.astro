@@ -3,6 +3,13 @@ import Base from '../layouts/Base.astro';
 import Newsletter from '../components/Newsletter.astro';
 import { OPPORTUNITIES, eventSchema, type Region } from '../data/calendar.ts';
 import { ARTICLES } from '../data/articles.ts';
+import { EVENTS } from '../data/events.ts';
+const citySlug = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const cityMap = new Map<string, string>();
+for (const o of OPPORTUNITIES) cityMap.set(o.city, citySlug(o.city));
+for (const e of EVENTS) cityMap.set(e.city, citySlug(e.city));
+const cities = [...cityMap.entries()].map(([name, slug]) => ({ name, slug })).sort((a, b) => (a.name < b.name ? -1 : 1));
+const featuredCities = ['Lagos', 'Cape Town', 'Venice', 'Dakar', 'London', 'Johannesburg'].map((n) => ({ name: n, slug: citySlug(n) }));
 
 const regions: Region[] = ['Africa', 'Europe', 'Americas', 'Asia/Middle East'];
 const closingSoon = OPPORTUNITIES
@@ -58,6 +65,25 @@ const itemList = {
       to find the next door, free.</p>
     <p class="muted">FNB Art Joburg. Photograph by Khethiwe Tracy Gumede, ArtempireMJ correspondent in South Africa.</p>
   </section>
+
+  <section class="wrap city-pick">
+    <p class="eyebrow">Going somewhere?</p>
+    <h2>See what is on, by city.</h2>
+    <form id="city-form" class="city-form">
+      <input id="city-input" list="city-list" placeholder="Type a city, like Lagos or Venice" aria-label="City" autocomplete="off" />
+      <datalist id="city-list">{cities.map((c) => <option value={c.name}></option>)}</datalist>
+      <button class="btn" type="submit">See what is on</button>
+    </form>
+    <p class="muted city-jump">Or jump to {featuredCities.map((c, i) => (<span><a href={`/city/${c.slug}`}>{c.name}</a>{i < featuredCities.length - 1 ? ' · ' : ''}</span>))}</p>
+  </section>
+  <script define:vars={{ cityData: Object.fromEntries(cities.map((c) => [c.name.toLowerCase(), c.slug])) }}>
+    const f = document.getElementById('city-form');
+    f && f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const v = (document.getElementById('city-input').value || '').trim().toLowerCase();
+      location.href = cityData[v] ? '/city/' + cityData[v] : '/calendar';
+    });
+  </script>
 
   <section class="wrap calendar">
     <div class="cal-head">
@@ -193,6 +219,10 @@ const itemList = {
     .hero-eyebrow { color: var(--warm-light); }
     .hero-intro { padding-block: 1.7rem 0.5rem; }
     .hero-intro .lede { max-width: 60ch; }
+    .city-pick { padding-block: 1.6rem; border-top: 1px solid var(--line); }
+    .city-form { display: flex; gap: 0.6rem; margin-top: 0.8rem; max-width: 40rem; flex-wrap: wrap; }
+    .city-form input { flex: 1; min-width: 14rem; padding: 0.75em 1em; border: 1px solid var(--line); border-radius: 3px; font-family: var(--sans); font-size: 1rem; background: var(--paper); }
+    .city-jump { margin-top: 0.8rem; }
     .calendar { padding-block: 2rem; }
     .cal-head { border-top: 2px solid var(--ink); padding-top: 1.2rem; margin-bottom: 1.5rem; }
     .region { margin-bottom: 2.2rem; }
