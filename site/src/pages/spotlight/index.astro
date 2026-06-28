@@ -1,7 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { SERIES, WEEKLY } from '../../data/series.ts';
+import { ARTICLES } from '../../data/articles.ts';
 const series = SERIES.filter((s) => s.department === 'Spotlight');
+const stories = ARTICLES.filter((a) => a.department === 'Spotlight');
 ---
 <Base path="/spotlight" title="Spotlight" description="News, analysis, and artist features through the maker’s eye. The World column, Money Stories, Art + Finance, Ink, and more.">
   <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
@@ -9,6 +11,19 @@ const series = SERIES.filter((s) => s.department === 'Spotlight');
     <h1>Spotlight</h1>
     <p class="lede prose">News, analysis, and artist features through the maker’s eye. When something
       happens in the world, Spotlight finds the artist who carries it and tells it through them.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem;">
+    <h2>Latest</h2>
+    <ul class="series">
+      {stories.map((a) => (
+        <li class="s">
+          <span class="eyebrow">{a.series}</span>
+          <a class="s-name" href={`/story/${a.slug}`} style="text-decoration:none;">{a.title}</a>
+          <span class="muted">{a.dek}</span>
+        </li>
+      ))}
+    </ul>
   </section>
 
   <section class="wrap" style="padding-block: 1rem;">

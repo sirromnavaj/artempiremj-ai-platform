@@ -37,7 +37,7 @@ const rotation = [
     <h2>On the radar now</h2>
     <ul class="ops">
       {OPPORTUNITIES.map((o) => (
-        <li class="op"><a href={o.url} rel="noopener">
+        <li class="op"><a href={`/opportunity/${o.id}`}>
           <span class="eyebrow">{o.kind}</span>
           <span class="op-title">{o.title}</span>
           <span class="muted">{o.organizer} · {o.city}, {o.country}</span>

@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Newsletter from '../components/Newsletter.astro';
 import { OPPORTUNITIES, eventSchema, type Region } from '../data/calendar.ts';
+import { ARTICLES } from '../data/articles.ts';
 
 const regions: Region[] = ['Africa', 'Europe', 'Americas', 'Asia/Middle East'];
 const kindLabel: Record<string, string> = {
@@ -49,7 +50,7 @@ const schema = OPPORTUNITIES.map(eventSchema);
           <ul class="ops">
             {items.map((o) => (
               <li class="op">
-                <a class="op-link" href={o.url} rel="noopener">
+                <a class="op-link" href={`/opportunity/${o.id}`}>
                   <span class="eyebrow">{kindLabel[o.kind]}</span>
                   <span class="op-title">{o.title}</span>
                   <span class="muted">{o.organizer} · {o.city}, {o.country}</span>
@@ -68,6 +69,20 @@ const schema = OPPORTUNITIES.map(eventSchema);
       are listed. <a href="/discover">See how DISCOVER works</a>, or
       <a href="/sponsor">list an opportunity</a>.
     </p>
+  </section>
+
+  <section class="wrap latest">
+    <h2>From the floor</h2>
+    <div class="story-grid">
+      {ARTICLES.map((a) => (
+        <a class="story" href={`/story/${a.slug}`}>
+          {a.image && <img src={a.image} alt={a.imageAlt} loading="lazy" decoding="async" />}
+          <span class="eyebrow">{a.series}</span>
+          <span class="story-title">{a.title}</span>
+          <span class="muted">{a.dek}</span>
+        </a>
+      ))}
+    </div>
   </section>
 
   <section class="wrap convert">
@@ -118,6 +133,16 @@ const schema = OPPORTUNITIES.map(eventSchema);
     .op-summary { font-size: 0.98rem; }
     .op-when { margin-top: 0.3rem; }
     .cal-note { border-top: 1px solid var(--line); padding-top: 1.2rem; }
+    .latest { padding-block: 2rem 1rem; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1rem; }
+    @media (max-width: 720px) { .story-grid { grid-template-columns: 1fr; } }
+    .story { display: grid; gap: 0.35rem; text-decoration: none; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--paper); }
+    .story img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .story .eyebrow, .story .story-title, .story .muted { padding-inline: 1rem; }
+    .story .eyebrow { padding-top: 1rem; }
+    .story .muted { padding-bottom: 1rem; }
+    .story-title { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; }
+    .story:hover { border-color: var(--ember); }
     .convert { padding-block: 1.5rem; }
     .convert-card { background: var(--ink); color: var(--cream); border-radius: 4px; padding: clamp(1.5rem, 5vw, 2.8rem); }
     .convert-card h2 { color: var(--cream); margin: 0.2rem 0 0.6rem; }

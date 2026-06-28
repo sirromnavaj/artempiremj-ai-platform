@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import { OPPORTUNITIES, type Opportunity } from '../../data/calendar.ts';
+
+export function getStaticPaths() {
+  return OPPORTUNITIES.map((o) => ({ params: { id: o.id }, props: { o } }));
+}
+const { o } = Astro.props as { o: Opportunity };
+const site = 'https://artempiremj.com';
+const path = `/opportunity/${o.id}`;
+const kindLabel: Record<string, string> = {
+  'open-call': 'Open call', residency: 'Residency', grant: 'Grant',
+  fair: 'Fair', biennial: 'Biennial', prize: 'Prize',
+};
+const when = o.verified && o.deadline ? `Deadline ${o.deadline}` : (o.window ?? 'Dates via DISCOVER');
+
+// One Event entity per URL (AEO: this page IS the clean answer to "is X open / when").
+const event: Record<string, unknown> = {
+  '@context': 'https://schema.org', '@type': 'Event',
+  '@id': site + path + '#event',
+  name: o.title, description: o.summary,
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: { '@type': 'Place', name: o.organizer,
+    address: { '@type': 'PostalAddress', addressLocality: o.city, addressCountry: o.country } },
+  organizer: { '@type': 'Organization', name: o.organizer, url: o.url },
+  url: o.url,
+};
+if (o.verified && o.start) event.startDate = o.start;
+if (o.verified && o.deadline) event.endDate = o.deadline;
+const breadcrumb = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Calendar', item: site + '/' },
+    { '@type': 'ListItem', position: 2, name: 'DISCOVER', item: site + '/discover' },
+    { '@type': 'ListItem', position: 3, name: o.title, item: site + path },
+  ],
+};
+const meta = `${o.title}: ${kindLabel[o.kind]} from ${o.organizer} in ${o.city}, ${o.country}. ${o.summary}`;
+---
+<Base path={path} title={o.title} description={meta}>
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(event)}</script>`} />
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>`} />
+
+  <article class="wrap prose" style="padding-block: clamp(2rem,6vw,3.5rem) 2rem;">
+    <p class="muted" style="font-family:var(--sans);font-size:0.85rem;">
+      <a href="/">Calendar</a> · <a href="/discover">DISCOVER</a> · {o.region}
+    </p>
+    <p class="eyebrow">{kindLabel[o.kind]}</p>
+    <h1>{o.title}</h1>
+    <p class="lede">{o.summary}</p>
+
+    <table class="facts">
+      <tbody>
+        <tr><th>Who</th><td>{o.organizer}</td></tr>
+        <tr><th>Where</th><td>{o.city}, {o.country} ({o.region})</td></tr>
+        <tr><th>When</th><td>{when}</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin:1.5rem 0;"><a class="btn" href={o.url} rel="noopener">Go to {o.organizer}</a></p>
+    {!o.verified && <p class="muted">Dates for this one are confirmed by DISCOVER before they are published. Check the organiser for the live deadline.</p>}
+
+    <hr />
+    <p class="muted">Want these before they close? The week in world art, once a week, free.</p>
+    <Newsletter variant="inline" source="opportunity" />
+  </article>
+
+  <style>
+    .facts { border-collapse: collapse; margin: 1.5rem 0; font-family: var(--sans); }
+    .facts th { text-align: left; padding: 0.5rem 1.5rem 0.5rem 0; color: var(--warm); font-weight: 600; vertical-align: top; }
+    .facts td { padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
+  </style>
+</Base>

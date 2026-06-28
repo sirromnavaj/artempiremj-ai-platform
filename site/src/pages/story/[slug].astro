@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import { ARTICLES, type Article } from '../../data/articles.ts';
+
+export function getStaticPaths() {
+  return ARTICLES.map((a) => ({ params: { slug: a.slug }, props: { a } }));
+}
+const { a } = Astro.props as { a: Article };
+const site = 'https://artempiremj.com';
+const path = `/story/${a.slug}`;
+const article = {
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: a.title, description: a.dek,
+  datePublished: a.date, dateModified: a.date,
+  image: a.image ? site + a.image : undefined,
+  author: a.byline ? { '@type': 'Person', name: a.byline }
+                    : { '@type': 'Organization', name: 'ArtempireMJ' },
+  publisher: { '@type': 'Organization', name: 'ArtempireMJ', url: site },
+  articleSection: a.series,
+  mainEntityOfPage: site + path,
+};
+---
+<Base path={path} title={a.title} description={a.dek}>
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(article)}</script>`} />
+
+  <article class="wrap" style="padding-block: clamp(2rem,6vw,3.5rem) 2rem; max-width: 46rem;">
+    <p class="muted" style="font-family:var(--sans);font-size:0.85rem;">
+      <a href="/spotlight">Spotlight</a> · {a.series}
+    </p>
+    <p class="eyebrow">{a.series}</p>
+    <h1>{a.title}</h1>
+    <p class="lede">{a.dek}</p>
+    {a.byline && <p class="muted">By {a.byline}</p>}
+
+    {a.image && (
+      <figure style="margin:1.5rem 0;">
+        <img src={a.image} alt={a.imageAlt} width="1200" height="800" loading="eager" decoding="async"
+          style="width:100%;height:auto;border-radius:4px;aspect-ratio:3/2;object-fit:cover;" />
+        {a.credit && <figcaption class="muted" style="margin-top:0.5rem;font-size:0.85rem;">{a.credit}</figcaption>}
+      </figure>
+    )}
+
+    <div class="prose body">
+      {a.body.map((p) => <p>{p}</p>)}
+    </div>
+
+    <hr />
+    <p class="muted">More from the floor, once a week. Free.</p>
+    <Newsletter variant="inline" source="story" />
+  </article>
+
+  <style>
+    .body p { margin: 0 0 1.1rem; font-size: 1.12rem; line-height: 1.7; }
+  </style>
+</Base>
