@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+const budgets = [
+  ['waiver', 'I cannot pay right now'],
+  ['5', 'Around 5'],
+  ['15', 'Around 15'],
+  ['30', 'Around 30'],
+  ['60', 'Around 60'],
+];
+---
+<Base path="/folio-review" title="Folio Review" description="Send your work and get an honest, specific review from someone who looks at art for a living. Pay what fits, wherever you live. A review never buys a place on the calendar.">
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="eyebrow">For artists</p>
+    <h1>A close read of your work.</h1>
+    <p class="lede prose">Send your work and get an honest, specific review from someone who looks at
+      art for a living. You keep the read whether or not anything else follows. Pay what fits where
+      you live, and if that is nothing right now, say so.</p>
+    <p class="muted prose">A review is a review. It never buys a place on the calendar or in a
+      feature. Those stay free, and earned. This is here only because a real read can move your work
+      forward.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem;">
+    <h2>What you get</h2>
+    <p class="muted prose">Written feedback on the work itself: what is landing, what is not yet, and
+      the next move a working artist would make. Specific, named, useful. Not a grade, not a brochure.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem 3rem; max-width: 44rem;">
+    <h2>Request a review</h2>
+    <form id="rev" action="/api/submit" method="post" class="form">
+      <input type="text" name="bot-field" tabindex="-1" autocomplete="off" class="bot" aria-hidden="true" />
+      <input type="hidden" name="series" value="folio-review" />
+      <label>Your name<input name="name" required /></label>
+      <label>Email<input name="email" type="email" required /></label>
+      <label>Your medium
+        <select name="medium" required>
+          <option value="" disabled selected>Choose one</option>
+          {['Painting','Photography','Sculpture','Music','Tattoo','Writing','Design','Film','Craft','Other'].map((m) => <option value={m.toLowerCase()}>{m}</option>)}
+        </select>
+      </label>
+      <label>A link to the work you want read<input name="links" required placeholder="portfolio or social link" /></label>
+      <label>What fits your budget
+        <select name="location">
+          {budgets.map(([v, l]) => <option value={`budget:${v}`}>{l}</option>)}
+        </select>
+      </label>
+      <label>What do you want feedback on
+        <textarea name="story" rows="5" required placeholder="The work, the direction, a specific piece? Tell us where to look."></textarea>
+      </label>
+      <button class="btn" type="submit">Request a review</button>
+      <p class="msg" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <style>
+    .form { display: grid; gap: 1rem; }
+    .form label { display: grid; gap: 0.35rem; font-family: var(--sans); font-size: 0.9rem; color: var(--ink-soft); }
+    .form input, .form select, .form textarea { padding: 0.7em 0.9em; border: 1px solid var(--line); border-radius: 2px; font-family: var(--sans); font-size: 1rem; background: var(--paper); }
+    .form textarea { font-family: var(--serif); }
+    .bot { position: absolute; left: -9999px; }
+    .msg { margin: 0; font-family: var(--sans); }
+    .msg[data-state="ok"] { color: var(--warm); }
+    .msg[data-state="err"] { color: var(--ember); }
+  </style>
+
+  <script>
+    const f = document.getElementById('rev') as HTMLFormElement;
+    f?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = f.querySelector('.msg') as HTMLElement;
+      const btn = f.querySelector('button') as HTMLButtonElement;
+      btn.disabled = true; msg.textContent = 'Sending...'; msg.removeAttribute('data-state');
+      try {
+        const res = await fetch(f.action, { method: 'POST', body: new FormData(f) });
+        if (!res.ok) throw new Error();
+        f.reset();
+        msg.textContent = 'Got it. We will be in touch about your review, and about what fits your budget.';
+        msg.setAttribute('data-state', 'ok');
+      } catch {
+        msg.textContent = 'That did not send. Try again in a moment.';
+        msg.setAttribute('data-state', 'err');
+      } finally { btn.disabled = false; }
+    });
+  </script>
+</Base>
