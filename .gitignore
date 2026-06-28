@@ -54,3 +54,8 @@ coverage/
 # Misc
 .firebase/
 .vercel/
+
+# Internal strategy/research lives in the substrate, never the public site repo
+08_maintain/
+site/08_maintain/
+**/runbooks/
