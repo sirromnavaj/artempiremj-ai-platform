@@ -2,9 +2,9 @@
 // fall back to the plain sites (still useful as "getting there" links, just no commission yet).
 // Apply: kenya-airways.com/en/affiliate-program · travelpayouts.com · partner.getyourguide.com
 export const AFFILIATE = {
-  kenyaAirways: '',     // Kenya Airways affiliate ID / link param
-  travelpayouts: '',    // Travelpayouts marker (flights + hotels)
-  getYourGuide: '',     // GetYourGuide partner_id (experiences)
+  kenyaAirways: '',           // Kenya Airways affiliate ID / link param (pending approval)
+  travelpayouts: '544313',    // Travelpayouts / Trip.com marker (flights + hotels) — live
+  getYourGuide: '',           // GetYourGuide partner_id (experiences, pending approval)
 };
 
 const enc = (s: string) => encodeURIComponent(s);
