@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { SERIES, WEEKLY } from '../../data/series.ts';
 import { ARTICLES } from '../../data/articles.ts';
+import Newsletter from '../../components/Newsletter.astro';
 const series = SERIES.filter((s) => s.department === 'Spotlight');
 const stories = ARTICLES.filter((a) => a.department === 'Spotlight');
 ---
@@ -11,6 +12,17 @@ const stories = ARTICLES.filter((a) => a.department === 'Spotlight');
     <h1>Spotlight</h1>
     <p class="lede prose">News, analysis, and artist features through the maker’s eye. When something
       happens in the world, Spotlight finds the artist who carries it and tells it through them.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem 1.5rem;">
+    <div class="collector panel-dark">
+      <p class="eyebrow">Art + Finance</p>
+      <h2>For the people who move money in art.</h2>
+      <p class="prose">The art market's economics, read by the artists who live inside it. Where capital
+        is placing its next bet, which prizes are repricing whose work, what the new money is buying
+        before the market catches up. The intelligence tier is coming. Get the edge first.</p>
+      <div style="max-width:30rem;margin-top:1rem;"><Newsletter variant="inline" source="art-finance" /></div>
+    </div>
   </section>
 
   <section class="wrap" style="padding-block: 1rem;">
@@ -56,5 +68,7 @@ const stories = ARTICLES.filter((a) => a.department === 'Spotlight');
     .week { border-collapse: collapse; margin-top: 1rem; font-family: var(--sans); }
     .week th { text-align: left; padding: 0.5rem 1.5rem 0.5rem 0; color: var(--warm); font-weight: 600; }
     .week td { padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
+    .collector { border-radius: 6px; padding: clamp(1.6rem, 4vw, 2.6rem); box-shadow: 0 1px 40px rgba(20,12,5,0.18); }
+    .collector .prose { max-width: 60ch; }
   </style>
 </Base>
