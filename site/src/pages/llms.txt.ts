@@ -5,7 +5,7 @@ export async function GET() {
   const verified = OPPORTUNITIES.filter((o) => o.verified).length;
   const body = `# ArtempireMJ
 
-> The world, told through artists. ArtempireMJ is a global art institution that reports
+> The world, told through artists. ArtempireMJ reports
 > world events and culture through the artists who live inside them, and keeps the Global
 > Art Calendar: open calls, residencies, grants, fairs, and biennials worldwide, gathered
 > for artists and verified before they are listed.
