@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import { ARTICLES } from '../../data/articles.ts';
+const stories = ARTICLES.filter((a) => a.series === 'The World');
+---
+<Base path="/world" title="The World" description="The world, told through its artists. When something happens in the world, we find the artist who carries the story and tell it through them.">
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="eyebrow">The World</p>
+    <h1>The world, through its artists.</h1>
+    <p class="lede prose">Something happens in the world. A border moves, a currency falls, a city
+      remakes itself, a generation decides who it is. We find the artist who carries that story, and
+      we tell it through them. The world is the subject. The artist is the lens.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem 3rem;">
+    {stories.length > 0 ? (
+      <ul class="stories">
+        {stories.map((a) => (
+          <li class="s">
+            {a.image && <a href={`/story/${a.slug}`}><img src={a.image} alt={a.imageAlt} loading="lazy" decoding="async" /></a>}
+            <span class="eyebrow">{a.series}{a.byline ? ` · ${a.byline}` : ''}</span>
+            <a class="s-title" href={`/story/${a.slug}`}>{a.title}</a>
+            <span class="muted">{a.dek}</span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="muted">The first dispatches are on their way from the correspondents.</p>
+    )}
+
+    <p class="muted" style="border-top:1px solid var(--line); padding-top:1.4rem; margin-top:2rem;">
+      Your work carries a story the world should see? <a href="/submit">Send it to us.</a>
+    </p>
+  </section>
+
+  <style>
+    .stories { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 720px) { .stories { grid-template-columns: 1fr; } }
+    .s { display: grid; gap: 0.4rem; }
+    .s img { width: 100%; height: 260px; object-fit: cover; border-radius: 4px; display: block; }
+    .s-title { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; text-decoration: none; color: var(--ink); }
+    .s-title:hover { color: var(--ember); }
+  </style>
+</Base>

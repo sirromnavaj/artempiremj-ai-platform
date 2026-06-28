@@ -9,7 +9,7 @@ import '../styles/global.css';
 import Newsletter from '../components/Newsletter.astro';
 const {
   title = 'ArtempireMJ',
-  description = 'The world, told through artists. A global art institution: the Calendar of open calls, fairs, residencies and grants; Spotlight features through the maker’s eye; and Art Itineraries for the culturally-curious traveller.',
+  description = 'The world, told through its artists. A news institution reporting world events and culture through the makers who carry them, and the Global Art Calendar of open calls, fairs, residencies and grants worldwide, free for artists.',
   path = '/',
 } = Astro.props;
 const site = 'https://artempiremj.com';
@@ -41,12 +41,12 @@ const org = {
   ],
 };
 const nav = [
+  { href: '/world', label: 'The World' },
   { href: '/', label: 'Calendar' },
   { href: '/spotlight', label: 'Spotlight' },
-  { href: '/artists', label: 'Artists' },
   { href: '/discover', label: 'DISCOVER' },
   { href: '/itineraries', label: 'Art Itineraries' },
-  { href: '/studio', label: 'The Studio' },
+  { href: '/artists', label: 'Artists' },
   { href: '/submit', label: 'Submit' },
 ];
 ---
