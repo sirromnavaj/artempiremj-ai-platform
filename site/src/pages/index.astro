@@ -66,6 +66,13 @@ const itemList = {
     <p class="muted">FNB Art Joburg. Photograph by Khethiwe Tracy Gumede, ArtempireMJ correspondent in South Africa.</p>
   </section>
 
+  <section class="wrap trust-bar">
+    <span class="tb"><strong>Every date verified</strong> before it is listed</span>
+    <span class="tb"><strong>Reported from the floor</strong> by our correspondents</span>
+    <span class="tb"><strong>Free</strong> for the artists it serves</span>
+    <span class="tb"><strong>One email a week</strong>, the world in art</span>
+  </section>
+
   <section class="wrap city-pick">
     <p class="eyebrow">Going somewhere?</p>
     <h2>See what is on, by city.</h2>
@@ -128,7 +135,7 @@ const itemList = {
                   <span class="op-title">{o.title}</span>
                   <span class="muted">{o.organizer} · {o.city}, {o.country}</span>
                   <span class="op-summary">{o.summary}</span>
-                  <span class="muted op-when">{o.verified && o.deadline ? `Deadline ${o.deadline}` : o.window}</span>
+                  <span class="muted op-when">{o.verified && o.deadline ? `Deadline ${o.deadline}` : o.window}{o.verified && <span class="verified" style="margin-left:0.6rem;">Verified</span>}</span>
                 </a>
               </li>
             ))}
@@ -223,6 +230,12 @@ const itemList = {
     .city-form { display: flex; gap: 0.6rem; margin-top: 0.8rem; max-width: 40rem; flex-wrap: wrap; }
     .city-form input { flex: 1; min-width: 14rem; padding: 0.75em 1em; border: 1px solid var(--line); border-radius: 3px; font-family: var(--sans); font-size: 1rem; background: var(--paper); }
     .city-jump { margin-top: 0.8rem; }
+    .trust-bar { display: flex; flex-wrap: wrap; gap: 0.5rem 1.6rem; padding-block: 1rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-family: var(--sans); font-size: 0.86rem; color: var(--muted); }
+    .tb { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .tb::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); flex: none; }
+    .tb strong { color: var(--ink); font-weight: 600; }
+    .verified { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); font-weight: 700; display: inline-flex; align-items: center; gap: 0.2rem; }
+    .verified::before { content: '✓'; color: var(--orange); }
     .calendar { padding-block: 2rem; }
     .cal-head { border-top: 2px solid var(--ink); padding-top: 1.2rem; margin-bottom: 1.5rem; }
     .region { margin-bottom: 2.2rem; }
