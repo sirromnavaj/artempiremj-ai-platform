@@ -4,7 +4,7 @@
 export const AFFILIATE = {
   kenyaAirways: '',           // Kenya Airways affiliate ID / link param (pending approval)
   travelpayouts: '544313',    // Travelpayouts / Trip.com marker (flights + hotels) — live
-  getYourGuide: '',           // GetYourGuide partner_id (experiences, pending approval)
+  getYourGuide: 'JQQKLMG',    // GetYourGuide partner_id (tours & experiences) — live
 };
 
 const enc = (s: string) => encodeURIComponent(s);
@@ -21,7 +21,7 @@ export function staysLink(city: string): string {
 }
 export function experiencesLink(city: string): string {
   return AFFILIATE.getYourGuide
-    ? `https://www.getyourguide.com/s/?q=${enc(city)}&partner_id=${AFFILIATE.getYourGuide}`
+    ? `https://www.getyourguide.com/s/?q=${enc(city)}&partner_id=${AFFILIATE.getYourGuide}&cmp=share_to_earn`
     : `https://www.getyourguide.com/s/?q=${enc(city)}`;
 }
 // True once at least one programme is wired, so we only show the section when it can earn.
