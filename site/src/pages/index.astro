@@ -29,21 +29,25 @@ const itemList = {
   <set:html set:html={`<script type="application/ld+json">${JSON.stringify(schema)}</script>`} />
   <set:html set:html={`<script type="application/ld+json">${JSON.stringify(itemList)}</script>`} />
 
-  <section class="hero wrap">
-    <h1>The world, told through artists.</h1>
-    <p class="lede prose">
-      Own history now. The banners said it across the floor at FNB Art Joburg, where fifteen African
-      countries spent a week arguing, in paint and photographs, that the record of a place belongs to
-      the people who live it. The same artists open the Global Art Calendar on Monday to find the next
-      door, free.
-    </p>
+  <section class="hero-feature">
+    <img class="hero-bg" src="/images/khethiwe_fnb_artjoburg_aerial.jpg"
+         alt="FNB Art Joburg fair floor, seen from above"
+         width="1600" height="900" loading="eager" decoding="async" />
+    <div class="hero-cap">
+      <div class="wrap">
+        <p class="eyebrow hero-eyebrow">A correspondent on the floor</p>
+        <h1>The world, told through artists.</h1>
+      </div>
+    </div>
   </section>
 
-  <figure class="hero-img">
-    <img src="/images/khethiwe_fnb_artjoburg_aerial.jpg" alt="FNB Art Joburg fair floor, seen from above"
-         width="1600" height="900" loading="eager" decoding="async" />
-    <figcaption class="muted">FNB Art Joburg. Photograph by Khethiwe Tracy Gumede, ArtempireMJ correspondent in South Africa.</figcaption>
-  </figure>
+  <section class="wrap hero-intro">
+    <p class="lede prose">Own history now. The banners said it across the floor at FNB Art Joburg, where
+      fifteen African countries spent a week arguing, in paint and photographs, that the record of a
+      place belongs to the people who live it. The same artists open the Global Art Calendar on Monday
+      to find the next door, free.</p>
+    <p class="muted">FNB Art Joburg. Photograph by Khethiwe Tracy Gumede, ArtempireMJ correspondent in South Africa.</p>
+  </section>
 
   <section class="wrap calendar">
     <div class="cal-head">
@@ -157,10 +161,15 @@ const itemList = {
   </section>
 
   <style>
-    .hero { padding-block: clamp(2.5rem, 7vw, 4.5rem) 1rem; }
-    .hero-img { margin: 1.5rem auto 0; max-width: 72rem; padding-inline: var(--pad); }
-    .hero-img img { width: 100%; height: auto; border-radius: 4px; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
-    .hero-img figcaption { margin-top: 0.6rem; font-size: 0.85rem; }
+    .hero-feature { position: relative; }
+    .hero-bg { width: 100%; height: min(66vh, 600px); min-height: 360px; object-fit: cover; object-position: 50% 40%; display: block; }
+    .hero-cap { position: absolute; inset: 0; display: flex; align-items: flex-end;
+      background: linear-gradient(to top, rgba(20,12,5,0.88) 0%, rgba(20,12,5,0.32) 42%, rgba(20,12,5,0.04) 70%, transparent 100%); }
+    .hero-cap .wrap { width: 100%; padding-bottom: clamp(1.6rem, 4vw, 2.8rem); }
+    .hero-cap h1 { color: var(--ivory); margin: 0.25rem 0 0; max-width: 20ch; text-shadow: 0 1px 30px rgba(0,0,0,0.45); }
+    .hero-eyebrow { color: var(--warm-light); }
+    .hero-intro { padding-block: 1.7rem 0.5rem; }
+    .hero-intro .lede { max-width: 60ch; }
     .calendar { padding-block: 2rem; }
     .cal-head { border-top: 2px solid var(--ink); padding-top: 1.2rem; margin-bottom: 1.5rem; }
     .region { margin-bottom: 2.2rem; }
@@ -177,7 +186,7 @@ const itemList = {
     .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1rem; }
     @media (max-width: 720px) { .story-grid { grid-template-columns: 1fr; } }
     .story { display: grid; gap: 0.35rem; text-decoration: none; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--paper); }
-    .story img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .story img { width: 100%; height: 300px; object-fit: cover; display: block; }
     .story .eyebrow, .story .story-title, .story .muted { padding-inline: 1rem; }
     .story .eyebrow { padding-top: 1rem; }
     .story .muted { padding-bottom: 1rem; }
