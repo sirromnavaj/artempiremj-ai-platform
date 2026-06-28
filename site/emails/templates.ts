@@ -26,7 +26,7 @@ function shell(title: string, inner: string, preheader = ''): string {
       ${inner}
     </td></tr>
     <tr><td style="padding:18px 8px;border-top:1px solid ${C.line};font-family:${sans};font-size:12px;color:${C.muted};">
-      ArtempireMJ. A global art institution.<br>
+      ArtempireMJ. The world, told through artists.<br>
       <a href="${SITE}" style="color:${C.warm};">artempiremj.com</a>
       &nbsp;·&nbsp; <a href="${SITE}/submit" style="color:${C.warm};">Submit your story</a>
       &nbsp;·&nbsp; <a href="{{unsubscribe_url}}" style="color:${C.muted};">Unsubscribe</a>
@@ -95,4 +95,18 @@ export function partnerReply(): string {
     the travellers, or the collectors, and we will show you exactly where you fit in the work and what it does.</p>
     ${button('How partners reach our audience', SITE + '/sponsor')}
   `, 'Reach artists, travellers, and collectors through ArtempireMJ.');
+}
+
+// 5) Feature reach report — to a featured artist. The real value exchange: we tell them the
+// audience their story reached. Fed by the sends table (recipients per feature). Sent when a
+// featured submitter's story has been distributed, never before there is a real number.
+export function featureReach(name: string, featureTitle: string, featureUrl: string, reach: number): string {
+  return shell('Your story travelled', `
+    <h1 style="font-family:${serif};font-size:24px;margin:0 0 12px;color:${C.ink};">${name}, your story travelled.</h1>
+    <p style="margin:0 0 14px;">We carried <a href="${featureUrl}" style="color:${C.ember};">${featureTitle}</a> to the
+    people who read us, and it reached ${reach.toLocaleString()} of them. They came here to find work like
+    yours, and now they have found it.</p>
+    <p style="margin:0 0 6px;color:${C.muted};font-size:15px;">The page stays up, and people keep arriving at it.</p>
+    ${button('See your feature', featureUrl)}
+  `, `${featureTitle} reached ${reach.toLocaleString()} readers.`);
 }
