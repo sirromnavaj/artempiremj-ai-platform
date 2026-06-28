@@ -21,6 +21,12 @@ const { name, country, opps, events } = Astro.props;
 const MO = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const fmt = (d) => { if (!d) return ''; const [y, m, dd] = d.split('-'); return `${+dd} ${MO[+m - 1]} ${y}`; };
 const kindLabel = { 'open-call': 'Open call', residency: 'Residency', grant: 'Grant', fair: 'Fair', biennial: 'Biennial', prize: 'Prize' };
+// Only cities we have real, honest photography for get a hero image.
+const cityImage: Record<string, { src: string; alt: string; credit: string }> = {
+  'johannesburg': { src: '/images/khethiwe_fnb_artjoburg_aerial.jpg', alt: 'FNB Art Joburg fair floor', credit: 'Khethiwe Tracy Gumede' },
+  'cape-town': { src: '/images/ictaf_southern_guild.jpg', alt: 'The Southern Guild booth at the Investec Cape Town Art Fair', credit: 'ICTAF' },
+};
+const img = cityImage[Astro.params.city];
 ---
 <Base path={`/city/${Astro.params.city}`} title={`Art in ${name}`}
   description={`What is on in ${name}: the fairs, biennials, and museum shows worth a trip, and the open calls, residencies, and grants for artists there.`}>
@@ -30,6 +36,13 @@ const kindLabel = { 'open-call': 'Open call', residency: 'Residency', grant: 'Gr
     <p class="lede prose">Everything ArtempireMJ is tracking in {name}: what to see if you are going,
       and what to apply to if you make the work.</p>
   </section>
+
+  {img && (
+    <figure class="city-hero">
+      <img src={img.src} alt={img.alt} width="1600" height="760" loading="eager" decoding="async" />
+      <figcaption class="muted">{name}. Photograph by {img.credit}.</figcaption>
+    </figure>
+  )}
 
   {events.length > 0 && (
     <section class="wrap" style="padding-block: 1rem;">
@@ -72,5 +85,8 @@ const kindLabel = { 'open-call': 'Open call', residency: 'Residency', grant: 'Gr
     .row:hover { border-color: var(--orange); }
     .r-name { font-family: var(--display); font-weight: 600; font-size: 1.25rem; }
     .r-when { font-family: var(--sans); font-size: 0.85rem; color: var(--ember); font-weight: 600; }
+    .city-hero { margin: 0 auto 1rem; max-width: 72rem; padding-inline: var(--pad); }
+    .city-hero img { width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 4px; display: block; }
+    .city-hero figcaption { margin-top: 0.4rem; font-size: 0.8rem; }
   </style>
 </Base>

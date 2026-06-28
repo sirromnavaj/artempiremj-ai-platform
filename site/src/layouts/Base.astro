@@ -59,6 +59,11 @@ const nav = [
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <script>
+      // Kill any stale service worker / cache from a previous version of the site.
+      if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then((rs) => { for (const r of rs) r.unregister(); });
+      if (typeof caches !== 'undefined' && caches.keys) caches.keys().then((ks) => { for (const k of ks) caches.delete(k); });
+    </script>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />

@@ -13,6 +13,19 @@ const stories = ARTICLES.filter((a) => a.series === 'The World');
       keep. The week's news, in the hands of the people who make its images.</p>
   </section>
 
+  <figure class="world-hero">
+    <img src="/images/khethiwe_tshabalala_bkhz_at_joburg.jpg"
+      alt="Zandile Tshabalala’s show at the BKhz booth, FNB Art Joburg"
+      width="1600" height="1000" loading="eager" decoding="async" />
+    <figcaption class="muted">Zandile Tshabalala at the BKhz booth, FNB Art Joburg. Photograph by Khethiwe Tracy Gumede.</figcaption>
+  </figure>
+
+  <style>
+    .world-hero { margin: 0.5rem auto 1rem; max-width: 72rem; padding-inline: var(--pad); }
+    .world-hero img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px; display: block; }
+    .world-hero figcaption { margin-top: 0.5rem; font-size: 0.82rem; }
+  </style>
+
   <section class="wrap" style="padding-block: 1rem 3rem;">
     {stories.length > 0 ? (
       <ul class="stories">

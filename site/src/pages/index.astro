@@ -74,7 +74,7 @@ const itemList = {
       <datalist id="city-list">{cities.map((c) => <option value={c.name}></option>)}</datalist>
       <button class="btn" type="submit">See what is on</button>
     </form>
-    <p class="muted city-jump">Or jump to {featuredCities.map((c, i) => (<span><a href={`/city/${c.slug}`}>{c.name}</a>{i < featuredCities.length - 1 ? ' · ' : ''}</span>))}</p>
+    <p class="muted city-jump">Or jump to {featuredCities.map((c, i) => (<span><a href={`/city/${c.slug}`}>{c.name}</a>{i < featuredCities.length - 1 ? ' · ' : ''}</span>))} · <a href="/worldwide">see the whole map</a></p>
   </section>
   <script define:vars={{ cityData: Object.fromEntries(cities.map((c) => [c.name.toLowerCase(), c.slug])) }}>
     const f = document.getElementById('city-form');
