@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import { FEATURED } from '../../data/featured-artists.ts';
+const site = 'https://artempiremj.com';
+const people = FEATURED.map((a) => ({
+  '@context': 'https://schema.org', '@type': 'Person',
+  name: a.name, jobTitle: a.medium,
+  address: { '@type': 'PostalAddress', addressLocality: a.city, addressCountry: a.country },
+  description: a.note,
+  url: a.storySlug ? `${site}/story/${a.storySlug}` : `${site}/artists`,
+}));
+---
+<Base path="/artists" title="Artists" description="The artists ArtempireMJ has put in front of the world. Painters, photographers, and makers of every medium, told through the work they carry.">
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(people)}</script>`} />
+
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="eyebrow">The stage</p>
+    <h1>Artists we have put in front of the world.</h1>
+    <p class="lede prose">This is what a feature is for. A maker, named, with the work they carry,
+      where an audience can find them. You make art? <a href="/submit">Send us your story.</a> If it
+      is right, you could be here.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem 3rem;">
+    <ul class="people">
+      {FEATURED.map((a) => (
+        <li class="p">
+          <span class="eyebrow">{a.medium}</span>
+          {a.storySlug
+            ? <a class="p-name" href={`/story/${a.storySlug}`} style="text-decoration:none;">{a.name}</a>
+            : <span class="p-name">{a.name}</span>}
+          <span class="muted">{a.city}, {a.country}</span>
+          <span>{a.note}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <style>
+    .people { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .p { display: grid; gap: 0.3rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: 3px; background: var(--paper); }
+    .p-name { font-family: var(--serif); font-weight: 600; font-size: 1.35rem; }
+  </style>
+</Base>
