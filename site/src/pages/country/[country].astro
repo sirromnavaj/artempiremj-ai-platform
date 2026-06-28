@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import { OPPORTUNITIES } from '../../data/calendar.ts';
+import { EVENTS } from '../../data/events.ts';
+
+const slug = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+export function getStaticPaths() {
+  const sl = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const countries = new Map<string, string>();
+  for (const o of OPPORTUNITIES) countries.set(sl(o.country), o.country);
+  for (const e of EVENTS) countries.set(sl(e.country), e.country);
+  return [...countries].map(([s, name]) => ({
+    params: { country: s },
+    props: {
+      name,
+      opps: OPPORTUNITIES.filter((o) => sl(o.country) === s),
+      events: EVENTS.filter((e) => sl(e.country) === s),
+    },
+  }));
+}
+const { name, opps, events } = Astro.props;
+const MO = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fmt = (d?: string) => { if (!d) return ''; const [y, m, dd] = d.split('-'); return `${+dd} ${MO[+m - 1]} ${y}`; };
+const kindLabel: Record<string, string> = { 'open-call': 'Open call', residency: 'Residency', grant: 'Grant', fair: 'Fair', biennial: 'Biennial', prize: 'Prize' };
+const cities = [...new Set([...opps.map((o) => o.city), ...events.map((e) => e.city)])].sort();
+---
+<Base path={`/country/${Astro.params.country}`} title={`Art in ${name}`}
+  description={`What is on in ${name}: fairs, biennials, and museum shows to see, and open calls, residencies, and grants for artists, across ${cities.length} ${cities.length === 1 ? 'city' : 'cities'}.`}>
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="muted" style="font-family:var(--sans);font-size:0.85rem;"><a href="/worldwide">Worldwide</a></p>
+    <h1>What is on in {name}</h1>
+    <p class="lede prose">Everything ArtempireMJ tracks in {name}, across {cities.map((c, i) => (<span><a href={`/city/${slug(c)}`}>{c}</a>{i < cities.length - 1 ? ', ' : ''}</span>))}.</p>
+  </section>
+
+  {events.length > 0 && (
+    <section class="wrap" style="padding-block: 1rem;">
+      <h2>To see</h2>
+      <ul class="rows">
+        {events.map((e) => (
+          <li class="row"><a href={e.url} rel="noopener" target="_blank">
+            <span class="r-name">{e.title}</span>
+            <span class="r-when">{e.window ?? (e.end ? `${fmt(e.start)} to ${fmt(e.end)}` : fmt(e.start))}</span>
+            <span class="muted">{e.venue} · {e.city}</span>
+          </a></li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {opps.length > 0 && (
+    <section class="wrap" style="padding-block: 1rem 3rem;">
+      <h2>To apply to</h2>
+      <ul class="rows">
+        {opps.map((o) => (
+          <li class="row"><a href={`/opportunity/${o.id}`}>
+            <span class="eyebrow">{kindLabel[o.kind]} · {o.city}</span>
+            <span class="r-name">{o.title}</span>
+            <span class="muted">{o.organizer} · {o.verified && o.deadline ? `Deadline ${o.deadline}` : o.window}</span>
+          </a></li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <style>
+    .rows { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.7rem; }
+    .row { border: 1px solid var(--line); border-radius: 4px; background: var(--paper); }
+    .row a { display: grid; gap: 0.25rem; padding: 1rem 1.2rem; text-decoration: none; }
+    .row:hover { border-color: var(--orange); }
+    .r-name { font-family: var(--display); font-weight: 600; font-size: 1.25rem; }
+    .r-when { font-family: var(--sans); font-size: 0.85rem; color: var(--ember); font-weight: 600; }
+  </style>
+</Base>

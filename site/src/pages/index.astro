@@ -10,6 +10,9 @@ for (const o of OPPORTUNITIES) cityMap.set(o.city, citySlug(o.city));
 for (const e of EVENTS) cityMap.set(e.city, citySlug(e.city));
 const cities = [...cityMap.entries()].map(([name, slug]) => ({ name, slug })).sort((a, b) => (a.name < b.name ? -1 : 1));
 const featuredCities = ['Lagos', 'Cape Town', 'Venice', 'Dakar', 'London', 'Johannesburg'].map((n) => ({ name: n, slug: citySlug(n) }));
+const MO = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fmtE = (d?: string) => { if (!d) return ''; const [y, m, dd] = d.split('-'); return `${+dd} ${MO[+m - 1]} ${y}`; };
+const upcomingEvents = [...EVENTS].sort((a, b) => ((a.start ?? '9999') < (b.start ?? '9999') ? -1 : 1)).slice(0, 3);
 
 const regions: Region[] = ['Africa', 'Europe', 'Americas', 'Asia/Middle East'];
 const closingSoon = OPPORTUNITIES
@@ -158,6 +161,21 @@ const itemList = {
     </p>
   </section>
 
+  <section class="wrap worth-trip">
+    <h2>Worth a trip</h2>
+    <p class="muted">For the traveller: the fairs, biennials, and museum shows to plan around.</p>
+    <div class="trip-grid">
+      {upcomingEvents.map((e) => (
+        <a class="trip" href="/itineraries">
+          <span class="eyebrow">{e.city}, {e.country}</span>
+          <span class="trip-title">{e.title}</span>
+          <span class="muted">{e.window ?? (e.end ? `${fmtE(e.start)} to ${fmtE(e.end)}` : fmtE(e.start))}</span>
+        </a>
+      ))}
+    </div>
+    <p class="muted" style="margin-top:1rem;"><a href="/itineraries">All the art worth crossing the world for</a> · <a href="/worldwide">the world map</a></p>
+  </section>
+
   <section class="wrap latest">
     <h2>From the floor</h2>
     <div class="story-grid">
@@ -248,6 +266,12 @@ const itemList = {
     .op-summary { font-size: 0.98rem; }
     .op-when { margin-top: 0.3rem; }
     .cal-note { border-top: 1px solid var(--line); padding-top: 1.2rem; }
+    .worth-trip { padding-block: 1.5rem; }
+    .trip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+    @media (max-width: 760px) { .trip-grid { grid-template-columns: 1fr; } }
+    .trip { display: grid; gap: 0.3rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: 4px; background: var(--cream); text-decoration: none; }
+    .trip:hover { border-color: var(--orange); }
+    .trip-title { font-family: var(--display); font-weight: 600; font-size: 1.2rem; }
     .latest { padding-block: 2rem 1rem; }
     .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1rem; }
     @media (max-width: 720px) { .story-grid { grid-template-columns: 1fr; } }

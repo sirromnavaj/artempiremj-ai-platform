@@ -7,63 +7,66 @@ const citySlug = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ
 const regions: Region[] = ['Africa', 'Europe', 'Americas', 'Asia/Middle East'];
 const regionSlug: Record<Region, string> = { 'Africa': 'africa', 'Europe': 'europe', 'Americas': 'americas', 'Asia/Middle East': 'asia-middle-east' };
 
-// Build region -> sorted unique cities (with counts) from both datasets.
-type CityInfo = { name: string; slug: string; country: string; count: number };
-const byRegion = new Map<Region, Map<string, CityInfo>>();
+type CityInfo = { name: string; slug: string };
+type CountryInfo = { name: string; slug: string; cities: CityInfo[] };
+const byRegion = new Map<Region, Map<string, CountryInfo>>();
 for (const r of regions) byRegion.set(r, new Map());
-const add = (region: Region, city: string, country: string) => {
-  const m = byRegion.get(region)!;
-  const key = citySlug(city);
-  const e = m.get(key) ?? { name: city, slug: key, country, count: 0 };
-  e.count++; m.set(key, e);
+const add = (region: Region, country: string, city: string) => {
+  const rm = byRegion.get(region)!;
+  const cs = citySlug(country);
+  const c = rm.get(cs) ?? { name: country, slug: cs, cities: [] };
+  if (!c.cities.find((x) => x.name === city)) c.cities.push({ name: city, slug: citySlug(city) });
+  rm.set(cs, c);
 };
-for (const o of OPPORTUNITIES) add(o.region, o.city, o.country);
-for (const e of EVENTS) add(e.region, e.city, e.country);
-const regionCities = regions.map((r) => ({
+for (const o of OPPORTUNITIES) add(o.region, o.country, o.city);
+for (const e of EVENTS) add(e.region, e.country, e.city);
+const regionData = regions.map((r) => ({
   region: r, slug: regionSlug[r],
-  cities: [...byRegion.get(r)!.values()].sort((a, b) => (a.name < b.name ? -1 : 1)),
+  countries: [...byRegion.get(r)!.values()].sort((a, b) => (a.name < b.name ? -1 : 1))
+    .map((c) => ({ ...c, cities: c.cities.sort((a, b) => (a.name < b.name ? -1 : 1)) })),
 }));
-const totalCities = regionCities.reduce((n, r) => n + r.cities.length, 0);
-const totalCountries = new Set([...OPPORTUNITIES.map((o) => o.country), ...EVENTS.map((e) => e.country)]).size;
+const totalCountries = regionData.reduce((n, r) => n + r.countries.length, 0);
+const totalCities = new Set([...OPPORTUNITIES.map((o) => o.city), ...EVENTS.map((e) => e.city)]).size;
 ---
 <Base path="/worldwide" title="The calendar, worldwide"
-  description={`Art opportunities and events across ${totalCities} cities in ${totalCountries} countries, on every inhabited continent. Browse the Global Art Calendar by region and city.`}>
+  description={`Art opportunities and events across ${totalCities} cities in ${totalCountries} countries, on every inhabited continent. Browse the Global Art Calendar by region, country, and city.`}>
   <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
     <p class="eyebrow">Worldwide</p>
     <h1>The calendar reaches the whole world.</h1>
     <p class="lede prose">Open calls, residencies, grants, fairs, biennials, and museum shows across
       {totalCities} cities in {totalCountries} countries, on every inhabited continent. Africa and the
-      Global South are first-class here, not an afterthought. Pick a region, or go straight to a city.</p>
+      Global South are first-class here. Pick a region, a country, or go straight to a city.</p>
   </section>
 
   <section class="wrap" style="padding-block: 1rem 3rem;">
-    <div class="regions">
-      {regionCities.map((rc) => (
-        <div class="region-col">
-          <h2><a href={`/region/${rc.slug}`}>{rc.region}</a></h2>
-          <p class="muted">{rc.cities.length} cities</p>
-          <ul class="cities">
-            {rc.cities.map((c) => (
-              <li><a href={`/city/${c.slug}`}>{c.name}<span class="ct">{c.count}</span></a></li>
-            ))}
-          </ul>
+    {regionData.map((rc) => (
+      <div class="region-block">
+        <h2><a href={`/region/${rc.slug}`}>{rc.region}</a></h2>
+        <div class="countries">
+          {rc.countries.map((c) => (
+            <div class="country">
+              <a class="c-name" href={`/country/${c.slug}`}>{c.name}</a>
+              <span class="c-cities">{c.cities.map((ci, i) => (<span><a href={`/city/${ci.slug}`}>{ci.name}</a>{i < c.cities.length - 1 ? ' · ' : ''}</span>))}</span>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-    <p class="muted" style="margin-top:2rem;border-top:1px solid var(--line);padding-top:1.4rem;">
-      The map grows as our correspondents reach new cities. <a href="/submit">Report from yours.</a>
+      </div>
+    ))}
+    <p class="muted" style="margin-top:1.5rem;border-top:1px solid var(--line);padding-top:1.4rem;">
+      The map grows as our correspondents reach new countries. <a href="/correspondents">Report from yours.</a>
     </p>
   </section>
 
   <style>
-    .regions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 1rem; }
-    @media (max-width: 860px) { .regions { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 520px) { .regions { grid-template-columns: 1fr; } }
-    .region-col h2 { font-size: 1.3rem; border-bottom: 3px solid var(--orange); padding-bottom: 0.3rem; }
-    .region-col h2 a { text-decoration: none; }
-    .cities { list-style: none; padding: 0; margin: 0.8rem 0 0; display: grid; gap: 0.4rem; }
-    .cities a { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.7rem; border: 1px solid var(--line); border-radius: 3px; background: var(--paper); text-decoration: none; font-family: var(--sans); font-size: 0.92rem; }
-    .cities a:hover { border-color: var(--orange); }
-    .ct { font-size: 0.72rem; color: var(--muted); background: var(--cream); border-radius: 10px; padding: 0.1rem 0.5rem; }
+    .region-block { margin-bottom: 2.4rem; }
+    .region-block > h2 { border-bottom: 3px solid var(--orange); padding-bottom: 0.3rem; }
+    .region-block > h2 a { text-decoration: none; }
+    .countries { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .country { padding: 0.9rem 1rem; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); }
+    .c-name { font-family: var(--display); font-weight: 600; font-size: 1.15rem; text-decoration: none; display: block; }
+    .c-name:hover { color: var(--ember); }
+    .c-cities { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); }
+    .c-cities a { color: var(--muted); }
+    .c-cities a:hover { color: var(--orange); }
   </style>
 </Base>
