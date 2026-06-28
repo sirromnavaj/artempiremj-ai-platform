@@ -23,16 +23,23 @@ import Newsletter from './Newsletter.astro';
 </style>
 
 <script>
-  const KEY = 'amj_nl_dismissed';
+  // Respectful rules: NEVER show to a subscriber; show to non-subscribers only after real
+  // engagement (a quarter-scroll or 15s); on dismiss, go quiet for 7 days (re-ask once, not nag);
+  // never pop on the first page-view of a brand-new visitor (let them look around first).
+  const KEY = 'amj_nl';
   const bar = document.getElementById('sticky-nl');
-  if (bar && !localStorage.getItem(KEY)) {
+  const state = (() => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch { return {}; } })();
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+  state.views = (state.views || 0) + 1; save();
+  const WEEK = 7 * 86400000;
+  const quiet = state.subscribed || (state.dismissedAt && Date.now() - state.dismissedAt < WEEK);
+  if (bar && !quiet && state.views >= 2) {            // not on the very first page-view
     let shown = false;
-    const show = () => { if (!shown) { shown = true; bar.hidden = false; } };
-    const t = setTimeout(show, 9000);
-    const onScroll = () => { if (window.scrollY > document.body.scrollHeight * 0.22) { show(); window.removeEventListener('scroll', onScroll); } };
+    const show = () => { if (!shown && !state.subscribed) { shown = true; bar.hidden = false; } };
+    const t = setTimeout(show, 15000);
+    const onScroll = () => { if (window.scrollY > document.body.scrollHeight * 0.25) { show(); window.removeEventListener('scroll', onScroll); } };
     window.addEventListener('scroll', onScroll, { passive: true });
-    document.getElementById('sticky-nl-close')?.addEventListener('click', () => { clearTimeout(t); bar.hidden = true; localStorage.setItem(KEY, '1'); });
-    // On a successful subscribe, stop showing it again.
-    bar.addEventListener('submit', () => { setTimeout(() => localStorage.setItem(KEY, '1'), 2500); });
+    document.getElementById('sticky-nl-close')?.addEventListener('click', () => { clearTimeout(t); bar.hidden = true; state.dismissedAt = Date.now(); save(); });
+    bar.addEventListener('submit', () => { state.subscribed = true; bar.hidden = true; setTimeout(save, 100); });
   }
 </script>
