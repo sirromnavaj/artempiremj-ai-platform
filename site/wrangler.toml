@@ -1,0 +1,9 @@
+name = "artempiremj"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-01-01"
+
+# Binds the D1 database so the Pages Functions (subscribe/submit/unsubscribe/admin) get env.DB.
+[[d1_databases]]
+binding = "DB"
+database_name = "artempiremj"
+database_id = "d7cc2c09-3bcd-4af4-8fcc-fe31df71a442"
