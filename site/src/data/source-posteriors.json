@@ -1,0 +1,381 @@
+{
+  "updated": "2026-06-28",
+  "sources": {
+    "explorelamu.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "mbtlaketurkanafestival.co.ke": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "musicinafrica.net": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "kilificreekfestival.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "beneaththebaobabs.com": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "lamuyoga.org": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "kenyanvibe.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "hapakenya.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "mombasa.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "narok.go.ke": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "busaramusic.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "festival.nyegenyege.com": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "en.wikipedia.org": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "bush-fire.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "afrikaburn.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "biennaledakar.org": {
+      "alpha": 4,
+      "beta": 1
+    },
+    "felabration.net": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "vivre-marrakech.com": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "burningman.org": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "labiennale.org": {
+      "alpha": 4,
+      "beta": 1
+    },
+    "edfringe.com": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "rencontres-bamako.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "lagos-biennial.org": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "akaafair.com": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "norvalsovereignafricanartprize.org": {
+      "alpha": 1,
+      "beta": 2
+    },
+    "investeccapetownartfair.co.za": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "1-54.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "latelier.absa.africa": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "princeclausfund.nl": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "kampalabiennale.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "stellenboschtriennale.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "rawmaterialcompany.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "niroxarts.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "thami-mnyele.nl": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "32east.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "blackrocksenegal.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "fondation-h.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "bagfactoryart.org.za": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "frieze.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "manifesta16.org": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "tate.org.uk": {
+      "alpha": 3,
+      "beta": 2
+    },
+    "artbasel.com": {
+      "alpha": 3,
+      "beta": 1
+    },
+    "rijksakademie.nl": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "janvaneyck.nl": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "delfinafoundation.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "berliner-kuenstlerprogramm.de": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "citeinternationaledesarts.fr": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "bethanien.de": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "akademie-solitude.de": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "skowheganart.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "macdowell.org": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "whitney.org": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "iscp-nyc.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "fountainheadarts.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "pkf.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "creative-capital.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "gf.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "zsonamaco.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "sp-arte.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "casawabi.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "pivo.org.br": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "betalocal.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "bienal.org.br": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "gwangjubiennale.org": {
+      "alpha": 2,
+      "beta": 2
+    },
+    "busanbiennale.org": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "bkkartbiennale.com": {
+      "alpha": 3,
+      "beta": 1
+    },
+    "artdubai.ae": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "kochimuzirisbiennale.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "taipeibiennial.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "thailandbiennale.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "sharjahart.org": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "khojstudios.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "artjameel.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "mophradat.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "samdani.com.bd": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "artxlagos.com": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "artjoburg.com": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "zeitzmocaa.museum": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "artdegypte.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "metmuseum.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "houseoffriendskenya.com": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "ncai254.com": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "circleartagency.com": {
+      "alpha": 2,
+      "beta": 1
+    },
+    "oneoffcontemporaryartgallery.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "redhillartgallery.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "facebook.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "shifteyestudios.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "thegodown.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "nairobi.design": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "bsqart.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "biennale.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "nafasiartspace.org": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "inemaartcenter.com": {
+      "alpha": 1,
+      "beta": 1
+    },
+    "addisfineart.com": {
+      "alpha": 1,
+      "beta": 1
+    }
+  }
+}
