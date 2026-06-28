@@ -1,0 +1,18 @@
+name = "artempiremj-newsletter"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+
+# Weekly send: Thursday 06:00 UTC. The week in world art, our owned conversion.
+[triggers]
+crons = ["0 6 * * 4"]
+
+# Our own data: the same D1 the site writes subscribers/opportunities to.
+[[d1_databases]]
+binding = "DB"
+database_name = "artempiremj"
+# database_id = "<set after `wrangler d1 create artempiremj`>"
+
+# Secrets (set via `wrangler secret put`): RESEND_API_KEY, UNSUB_SECRET, SEND_TOKEN
+[vars]
+FROM = "ArtempireMJ <hello@artempiremj.com>"
+SITE = "https://artempiremj.com"

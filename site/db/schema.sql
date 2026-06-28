@@ -46,6 +46,17 @@ CREATE TABLE IF NOT EXISTS opportunities (
   updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+-- Reach record. Each weekly send logs how many it reached + which feature it carried.
+-- This is the seating-capacity number over time, and the basis for telling a featured
+-- artist the reach their story got (the real value exchange, Red Bull's athlete contract).
+CREATE TABLE IF NOT EXISTS sends (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  subject     TEXT,
+  recipients  INTEGER NOT NULL DEFAULT 0,
+  feature_url TEXT,
+  sent_at     TEXT NOT NULL
+);
+
 CREATE INDEX IF NOT EXISTS idx_opp_region   ON opportunities(region);
 CREATE INDEX IF NOT EXISTS idx_opp_deadline ON opportunities(deadline);
 CREATE INDEX IF NOT EXISTS idx_sub_status   ON submissions(status);
