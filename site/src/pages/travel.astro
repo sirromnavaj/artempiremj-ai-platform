@@ -11,11 +11,13 @@ import Base from '../layouts/Base.astro';
   </section>
 
   <section class="wrap" style="padding-block: 1rem 4rem;">
-    <div id="tp-travel-widget" style="min-height: 320px;"></div>
+    <!-- Travelpayouts White Label mount points (wl_id 19225): search box + results -->
+    <div id="tpwl-search"></div>
+    <div id="tpwl-tickets" style="margin-top:1.5rem;"></div>
     <noscript><p class="muted">Turn on JavaScript to search flights and hotels.</p></noscript>
   </section>
 
-  <!-- Travelpayouts White Label travel search (wl_id 19225). Loaded only on this page. -->
+  <!-- Main White Label code (loads the widget engine that mounts into the two divs above). -->
   <script is:inline>
     (function () {
       var s = document.createElement('script');
