@@ -2,22 +2,25 @@
 import Base from '../../layouts/Base.astro';
 import { OPPORTUNITIES } from '../../data/calendar.ts';
 import { EVENTS } from '../../data/events.ts';
+import { FESTIVALS } from '../../data/festivals.ts';
 
 export function getStaticPaths() {
   const slug = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const cities = new Map();
   for (const o of OPPORTUNITIES) if (!cities.has(slug(o.city))) cities.set(slug(o.city), { name: o.city, country: o.country });
   for (const e of EVENTS) if (!cities.has(slug(e.city))) cities.set(slug(e.city), { name: e.city, country: e.country });
+  for (const f of FESTIVALS) if (!cities.has(slug(f.city))) cities.set(slug(f.city), { name: f.city, country: f.country });
   return [...cities].map(([s, meta]) => ({
     params: { city: s },
     props: {
       name: meta.name, country: meta.country,
       opps: OPPORTUNITIES.filter((o) => slug(o.city) === s),
       events: EVENTS.filter((e) => slug(e.city) === s),
+      fests: FESTIVALS.filter((f) => slug(f.city) === s),
     },
   }));
 }
-const { name, country, opps, events } = Astro.props;
+const { name, country, opps, events, fests } = Astro.props;
 const MO = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const fmt = (d) => { if (!d) return ''; const [y, m, dd] = d.split('-'); return `${+dd} ${MO[+m - 1]} ${y}`; };
 const kindLabel = { 'open-call': 'Open call', residency: 'Residency', grant: 'Grant', fair: 'Fair', biennial: 'Biennial', prize: 'Prize' };
@@ -42,6 +45,21 @@ const img = cityImage[Astro.params.city];
       <img src={img.src} alt={img.alt} width="1600" height="760" loading="eager" decoding="async" />
       <figcaption class="muted">{name}. Photograph by {img.credit}.</figcaption>
     </figure>
+  )}
+
+  {fests.length > 0 && (
+    <section class="wrap" style="padding-block: 1rem;">
+      <h2>Festivals</h2>
+      <ul class="rows">
+        {fests.map((f) => (
+          <li class="row"><a href={`/festival/${f.slug}`}>
+            <span class="r-name">{f.title}</span>
+            <span class="r-when">{f.window ?? (f.end ? `${fmt(f.start)} to ${fmt(f.end)}` : fmt(f.start))}</span>
+            <span class="muted">{f.organizer}</span>
+          </a></li>
+        ))}
+      </ul>
+    </section>
   )}
 
   {events.length > 0 && (

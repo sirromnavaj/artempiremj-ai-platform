@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { OPPORTUNITIES } from '../../data/calendar.ts';
 import { EVENTS } from '../../data/events.ts';
+import { FESTIVALS } from '../../data/festivals.ts';
 
 const slug = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 export function getStaticPaths() {
@@ -9,20 +10,22 @@ export function getStaticPaths() {
   const countries = new Map<string, string>();
   for (const o of OPPORTUNITIES) countries.set(sl(o.country), o.country);
   for (const e of EVENTS) countries.set(sl(e.country), e.country);
+  for (const f of FESTIVALS) countries.set(sl(f.country), f.country);
   return [...countries].map(([s, name]) => ({
     params: { country: s },
     props: {
       name,
       opps: OPPORTUNITIES.filter((o) => sl(o.country) === s),
       events: EVENTS.filter((e) => sl(e.country) === s),
+      fests: FESTIVALS.filter((f) => sl(f.country) === s),
     },
   }));
 }
-const { name, opps, events } = Astro.props;
+const { name, opps, events, fests } = Astro.props;
 const MO = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const fmt = (d?: string) => { if (!d) return ''; const [y, m, dd] = d.split('-'); return `${+dd} ${MO[+m - 1]} ${y}`; };
 const kindLabel: Record<string, string> = { 'open-call': 'Open call', residency: 'Residency', grant: 'Grant', fair: 'Fair', biennial: 'Biennial', prize: 'Prize' };
-const cities = [...new Set([...opps.map((o) => o.city), ...events.map((e) => e.city)])].sort();
+const cities = [...new Set([...opps.map((o) => o.city), ...events.map((e) => e.city), ...fests.map((f) => f.city)])].sort();
 ---
 <Base path={`/country/${Astro.params.country}`} title={`Art in ${name}`}
   description={`What is on in ${name}: fairs, biennials, and museum shows to see, and open calls, residencies, and grants for artists, across ${cities.length} ${cities.length === 1 ? 'city' : 'cities'}.`}>
@@ -31,6 +34,21 @@ const cities = [...new Set([...opps.map((o) => o.city), ...events.map((e) => e.c
     <h1>What is on in {name}</h1>
     <p class="lede prose">Everything ArtempireMJ tracks in {name}, across {cities.map((c, i) => (<span><a href={`/city/${slug(c)}`}>{c}</a>{i < cities.length - 1 ? ', ' : ''}</span>))}.</p>
   </section>
+
+  {fests.length > 0 && (
+    <section class="wrap" style="padding-block: 1rem;">
+      <h2>Festivals</h2>
+      <ul class="rows">
+        {fests.map((f) => (
+          <li class="row"><a href={`/festival/${f.slug}`}>
+            <span class="r-name">{f.title}</span>
+            <span class="r-when">{f.window ?? (f.end ? `${fmt(f.start)} to ${fmt(f.end)}` : fmt(f.start))}</span>
+            <span class="muted">{f.organizer} · {f.city}</span>
+          </a></li>
+        ))}
+      </ul>
+    </section>
+  )}
 
   {events.length > 0 && (
     <section class="wrap" style="padding-block: 1rem;">
