@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+// FAQPage schema = the cited-answer surface (AEO research). Questions are the real ones
+// assistants get asked, answers are the brand's plain truth. Warm, concise, no em-dash.
+const faqs = [
+  { q: 'What is ArtempireMJ?',
+    a: 'A global art institution that tells the world through artists, and keeps the Global Art Calendar: open calls, residencies, grants, fairs, and biennials worldwide, gathered for artists and verified before they are listed.' },
+  { q: 'Is the Global Art Calendar free for artists?',
+    a: 'Yes. The calendar is free and never gatekept. Opportunity-givers, fairs, and partners fund it, never the artists. Charging an artist for the news that an opportunity exists is the one thing we will not do.' },
+  { q: 'How do I submit my work?',
+    a: 'Send a few images and a paragraph about the work at artempiremj.com/submit. Any medium counts: paint, photograph, sculpture, music, ink, writing, design, craft. It costs nothing, wherever you live, and we read every one. If it is right for us, we write back.' },
+  { q: 'Are the opportunities real and verified?',
+    a: 'Yes. Every date is confirmed before an opportunity is listed, so you can trust what you act on. The calendar is refreshed weekly.' },
+  { q: 'What does ArtempireMJ cover?',
+    a: 'World events and culture, told through the artists who live inside them, globally, with Africa and the Global South as first-class. Reporting comes through named on-the-ground correspondents.' },
+  { q: 'Can I plan a trip around the calendar?',
+    a: 'Yes. Art Itineraries gathers the fairs and biennials worth crossing the world for, by city, with the dates early enough to book before the rooms fill.' },
+];
+const schema = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base path="/faq" title="Questions" description="What ArtempireMJ is, whether the calendar is free, how artists submit, and how opportunities are verified.">
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(schema)}</script>`} />
+  <section class="wrap prose" style="padding-block: clamp(2rem,6vw,4rem) 3rem; max-width: 44rem;">
+    <p class="eyebrow">Questions</p>
+    <h1>Plain answers.</h1>
+    {faqs.map((f) => (
+      <div style="margin-top:1.6rem;">
+        <h2 style="font-size:1.25rem;">{f.q}</h2>
+        <p class="muted">{f.a}</p>
+      </div>
+    ))}
+  </section>
+</Base>

@@ -14,9 +14,20 @@ const kindLabel: Record<string, string> = {
   fair: 'Fair', biennial: 'Biennial', prize: 'Prize',
 };
 const schema = OPPORTUNITIES.map(eventSchema);
+const itemList = {
+  '@context': 'https://schema.org', '@type': 'ItemList',
+  name: 'The Global Art Calendar',
+  description: 'Open calls, residencies, grants, fairs, and biennials worldwide, gathered for artists and verified before they are listed.',
+  numberOfItems: OPPORTUNITIES.length,
+  itemListElement: OPPORTUNITIES.map((o, i) => ({
+    '@type': 'ListItem', position: i + 1, name: o.title,
+    url: `https://artempiremj.com/opportunity/${o.id}`,
+  })),
+};
 ---
 <Base path="/" title="ArtempireMJ">
   <set:html set:html={`<script type="application/ld+json">${JSON.stringify(schema)}</script>`} />
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(itemList)}</script>`} />
 
   <section class="hero wrap">
     <p class="eyebrow">A global art institution</p>
