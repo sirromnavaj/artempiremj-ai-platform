@@ -7,6 +7,7 @@ export interface Props {
 }
 import '../styles/global.css';
 import Newsletter from '../components/Newsletter.astro';
+import StickyNewsletter from '../components/StickyNewsletter.astro';
 const {
   title = 'ArtempireMJ',
   description = 'The world, told through its artists. ArtempireMJ reports the world through the makers who carry its stories, and keeps the Global Art Calendar of open calls, fairs, residencies and grants worldwide, free for artists.',
@@ -121,6 +122,8 @@ const nav = [
         </div>
       </div>
     </footer>
+
+    <StickyNewsletter />
 
     <style>
       .masthead { border-bottom: 1px solid var(--line); background: var(--cream); }

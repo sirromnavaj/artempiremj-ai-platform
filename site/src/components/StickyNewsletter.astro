@@ -1,0 +1,38 @@
+---
+// Sticky newsletter capture (friction-audit fix #1): the two highest-converting signup triggers
+// were absent. Dismissible, appears after light scroll/delay, remembers dismissal + subscribe.
+import Newsletter from './Newsletter.astro';
+---
+<aside id="sticky-nl" class="sticky-nl" hidden aria-label="Subscribe to the newsletter">
+  <div class="sticky-inner wrap">
+    <p class="sticky-copy"><strong>The week in world art, once a week.</strong> Free.</p>
+    <div class="sticky-form"><Newsletter variant="inline" source="sticky-bar" /></div>
+    <button id="sticky-nl-close" class="sticky-close" type="button" aria-label="Dismiss">&times;</button>
+  </div>
+</aside>
+
+<style>
+  .sticky-nl { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: var(--teal, #1A3A42); color: #fff; box-shadow: 0 -2px 18px rgba(0,0,0,0.18); }
+  .sticky-inner { display: flex; gap: 1rem; align-items: center; padding-block: 0.7rem; }
+  .sticky-copy { margin: 0; font-family: var(--sans); font-size: 0.95rem; flex: 1; min-width: 11rem; }
+  .sticky-form { flex: 1.4; }
+  .sticky-nl :global(.nl-msg) { color: #ffe; }
+  .sticky-close { background: transparent; border: 0; color: #fff; font-size: 1.6rem; line-height: 1; cursor: pointer; padding: 0 0.3rem; opacity: 0.8; }
+  .sticky-close:hover { opacity: 1; }
+  @media (max-width: 640px) { .sticky-copy { flex-basis: 100%; } .sticky-inner { flex-wrap: wrap; padding-block: 0.6rem; } }
+</style>
+
+<script>
+  const KEY = 'amj_nl_dismissed';
+  const bar = document.getElementById('sticky-nl');
+  if (bar && !localStorage.getItem(KEY)) {
+    let shown = false;
+    const show = () => { if (!shown) { shown = true; bar.hidden = false; } };
+    const t = setTimeout(show, 9000);
+    const onScroll = () => { if (window.scrollY > document.body.scrollHeight * 0.22) { show(); window.removeEventListener('scroll', onScroll); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.getElementById('sticky-nl-close')?.addEventListener('click', () => { clearTimeout(t); bar.hidden = true; localStorage.setItem(KEY, '1'); });
+    // On a successful subscribe, stop showing it again.
+    bar.addEventListener('submit', () => { setTimeout(() => localStorage.setItem(KEY, '1'), 2500); });
+  }
+</script>
