@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Newsletter from '../../components/Newsletter.astro';
 import { FESTIVALS, type Festival } from '../../data/festivals.ts';
+import { flightsLink, staysLink, experiencesLink } from '../../data/affiliate.ts';
 
 const citySlug = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 export function getStaticPaths() {
@@ -42,6 +43,16 @@ const crumb = {
     <p class="muted">{f.organizer} · <a href={`/city/${citySlug(f.city)}`}>{f.city}</a>, {f.country}</p>
     <p style="margin-top:1.4rem;"><a class="btn" href={f.url} rel="noopener" target="_blank">The official site</a></p>
 
+    <section class="getting-there">
+      <h2>Getting there</h2>
+      <p class="muted">Plan the trip to {f.city}.</p>
+      <div class="gt-links">
+        <a href={flightsLink(f.city)} rel="noopener sponsored" target="_blank">Flights</a>
+        <a href={staysLink(f.city)} rel="noopener sponsored" target="_blank">Stays</a>
+        <a href={experiencesLink(f.city)} rel="noopener sponsored" target="_blank">Things to do</a>
+      </div>
+    </section>
+
     <hr />
     <p class="muted">Planning the trip? <a href="/itineraries">Art Itineraries</a> builds the week around dates like this.</p>
     <p class="muted">The week in world art, once a week. Free.</p>
@@ -50,5 +61,10 @@ const crumb = {
 
   <style>
     .when { font-family: var(--sans); font-weight: 600; color: var(--ember); margin: 0 0 0.6rem; }
+    .getting-there { margin: 1.6rem 0; padding: 1.2rem 1.4rem; background: var(--cream); border-radius: 6px; }
+    .getting-there h2 { font-size: 1.2rem; margin: 0 0 0.2rem; }
+    .gt-links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.8rem; }
+    .gt-links a { font-family: var(--sans); font-size: 0.9rem; font-weight: 600; padding: 0.5em 1em; border: 1px solid var(--warm); border-radius: 2px; text-decoration: none; color: var(--ink); }
+    .gt-links a:hover { background: var(--orange); border-color: var(--orange); color: var(--ivory); }
   </style>
 </Base>
