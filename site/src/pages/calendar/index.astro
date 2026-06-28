@@ -1,67 +1,76 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { OPPORTUNITIES } from '../../data/calendar.ts';
+import { EVENTS } from '../../data/events.ts';
+import { FESTIVALS } from '../../data/festivals.ts';
 const site = 'https://artempiremj.com';
+const MO = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fmt = (d?: string) => { if (!d) return ''; const [y, m, dd] = d.split('-'); return `${+dd} ${MO[+m - 1]} ${y}`; };
+const span = (start?: string, end?: string, window?: string) => window ?? (end ? `${fmt(start)} to ${fmt(end)}` : fmt(start));
 const kindLabel: Record<string, string> = {
   'open-call': 'Open call', residency: 'Residency', grant: 'Grant', fair: 'Fair', biennial: 'Biennial', prize: 'Prize',
 };
-const items = [...OPPORTUNITIES].sort((a, b) => (a.title < b.title ? -1 : 1));
+interface Item { type: string; typeLabel: string; title: string; sub: string; when: string; region: string; href: string; external: boolean; dated: boolean; text: string }
+
+const items: Item[] = [
+  ...FESTIVALS.map((f): Item => ({ type: 'festival', typeLabel: 'Festival', title: f.title, sub: `${f.organizer} · ${f.city}, ${f.country}`, when: span(f.start, f.end, f.window), region: f.region, href: `/festival/${f.slug}`, external: false, dated: f.verified, text: `${f.title} festival ${f.organizer} ${f.city} ${f.country} ${f.summary}`.toLowerCase() })),
+  ...OPPORTUNITIES.map((o): Item => ({ type: o.kind, typeLabel: kindLabel[o.kind], title: o.title, sub: `${o.organizer} · ${o.city}, ${o.country}`, when: o.verified && o.deadline ? `Deadline ${o.deadline}` : (o.window || ''), region: o.region, href: `/opportunity/${o.id}`, external: false, dated: !!(o.verified && o.deadline), text: `${o.title} ${o.organizer} ${o.city} ${o.country} ${o.summary}`.toLowerCase() })),
+  ...EVENTS.map((e): Item => ({ type: 'exhibition', typeLabel: 'Event', title: e.title, sub: `${e.venue} · ${e.city}, ${e.country}`, when: span(e.start, e.end, e.window), region: e.region, href: e.url, external: true, dated: e.verified, text: `${e.title} ${e.venue} ${e.city} ${e.country} ${e.why}`.toLowerCase() })),
+].sort((a, b) => (a.title < b.title ? -1 : 1));
+
+const typeOptions: [string, string][] = [['festival', 'Festivals'], ['fair', 'Fairs'], ['biennial', 'Biennials'], ['exhibition', 'Events & shows'], ['open-call', 'Open calls'], ['residency', 'Residencies'], ['grant', 'Grants'], ['prize', 'Prizes']];
 const itemList = {
-  '@context': 'https://schema.org', '@type': 'ItemList',
-  name: 'The Global Art Calendar, in full',
-  numberOfItems: items.length,
-  itemListElement: items.map((o, i) => ({ '@type': 'ListItem', position: i + 1, name: o.title, url: `${site}/opportunity/${o.id}` })),
+  '@context': 'https://schema.org', '@type': 'ItemList', name: 'The Global Art Calendar, in full',
+  numberOfItems: items.length, itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.title, url: it.external ? it.href : site + it.href })),
 };
 ---
 <Base path="/calendar" title="The Global Art Calendar, in full"
-  description="Search and filter every open call, residency, grant, fair, and biennial on the Global Art Calendar, by type, region, and deadline.">
+  description="Search and filter every festival, fair, biennial, exhibition, open call, residency, grant, and prize on the Global Art Calendar, by type, region, and date.">
   <set:html set:html={`<script type="application/ld+json">${JSON.stringify(itemList)}</script>`} />
 
   <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
     <p class="eyebrow">The Global Art Calendar</p>
-    <h1>Find anything that is open.</h1>
-    <p class="lede prose">Every opportunity on the calendar, in one place. Search it, or narrow by
-      type, region, and deadline. Dates are confirmed before they are listed.</p>
+    <h1>Find anything that is on.</h1>
+    <p class="lede prose">Every festival, fair, exhibition, and opportunity in one place. Search it,
+      or narrow by type, region, and date. Dates are confirmed before they are listed.</p>
   </section>
 
   <section class="wrap" style="padding-block: 0.5rem 1rem;">
     <div class="filters">
-      <input id="q" type="search" placeholder="Search title, place, or organiser" aria-label="Search the calendar" />
+      <input id="q" type="search" placeholder="Search festival, place, or organiser" aria-label="Search the calendar" />
       <select id="f-type" aria-label="Filter by type">
         <option value="">All types</option>
-        {Object.entries(kindLabel).map(([v, l]) => <option value={v}>{l}</option>)}
+        {typeOptions.map(([v, l]) => <option value={v}>{l}</option>)}
       </select>
       <select id="f-region" aria-label="Filter by region">
         <option value="">All regions</option>
         <option value="Africa">Africa</option><option value="Europe">Europe</option>
         <option value="Americas">Americas</option><option value="Asia/Middle East">Asia and the Middle East</option>
       </select>
-      <select id="f-deadline" aria-label="Filter by deadline">
-        <option value="">Any deadline</option>
-        <option value="dated">Has a confirmed deadline</option>
+      <select id="f-deadline" aria-label="Filter by date">
+        <option value="">Any date</option>
+        <option value="dated">Confirmed dates</option>
         <option value="rolling">Rolling or window</option>
       </select>
     </div>
-    <p class="count muted" id="count">{items.length} open</p>
+    <p class="count muted" id="count">{items.length} listed</p>
   </section>
 
   <section class="wrap" style="padding-block: 0 3rem;">
     <ul class="ops" id="list">
-      {items.map((o) => (
-        <li class="op" data-type={o.kind} data-region={o.region}
-            data-deadline={o.verified && o.deadline ? 'dated' : 'rolling'}
-            data-text={`${o.title} ${o.organizer} ${o.city} ${o.country} ${o.summary}`.toLowerCase()}>
-          <a href={`/opportunity/${o.id}`}>
-            <span class="eyebrow">{kindLabel[o.kind]} · {o.region}</span>
-            <span class="op-title">{o.title}</span>
-            <span class="muted">{o.organizer} · {o.city}, {o.country}</span>
-            <span class="muted">{o.verified && o.deadline ? `Deadline ${o.deadline}` : o.window}</span>
+      {items.map((it) => (
+        <li class="op" data-type={it.type} data-region={it.region} data-deadline={it.dated ? 'dated' : 'rolling'} data-text={it.text}>
+          <a href={it.href} {...(it.external ? { rel: 'noopener', target: '_blank' } : {})}>
+            <span class="eyebrow">{it.typeLabel} · {it.region}</span>
+            <span class="op-title">{it.title}</span>
+            <span class="muted">{it.sub}</span>
+            <span class="muted">{it.when}</span>
           </a>
         </li>
       ))}
     </ul>
     <p class="empty muted" id="empty" hidden>Nothing matches that yet. Try a wider search, or
-      <a href="/submit">tell us what you are looking for</a>.</p>
+      <a href="/list">list it yourself</a>.</p>
   </section>
 
   <style>
@@ -72,8 +81,8 @@ const itemList = {
     .ops { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
     .op { border: 1px solid var(--line); border-radius: 3px; background: var(--paper); }
     .op a { display: grid; gap: 0.25rem; padding: 1rem; text-decoration: none; }
-    .op:hover { border-color: var(--warm); }
-    .op-title { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; }
+    .op:hover { border-color: var(--orange); }
+    .op-title { font-family: var(--display); font-weight: 600; font-size: 1.15rem; }
     .op[hidden] { display: none; }
   </style>
 
@@ -86,24 +95,18 @@ const itemList = {
     const count = document.getElementById('count') as HTMLElement;
     const empty = document.getElementById('empty') as HTMLElement;
     const ops = Array.from(list.querySelectorAll('.op')) as HTMLElement[];
-
     function apply() {
       const text = q.value.trim().toLowerCase();
       const t = fType.value, r = fRegion.value, d = fDeadline.value;
       let shown = 0;
       for (const op of ops) {
-        const ok = (!t || op.dataset.type === t)
-          && (!r || op.dataset.region === r)
-          && (!d || op.dataset.deadline === d)
-          && (!text || (op.dataset.text || '').includes(text));
-        op.hidden = !ok;
-        if (ok) shown++;
+        const ok = (!t || op.dataset.type === t) && (!r || op.dataset.region === r)
+          && (!d || op.dataset.deadline === d) && (!text || (op.dataset.text || '').includes(text));
+        op.hidden = !ok; if (ok) shown++;
       }
-      count.textContent = `${shown} open`;
+      count.textContent = `${shown} listed`;
       empty.hidden = shown !== 0;
     }
-    [q, fType, fRegion, fDeadline].forEach((el) => {
-      el.addEventListener('input', apply); el.addEventListener('change', apply);
-    });
+    [q, fType, fRegion, fDeadline].forEach((el) => { el.addEventListener('input', apply); el.addEventListener('change', apply); });
   </script>
 </Base>
