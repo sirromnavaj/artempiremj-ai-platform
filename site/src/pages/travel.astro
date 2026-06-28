@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base path="/travel" title="Plan your trip" description="Search flights and hotels for your art trip, anywhere in the world. Built around the festivals and fairs on the Global Art Calendar.">
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="eyebrow">Plan your trip</p>
+    <h1>Flights and stays for the trip.</h1>
+    <p class="lede prose">Heading to a festival or a fair? Search flights and hotels right here. The
+      dates are yours, from <a href="/festivals">the festivals</a> and <a href="/itineraries">the
+      itineraries</a>. We just make the booking easy.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem 4rem;">
+    <div id="tp-travel-widget" style="min-height: 320px;"></div>
+    <noscript><p class="muted">Turn on JavaScript to search flights and hotels.</p></noscript>
+  </section>
+
+  <!-- Travelpayouts White Label travel search (wl_id 19225). Loaded only on this page. -->
+  <script is:inline>
+    (function () {
+      var s = document.createElement('script');
+      s.async = 1; s.type = 'module';
+      s.src = 'https://tpwidg.com/wl_web/main.js?wl_id=19225';
+      document.head.appendChild(s);
+    })();
+  </script>
+</Base>
