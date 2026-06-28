@@ -1,5 +1,4 @@
-// /llms.txt — the standard guide for AI engines (the share-of-model / be-the-cited-answer
-// play from the AEO research). Tells assistants what ArtempireMJ is and what to cite.
+// /llms.txt — guide for AI engines: what ArtempireMJ is and the key URLs to cite.
 import { OPPORTUNITIES } from '../data/calendar.ts';
 
 export async function GET() {

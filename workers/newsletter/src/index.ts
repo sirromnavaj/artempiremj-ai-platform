@@ -71,7 +71,7 @@ async function send(env: Env): Promise<{ sent: number; failed: number; feature: 
     "SELECT * FROM opportunities WHERE verified=1 AND deadline IS NOT NULL ORDER BY deadline ASC LIMIT 6"
   ).all<Opp>()).results || [];
 
-  // Distribute the latest feature, not just opportunities (the stage must reach the audience).
+  // Include the latest feature in the digest, not just opportunities.
   let feature: Feature | null = null;
   try {
     const res = await fetch(`${env.SITE}/latest.json`, { cf: { cacheTtl: 300 } } as RequestInit);
@@ -92,7 +92,7 @@ async function send(env: Env): Promise<{ sent: number; failed: number; feature: 
     } catch { failed++; }
   }
 
-  // Record the reach (the seating-capacity number; the basis for reporting back to artists).
+  // Record the recipient count for this send.
   try {
     await env.DB.prepare(
       'INSERT INTO sends (subject, recipients, feature_url, sent_at) VALUES (?1,?2,?3,?4)'

@@ -59,3 +59,6 @@ coverage/
 08_maintain/
 site/08_maintain/
 **/runbooks/
+PRODUCTION_TO_SITE.md
+OPERATOR-ACTIONS.md
+scripts/sync_production_to_site.py

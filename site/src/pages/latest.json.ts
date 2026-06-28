@@ -1,5 +1,4 @@
-// /latest.json — the newest features, served for the send-worker to DISTRIBUTE them
-// (Red Bull: publish is not enough, the stage must reach an audience). Also useful for AEO.
+// /latest.json — the newest features, served as JSON for the newsletter worker.
 import { ARTICLES } from '../data/articles.ts';
 
 export async function GET() {

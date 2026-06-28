@@ -1,6 +1,5 @@
 ---
-// Base layout — one masthead, warm voice, content in the served HTML (crawlable).
-// The engine room (Nohvara, the correspondent tooling) never appears here. v3.17.
+// Base layout: masthead, nav, footer, and site-wide structured data.
 export interface Props {
   title?: string;
   description?: string;
@@ -17,8 +16,7 @@ const site = 'https://artempiremj.com';
 const canonical = site + path;
 const fullTitle = title === 'ArtempireMJ' ? 'ArtempireMJ · the world, told through artists' : `${title} · ArtempireMJ`;
 
-// AEO foundation: Organization + WebSite in one @graph, emitted site-wide so AI and
-// search resolve "what is ArtempireMJ" to a clean, structured entity.
+// Organization + WebSite structured data, emitted site-wide.
 const org = {
   '@context': 'https://schema.org',
   '@graph': [

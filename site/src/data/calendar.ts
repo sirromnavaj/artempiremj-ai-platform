@@ -1,4 +1,4 @@
-// The Global Art Calendar — the front door and the AEO engine (skill v3.17 #13/#14).
+// The Global Art Calendar data model.
 // DISCOVER is the opportunity radar: open calls, fairs, residencies, grants, the doors.
 // It serves artists (access). The payers are the opportunity-givers, never the artists.
 //
@@ -46,7 +46,7 @@ export function byRegion(region: Region): Opportunity[] {
   return OPPORTUNITIES.filter((o) => o.region === region);
 }
 
-/** JSON-LD Event for an opportunity, for AEO. Only emits dates when verified. */
+/** JSON-LD Event for an opportunity. Only emits dates when verified. */
 export function eventSchema(o: Opportunity) {
   const node: Record<string, unknown> = {
     '@context': 'https://schema.org',

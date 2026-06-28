@@ -1,8 +1,6 @@
-// The stage. Artists ArtempireMJ has put in front of an audience. This is the visibility
-// the submission promise is for: a real, public, citable place where a maker is the hero.
-// Seeded with real artists from our own coverage; featured submissions join them (the
-// /api/submissions desk moves a submission to 'featured', then it is added here).
-// Facts rule: only names + context drawn from our correspondent coverage.
+// Featured artists shown on /artists. Seeded from our own coverage; featured submissions join
+// them (the /api/submissions endpoint moves a submission to 'featured'). Names and context are
+// drawn only from our own coverage.
 
 export interface FeaturedArtist {
   slug: string;

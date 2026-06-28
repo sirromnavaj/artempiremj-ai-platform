@@ -1,4 +1,4 @@
-// POST /api/submit — artist submissions, any medium (skill DECISIONS #18). Writes to OUR D1.
+// POST /api/submit — artist submissions, any medium. Writes to D1.
 // Submission CTAs are the engagement engine (skill cta-system), so this is a first-class path.
 interface Env { DB: D1Database; RESEND_API_KEY?: string; NOTIFY_FROM?: string; NOTIFY_TO?: string }
 

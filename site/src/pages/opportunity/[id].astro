@@ -15,7 +15,7 @@ const kindLabel: Record<string, string> = {
 };
 const when = o.verified && o.deadline ? `Deadline ${o.deadline}` : (o.window ?? 'Dates via DISCOVER');
 
-// One Event entity per URL (AEO: this page IS the clean answer to "is X open / when").
+// One Event entity per URL.
 const event: Record<string, unknown> = {
   '@context': 'https://schema.org', '@type': 'Event',
   '@id': site + path + '#event',
