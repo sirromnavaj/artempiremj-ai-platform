@@ -1,0 +1,64 @@
+---
+import Base from '../../layouts/Base.astro';
+import { OPPORTUNITIES, eventSchema } from '../../data/calendar.ts';
+const schema = OPPORTUNITIES.map(eventSchema);
+const rotation = [
+  ['Week 1', 'Americas', 'North America, Latin America, the Caribbean, diaspora cities.'],
+  ['Week 2', 'Europe', 'Western, Eastern, Nordic, Mediterranean.'],
+  ['Week 3', 'Africa', 'Every region of the continent, rotating, never the same sub-region twice running.'],
+  ['Week 4', 'Asia and the Middle East', 'East, South, and Southeast Asia, the Pacific, the Gulf, and global crossings.'],
+];
+---
+<Base path="/discover" title="DISCOVER" description="The opportunity radar: open calls, residencies, grants, and fairs, gathered for the artists who want them. Updated on a four-week global rotation.">
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(schema)}</script>`} />
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="eyebrow">Department</p>
+    <h1>DISCOVER</h1>
+    <p class="lede prose">The opportunity radar. Open calls, residencies, grants, fairs, and the doors
+      worth knowing about, gathered for the artists who want them. Free, and built to stay open.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem;">
+    <h2>How the radar stays global</h2>
+    <p class="muted prose">A four-week rotation, so coverage reaches every region rather than the
+      same few cities. The anchor is the art and the human, not a geography.</p>
+    <div class="rot">
+      {rotation.map(([wk, region, detail]) => (
+        <div class="r">
+          <span class="eyebrow">{wk}</span>
+          <span class="r-name">{region}</span>
+          <span class="muted">{detail}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-block: 1.5rem;">
+    <h2>On the radar now</h2>
+    <ul class="ops">
+      {OPPORTUNITIES.map((o) => (
+        <li class="op"><a href={o.url} rel="noopener">
+          <span class="eyebrow">{o.kind}</span>
+          <span class="op-title">{o.title}</span>
+          <span class="muted">{o.organizer} · {o.city}, {o.country}</span>
+          <span>{o.summary}</span>
+          <span class="muted">{o.verified && o.deadline ? `Deadline ${o.deadline}` : o.window}</span>
+        </a></li>
+      ))}
+    </ul>
+    <p class="muted" style="border-top:1px solid var(--line); padding-top:1.2rem; margin-top:1.5rem;">
+      Dates are confirmed before an opportunity is listed. Run a residency, fair, grant, or open
+      call? <a href="/sponsor">List it with DISCOVER.</a></p>
+  </section>
+
+  <style>
+    .rot { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1rem; }
+    @media (max-width: 760px) { .rot { grid-template-columns: 1fr 1fr; } }
+    .r { display: grid; gap: 0.25rem; padding: 1rem; border: 1px solid var(--line); border-radius: 3px; background: var(--cream); }
+    .r-name { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; }
+    .ops { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .op { border: 1px solid var(--line); border-radius: 3px; background: var(--paper); }
+    .op a { display: grid; gap: 0.25rem; padding: 1rem; text-decoration: none; }
+    .op-title { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; }
+  </style>
+</Base>

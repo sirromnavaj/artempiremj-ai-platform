@@ -1,0 +1,102 @@
+---
+// Base layout — one masthead, warm voice, content in the served HTML (crawlable).
+// The engine room (Nohvara, the correspondent tooling) never appears here. v3.17.
+export interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+}
+import '../styles/global.css';
+const {
+  title = 'ArtempireMJ',
+  description = 'The world, told through artists. A global art institution: the Calendar of open calls, fairs, residencies and grants; Spotlight features through the maker’s eye; and Art Itineraries for the culturally-curious traveller.',
+  path = '/',
+} = Astro.props;
+const site = 'https://artempiremj.com';
+const canonical = site + path;
+const fullTitle = title === 'ArtempireMJ' ? 'ArtempireMJ · the world, told through artists' : `${title} · ArtempireMJ`;
+
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'ArtempireMJ',
+  url: site,
+  description: 'A global art institution telling the world through artists.',
+  sameAs: [],
+};
+const nav = [
+  { href: '/', label: 'Calendar' },
+  { href: '/spotlight', label: 'Spotlight' },
+  { href: '/discover', label: 'DISCOVER' },
+  { href: '/itineraries', label: 'Art Itineraries' },
+  { href: '/studio', label: 'The Studio' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ArtempireMJ" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <set:html set:html={`<script type="application/ld+json">${JSON.stringify(org)}</script>`} />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap masthead-row">
+        <a class="mark" href="/">ArtempireMJ</a>
+        <nav class="nav" aria-label="Primary">
+          {nav.map((n) => <a href={n.href} aria-current={n.href === path ? 'page' : undefined}>{n.label}</a>)}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <div class="prose">
+          <p class="mark-sm">ArtempireMJ</p>
+          <p class="muted">The world, told through artists. The world is the subject. The artist is the lens.</p>
+        </div>
+        <div>
+          <p class="eyebrow">The newsletter</p>
+          <p class="muted">The week in world art, told through the makers who carry it. One email.</p>
+          <form class="sub" action="/api/subscribe" method="post">
+            <input type="email" name="email" placeholder="you@email.com" aria-label="Email" required />
+            <button class="btn" type="submit">Subscribe</button>
+          </form>
+        </div>
+        <div>
+          <p class="eyebrow">For partners</p>
+          <p class="muted"><a href="/sponsor">Reach artists through DISCOVER, Spotlight, and Itineraries.</a></p>
+          <p class="muted"><a href="/about">About the institution</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .masthead { border-bottom: 1px solid var(--line); background: var(--cream); }
+      .masthead-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-block: 1.1rem; flex-wrap: wrap; }
+      .mark { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; letter-spacing: -0.02em; text-decoration: none; }
+      .nav { display: flex; gap: 1.15rem; font-family: var(--sans); font-size: 0.9rem; flex-wrap: wrap; }
+      .nav a { text-decoration: none; color: var(--ink-soft); }
+      .nav a[aria-current="page"] { color: var(--ember); }
+      .footer { border-top: 1px solid var(--line); background: var(--cream); margin-top: 4rem; }
+      .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; padding-block: 2.5rem; }
+      @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; } }
+      .mark-sm { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; margin: 0 0 0.2rem; }
+      .sub { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+      .sub input { flex: 1; padding: 0.6em 0.8em; border: 1px solid var(--line); border-radius: 2px; font-family: var(--sans); }
+    </style>
+  </body>
+</html>

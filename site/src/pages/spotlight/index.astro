@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SERIES, WEEKLY } from '../../data/series.ts';
+const series = SERIES.filter((s) => s.department === 'Spotlight');
+---
+<Base path="/spotlight" title="Spotlight" description="News, analysis, and artist features through the maker’s eye. The World column, Money Stories, Art + Finance, Ink, and more.">
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="eyebrow">Department</p>
+    <h1>Spotlight</h1>
+    <p class="lede prose">News, analysis, and artist features through the maker’s eye. When something
+      happens in the world, Spotlight finds the artist who carries it and tells it through them.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem;">
+    <h2>The series</h2>
+    <ul class="series">
+      {series.map((s) => (
+        <li class="s">
+          <span class="eyebrow">{s.day ?? 'Series'}</span>
+          <span class="s-name">{s.name}</span>
+          <span class="muted">{s.what}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="wrap" style="padding-block: 1.5rem 3rem;">
+    <h2>The week</h2>
+    <p class="muted prose">The slots run regardless of the monthly theme. The theme is the connective tissue between them.</p>
+    <table class="week">
+      <tbody>
+        {WEEKLY.map(([day, what]) => (<tr><th>{day}</th><td>{what}</td></tr>))}
+      </tbody>
+    </table>
+  </section>
+
+  <style>
+    .series { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .s { display: grid; gap: 0.3rem; padding: 1.1rem; border: 1px solid var(--line); border-radius: 3px; background: var(--paper); }
+    .s-name { font-family: var(--serif); font-weight: 600; font-size: 1.2rem; }
+    .week { border-collapse: collapse; margin-top: 1rem; font-family: var(--sans); }
+    .week th { text-align: left; padding: 0.5rem 1.5rem 0.5rem 0; color: var(--warm); font-weight: 600; }
+    .week td { padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
+  </style>
+</Base>

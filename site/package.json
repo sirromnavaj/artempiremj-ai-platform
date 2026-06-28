@@ -1,0 +1,15 @@
+{
+  "name": "artempiremj-site",
+  "type": "module",
+  "version": "3.17.0",
+  "private": true,
+  "description": "ArtempireMJ — one masthead, three departments. Calendar-first, crawlable, AEO-led. Rebuilt to skill v3.17.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.15.0"
+  }
+}

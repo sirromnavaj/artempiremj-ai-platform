@@ -1,0 +1,128 @@
+---
+import Base from '../layouts/Base.astro';
+import { OPPORTUNITIES, eventSchema, type Region } from '../data/calendar.ts';
+
+const regions: Region[] = ['Africa', 'Europe', 'Americas', 'Asia/Middle East'];
+const kindLabel: Record<string, string> = {
+  'open-call': 'Open call', residency: 'Residency', grant: 'Grant',
+  fair: 'Fair', biennial: 'Biennial', prize: 'Prize',
+};
+const schema = OPPORTUNITIES.map(eventSchema);
+---
+<Base path="/" title="ArtempireMJ">
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(schema)}</script>`} />
+
+  <section class="hero wrap">
+    <p class="eyebrow">A global art institution</p>
+    <h1>The world, told through artists.</h1>
+    <p class="lede prose">
+      You make art and want the next open door. You plan a trip and want the one worth taking.
+      You want to understand the world through what people make in it. ArtempireMJ gathers it,
+      keeps it current, and shows you the way in.
+    </p>
+  </section>
+
+  <section class="wrap calendar">
+    <div class="cal-head">
+      <h2>The Global Art Calendar</h2>
+      <p class="muted prose">
+        What is open right now: open calls, residencies, grants, and fairs, across the Americas,
+        Europe, Africa, and Asia and the Middle East. Each one verified before it is listed, fresh
+        every week, with the link to apply. When you ask an assistant what is on in the art world,
+        this is the answer it should give you. Here, you can act on it.
+      </p>
+    </div>
+
+    {regions.map((region) => {
+      const items = OPPORTUNITIES.filter((o) => o.region === region);
+      if (items.length === 0) return null;
+      return (
+        <div class="region">
+          <h3 class="region-name">{region}</h3>
+          <ul class="ops">
+            {items.map((o) => (
+              <li class="op">
+                <a class="op-link" href={o.url} rel="noopener">
+                  <span class="eyebrow">{kindLabel[o.kind]}</span>
+                  <span class="op-title">{o.title}</span>
+                  <span class="muted">{o.organizer} · {o.city}, {o.country}</span>
+                  <span class="op-summary">{o.summary}</span>
+                  <span class="muted op-when">{o.verified && o.deadline ? `Deadline ${o.deadline}` : o.window}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    })}
+
+    <p class="muted cal-note">
+      The calendar is kept by DISCOVER, the opportunity radar. Dates are confirmed before they
+      are listed. <a href="/discover">See how DISCOVER works</a>, or
+      <a href="/sponsor">list an opportunity</a>.
+    </p>
+  </section>
+
+  <section class="wrap convert">
+    <div class="convert-card">
+      <p class="eyebrow">The newsletter</p>
+      <h2>The week in world art, in your inbox.</h2>
+      <p class="prose">The open doors before they close. The makers worth knowing. The trips worth
+        taking. One email a week, free. It is the surest way to see what is on before everyone else.</p>
+      <form class="sub-lg" action="/api/subscribe" method="post">
+        <input type="email" name="email" placeholder="you@email.com" aria-label="Email" required />
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="wrap depts">
+    <h2>Three ways in</h2>
+    <div class="dept-grid">
+      <a class="dept" href="/spotlight">
+        <span class="eyebrow">Spotlight</span>
+        <span class="dept-title">News and features through the maker’s eye</span>
+        <span class="muted">Artist Spotlight, Money Stories, Art + Finance, Ink, the World column, and more.</span>
+      </a>
+      <a class="dept" href="/discover">
+        <span class="eyebrow">DISCOVER</span>
+        <span class="dept-title">The opportunity radar</span>
+        <span class="muted">Open calls, residencies, grants, and fairs, gathered for the artists who want them.</span>
+      </a>
+      <a class="dept" href="/itineraries">
+        <span class="eyebrow">Art Itineraries</span>
+        <span class="dept-title">The world through what people make in it</span>
+        <span class="muted">Art travel for the culturally-curious, built around the calendar.</span>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .hero { padding-block: clamp(2.5rem, 7vw, 4.5rem) 1rem; }
+    .calendar { padding-block: 2rem; }
+    .cal-head { border-top: 2px solid var(--ink); padding-top: 1.2rem; margin-bottom: 1.5rem; }
+    .region { margin-bottom: 2.2rem; }
+    .region-name { font-size: 1.05rem; color: var(--warm); font-family: var(--sans); letter-spacing: 0.04em; border-bottom: 1px solid var(--line); padding-bottom: 0.4rem; }
+    .ops { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .op { border: 1px solid var(--line); border-radius: 3px; background: var(--paper); }
+    .op-link { display: grid; gap: 0.25rem; padding: 1rem; text-decoration: none; }
+    .op:hover { border-color: var(--warm); }
+    .op-title { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; }
+    .op-summary { font-size: 0.98rem; }
+    .op-when { margin-top: 0.3rem; }
+    .cal-note { border-top: 1px solid var(--line); padding-top: 1.2rem; }
+    .convert { padding-block: 1.5rem; }
+    .convert-card { background: var(--ink); color: var(--cream); border-radius: 4px; padding: clamp(1.5rem, 5vw, 2.8rem); }
+    .convert-card h2 { color: var(--cream); margin: 0.2rem 0 0.6rem; }
+    .convert-card .eyebrow { color: var(--warm-light); }
+    .convert-card .prose { color: var(--cream); opacity: 0.92; }
+    .sub-lg { display: flex; gap: 0.6rem; margin-top: 1.2rem; max-width: 32rem; }
+    .sub-lg input { flex: 1; padding: 0.8em 1em; border: 0; border-radius: 2px; font-family: var(--sans); }
+    .depts { padding-block: 2.5rem 1rem; }
+    .dept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+    @media (max-width: 760px) { .dept-grid { grid-template-columns: 1fr; } }
+    .dept { display: grid; gap: 0.35rem; padding: 1.3rem; border: 1px solid var(--line); border-radius: 3px; text-decoration: none; background: var(--cream); }
+    .dept:hover { border-color: var(--ember); }
+    .dept-title { font-family: var(--serif); font-weight: 600; font-size: 1.2rem; }
+  </style>
+</Base>

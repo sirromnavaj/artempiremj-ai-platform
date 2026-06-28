@@ -1,0 +1,69 @@
+/* ArtempireMJ — visual system, skill v3.17 (#17: one mark, warm palette, no sub-brand colours).
+   Cream + ink + warm gold + ember. A series gets a typographic label, never its own colour. */
+:root {
+  --cream: #EFE7D6;
+  --cream-deep: #F1E8D4;
+  --paper: #FBF7EF;
+  --ink: #0D0D0D;
+  --ink-soft: #1A1310;
+  --warm: #9A7E4A;
+  --warm-light: #BFA972;
+  --ember: #C45E24;
+  --line: #E2D8C2;
+  --muted: #6B5F4C;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --measure: 66ch;
+  --pad: clamp(1rem, 4vw, 2.5rem);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.075rem;
+  line-height: 1.6;
+}
+a { color: var(--ink); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--ember); }
+
+.wrap { max-width: 72rem; margin: 0 auto; padding-inline: var(--pad); }
+.prose { max-width: var(--measure); }
+
+h1, h2, h3 { font-family: var(--serif); line-height: 1.15; font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 6vw, 3.4rem); margin: 0 0 0.4em; }
+h2 { font-size: clamp(1.4rem, 3.5vw, 2.1rem); }
+
+/* Eyebrow = the series/department label (typographic, never a colour) */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--warm);
+  font-weight: 600;
+}
+.lede { font-size: 1.2rem; color: var(--ink-soft); }
+.muted { color: var(--muted); font-family: var(--sans); font-size: 0.9rem; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.7em 1.3em;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: var(--ink);
+  color: var(--cream);
+  text-decoration: none;
+}
+.btn:hover { background: var(--ember); border-color: var(--ember); color: var(--cream); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--cream); }
+
+hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }

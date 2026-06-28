@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+const lines = [
+  ['Opportunity-givers', 'Fairs, residencies, prizes, and grant-makers. List an open call on DISCOVER and reach the artists who want it. The artists are never charged. You reach them.'],
+  ['Observers who can pay', 'Collectors, advisors, and funders who read Art + Finance for what the market is doing. The paid intelligence tier leads with the edge they are buying.'],
+  ['Travel and lifestyle partners', 'Reach the culturally-curious traveller through Art Itineraries, built around real dates on the calendar.'],
+];
+---
+<Base path="/sponsor" title="Partner with ArtempireMJ" description="Reach artists, collectors, and culturally-curious travellers through DISCOVER, Spotlight, and Art Itineraries.">
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="eyebrow">For partners</p>
+    <h1>Reach the people who make and move art.</h1>
+    <p class="lede prose">ArtempireMJ is free for the artists it serves. That free service is what
+      makes it worth reaching them through. Here is who pays, and what they get.</p>
+  </section>
+  <section class="wrap" style="padding-block: 1rem 3rem;">
+    <ul class="pay">
+      {lines.map(([who, what]) => (
+        <li><span class="s-name">{who}</span><span class="muted">{what}</span></li>
+      ))}
+    </ul>
+    <p style="margin-top:1.5rem;"><a class="btn" href="mailto:partners@artempiremj.com">Start a conversation</a></p>
+  </section>
+  <style>
+    .pay { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 1rem; max-width: 60ch; }
+    .pay li { display: grid; gap: 0.3rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: 3px; background: var(--cream); }
+    .s-name { font-family: var(--serif); font-weight: 600; font-size: 1.2rem; }
+  </style>
+</Base>
