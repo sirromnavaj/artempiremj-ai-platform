@@ -23,7 +23,7 @@ const series = [
   </section>
 
   <section class="wrap" style="padding-block: 1rem 3rem; max-width: 44rem;">
-    <form id="sub" action="/api/submit" method="post" class="form">
+    <form id="sub" action="/api/submit" method="post" enctype="multipart/form-data" class="form">
       <input type="text" name="bot-field" tabindex="-1" autocomplete="off" class="bot" aria-hidden="true" />
       <label>Your name<input name="name" required /></label>
       <label>Email<input name="email" type="email" required /></label>
@@ -40,6 +40,9 @@ const series = [
       </label>
       <label>City, country (optional)<input name="location" placeholder="Lagos, Nigeria" /></label>
       <label>A link to your work (optional)<input name="links" placeholder="portfolio or social link" /></label>
+      <label>Upload your work (optional, up to 6 images)
+        <input name="images" type="file" accept="image/*" multiple />
+      </label>
       <label>Your story
         <textarea name="story" rows="6" required placeholder="What are you making, and what does it carry?"></textarea>
       </label>
@@ -55,6 +58,7 @@ const series = [
     .form input, .form select, .form textarea { padding: 0.7em 0.9em; border: 1px solid var(--line); border-radius: 2px; font-family: var(--sans); font-size: 1rem; background: var(--paper); }
     .form textarea { font-family: var(--serif); }
     .check { flex-direction: row; align-items: center; gap: 0.5rem; grid-auto-flow: column; justify-content: start; }
+    .form input[type="file"] { padding: 0.5em 0; border: 0; font-size: 0.9rem; }
     .bot { position: absolute; left: -9999px; }
     .msg { margin: 0; font-family: var(--sans); }
     .msg[data-state="ok"] { color: var(--warm); }

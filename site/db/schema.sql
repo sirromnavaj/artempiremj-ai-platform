@@ -21,9 +21,30 @@ CREATE TABLE IF NOT EXISTS submissions (
   series      TEXT,            -- ink | money-stories | artist-edition | correspondent | general
   location    TEXT,            -- city, country (vantage, not boundary)
   links       TEXT,            -- portfolio / socials
+  images      TEXT,            -- JSON array of uploaded R2 keys (portfolio uploads)
   story       TEXT NOT NULL,   -- the story they carry
   consent     INTEGER NOT NULL DEFAULT 0,
   status      TEXT NOT NULL DEFAULT 'new',   -- new | reviewing | featured | archived
+  created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+-- For an existing DB, run once: ALTER TABLE submissions ADD COLUMN images TEXT;
+
+-- Public listings submitted by organisers (fairs, residencies, galleries) with photos.
+-- The self-submit spine of the calendar: pending -> verified -> published into opportunities.
+CREATE TABLE IF NOT EXISTS listings (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  title       TEXT NOT NULL,
+  kind        TEXT,            -- open-call | residency | grant | fair | biennial | prize | exhibition
+  organizer   TEXT,
+  email       TEXT NOT NULL,
+  city        TEXT,
+  country     TEXT,
+  start       TEXT,
+  deadline    TEXT,
+  url         TEXT,
+  summary     TEXT NOT NULL,
+  images      TEXT,            -- JSON array of uploaded R2 keys
+  status      TEXT NOT NULL DEFAULT 'pending',   -- pending | verified | published | rejected
   created_at  TEXT NOT NULL DEFAULT (datetime('now'))
 );
 

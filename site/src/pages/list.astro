@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+const kinds = [
+  ['open-call', 'Open call'], ['residency', 'Residency'], ['grant', 'Grant'],
+  ['fair', 'Fair'], ['biennial', 'Biennial'], ['prize', 'Prize'], ['exhibition', 'Exhibition'],
+];
+---
+<Base path="/list" title="List an opportunity or event" description="Run a fair, residency, grant, open call, prize, or exhibition? List it on the Global Art Calendar. Add photos. We verify dates before publishing.">
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="eyebrow">For organisers</p>
+    <h1>List it on the calendar.</h1>
+    <p class="lede prose">Run a fair, residency, grant, open call, prize, or exhibition? Put it in
+      front of the artists and travellers who are looking for exactly this. Add photos. We confirm
+      the dates before it goes live, so what we publish can be trusted.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem 3rem; max-width: 44rem;">
+    <form id="lst" action="/api/list" method="post" enctype="multipart/form-data" class="form">
+      <input type="text" name="bot-field" tabindex="-1" autocomplete="off" class="bot" aria-hidden="true" />
+      <label>Name of the opportunity or event<input name="title" required /></label>
+      <label>Type
+        <select name="kind" required>
+          <option value="" disabled selected>Choose one</option>
+          {kinds.map(([v, l]) => <option value={v}>{l}</option>)}
+        </select>
+      </label>
+      <label>Who runs it<input name="organizer" placeholder="Gallery, fair, foundation, museum" /></label>
+      <label>Your email<input name="email" type="email" required /></label>
+      <div class="row2">
+        <label>City<input name="city" /></label>
+        <label>Country<input name="country" /></label>
+      </div>
+      <div class="row2">
+        <label>Start or opening date<input name="start" type="date" /></label>
+        <label>Deadline (if any)<input name="deadline" type="date" /></label>
+      </div>
+      <label>Link (the official page)<input name="url" type="url" placeholder="https://" /></label>
+      <label>What it is<textarea name="summary" rows="4" required placeholder="A sentence or two. What it offers, who it is for."></textarea></label>
+      <label>Photos (optional, up to 6)
+        <input name="images" type="file" accept="image/*" multiple />
+      </label>
+      <button class="btn" type="submit">Submit listing</button>
+      <p class="msg" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <style>
+    .form { display: grid; gap: 1rem; }
+    .form label { display: grid; gap: 0.35rem; font-family: var(--sans); font-size: 0.9rem; color: var(--ink-soft); }
+    .form input, .form select, .form textarea { padding: 0.7em 0.9em; border: 1px solid var(--line); border-radius: 2px; font-family: var(--sans); font-size: 1rem; background: var(--paper); }
+    .form textarea { font-family: var(--serif); }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 520px) { .row2 { grid-template-columns: 1fr; } }
+    .form input[type="file"] { padding: 0.5em 0; border: 0; font-size: 0.9rem; }
+    .bot { position: absolute; left: -9999px; }
+    .msg { margin: 0; font-family: var(--sans); }
+    .msg[data-state="ok"] { color: var(--warm); }
+    .msg[data-state="err"] { color: var(--ember); }
+  </style>
+
+  <script>
+    const f = document.getElementById('lst') as HTMLFormElement;
+    f?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = f.querySelector('.msg') as HTMLElement;
+      const btn = f.querySelector('button') as HTMLButtonElement;
+      btn.disabled = true; msg.textContent = 'Sending...'; msg.removeAttribute('data-state');
+      try {
+        const res = await fetch(f.action, { method: 'POST', body: new FormData(f) });
+        if (!res.ok) throw new Error();
+        f.reset();
+        msg.textContent = 'Got it. We verify the dates, then it goes on the calendar. Thank you.';
+        msg.setAttribute('data-state', 'ok');
+      } catch {
+        msg.textContent = 'That did not send. Try again in a moment.';
+        msg.setAttribute('data-state', 'err');
+      } finally { btn.disabled = false; }
+    });
+  </script>
+</Base>
