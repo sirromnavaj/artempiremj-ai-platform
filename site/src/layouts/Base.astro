@@ -41,8 +41,8 @@ const org = {
   ],
 };
 const nav = [
-  { href: '/world', label: 'The World' },
   { href: '/', label: 'Calendar' },
+  { href: '/world', label: 'The World' },
   { href: '/spotlight', label: 'Spotlight' },
   { href: '/discover', label: 'DISCOVER' },
   { href: '/itineraries', label: 'Art Itineraries' },
@@ -58,7 +58,7 @@ const nav = [
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -76,7 +76,7 @@ const nav = [
     <header class="masthead">
       <div class="wrap masthead-row">
         <a class="mark" href="/">
-          <img class="mark-logo" src="/logo-mark.svg" alt="" width="34" height="34" />
+          <img class="mark-logo" src="/logo-mark.png" alt="" width="36" height="36" />
           <span>ArtempireMJ</span>
         </a>
         <nav class="nav" aria-label="Primary">
@@ -105,6 +105,8 @@ const nav = [
           <p class="muted"><a href="/sponsor">Reach the world that follows art, through The World, DISCOVER, and Itineraries.</a></p>
           <p class="muted"><a href="/about">About</a></p>
           <p class="muted"><a href="/faq">Questions</a></p>
+          <p class="muted"><a href="/correspondents">Report from your city</a></p>
+          <p class="muted"><a href="/studio">The Studio</a></p>
         </div>
       </div>
     </footer>
@@ -113,7 +115,7 @@ const nav = [
       .masthead { border-bottom: 1px solid var(--line); background: var(--cream); }
       .masthead-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-block: 1.1rem; flex-wrap: wrap; }
       .mark { font-family: var(--display); font-weight: 600; font-size: 1.5rem; letter-spacing: -0.02em; text-decoration: none; display: inline-flex; align-items: center; gap: 0.55rem; color: var(--ink); }
-      .mark-logo { width: 34px; height: 34px; flex: none; }
+      .mark-logo { width: 36px; height: 36px; flex: none; border-radius: 50%; }
       .masthead { border-bottom: 1px solid var(--line); background: var(--cream); border-top: 3px solid var(--teal); }
       .nav { display: flex; gap: 1.15rem; font-family: var(--sans); font-size: 0.9rem; flex-wrap: wrap; }
       .nav a { text-decoration: none; color: var(--ink-soft); }
