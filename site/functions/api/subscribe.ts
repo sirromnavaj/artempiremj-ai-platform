@@ -1,5 +1,6 @@
 // POST /api/subscribe — our own newsletter signup. Writes the subscriber to OUR D1.
 // We own the list. Optional Resend send is just delivery, never the owner of the audience.
+import { welcome } from '../../emails/templates';
 interface Env { DB: D1Database; RESEND_API_KEY?: string; NOTIFY_FROM?: string }
 
 const json = (b: unknown, s = 200) =>
@@ -36,7 +37,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
           from: env.NOTIFY_FROM || 'ArtempireMJ <hello@artempiremj.com>',
           to: email,
           subject: 'You are in',
-          text: 'You are on the ArtempireMJ list. The week in world art, told through the makers who carry it. Look for the first one this week.',
+          html: welcome(),
         }),
       });
     } catch { /* delivery can fail without losing the subscriber */ }
