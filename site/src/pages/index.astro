@@ -13,6 +13,16 @@ const kindLabel: Record<string, string> = {
   'open-call': 'Open call', residency: 'Residency', grant: 'Grant',
   fair: 'Fair', biennial: 'Biennial', prize: 'Prize',
 };
+const gallery = [
+  { src: '/images/khethiwe_tshabalala_bkhz_at_joburg.jpg', alt: 'Zandile Tshabalala’s show at the BKhz booth, FNB Art Joburg', credit: 'Khethiwe Tracy Gumede' },
+  { src: '/images/ictaf_owanto.jpg', alt: 'Owanto’s solo presentation at Reiners Contemporary, Cape Town', credit: 'ICTAF' },
+  { src: '/images/khethiwe_wunika_mukan_lagos_at_joburg.jpg', alt: 'Wunika Mukan Gallery of Lagos at FNB Art Joburg', credit: 'Khethiwe Tracy Gumede' },
+  { src: '/images/ictaf_southern_guild.jpg', alt: 'The Southern Guild booth at the Investec Cape Town Art Fair', credit: 'ICTAF' },
+  { src: '/images/ictaf_double_v.jpg', alt: 'The Double V Gallery booth at Cape Town', credit: 'ICTAF' },
+  { src: '/images/khethiwe_sibande_sophie_at_joburg.jpg', alt: 'On the floor at FNB Art Joburg', credit: 'Khethiwe Tracy Gumede' },
+  { src: '/images/ictaf_nosco.jpg', alt: 'The Gallery Nosco booth at Cape Town', credit: 'ICTAF' },
+  { src: '/images/ictaf_investec_prize.jpg', alt: 'The Investec Emerging Artist Award at Cape Town', credit: 'ICTAF' },
+];
 const schema = OPPORTUNITIES.map(eventSchema);
 const itemList = {
   '@context': 'https://schema.org', '@type': 'ItemList',
@@ -129,6 +139,19 @@ const itemList = {
     </div>
   </section>
 
+  <section class="wrap gallery-band">
+    <h2>On the floor</h2>
+    <p class="muted">From our correspondents at the fairs this season.</p>
+    <div class="gallery">
+      {gallery.map((g) => (
+        <figure class="gphoto">
+          <img src={g.src} alt={g.alt} loading="lazy" decoding="async" />
+          <figcaption class="muted">{g.credit}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
   <section class="wrap convert">
     <div class="convert-card">
       <p class="eyebrow">The newsletter</p>
@@ -192,6 +215,12 @@ const itemList = {
     .story .muted { padding-bottom: 1rem; }
     .story-title { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; }
     .story:hover { border-color: var(--ember); }
+    .gallery-band { padding-block: 2rem 1rem; }
+    .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-top: 1rem; }
+    @media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+    .gphoto { margin: 0; }
+    .gphoto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 3px; display: block; }
+    .gphoto figcaption { font-size: 0.74rem; margin-top: 0.3rem; }
     .convert { padding-block: 1.5rem; }
     .convert-card { background: var(--sepia-grad); color: var(--ivory); border-radius: 6px; padding: clamp(1.8rem, 5vw, 3.2rem); box-shadow: 0 1px 40px rgba(20,12,5,0.18); }
     .convert-card h2 { color: var(--ivory); margin: 0.2rem 0 0.6rem; }
