@@ -11,7 +11,7 @@ const labels: Record<string, { label: string; plural: string }> = {
   prize: { label: 'Prize', plural: 'Prizes' },
 };
 export function getStaticPaths() {
-  return Object.keys(labels).map((kind) => ({ params: { kind } }));
+  return ['open-call', 'residency', 'grant', 'fair', 'biennial', 'prize'].map((kind) => ({ params: { kind } }));
 }
 const { kind } = Astro.params;
 const meta = labels[kind as string];

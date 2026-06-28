@@ -1,14 +1,41 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { OPPORTUNITIES } from '../../data/calendar.ts';
+// The traveller's view: the fairs and biennials worth planning a trip around, so you do not
+// miss the one happening where you are headed. The calendar and the itinerary, one machine.
+const travel = OPPORTUNITIES
+  .filter((o) => o.kind === 'fair' || o.kind === 'biennial')
+  .sort((a, b) => (a.city < b.city ? -1 : 1));
 ---
-<Base path="/itineraries" title="Art Itineraries" description="The world through what people make in it. Art travel for the culturally-curious traveller, built around the calendar.">
+<Base path="/itineraries" title="Art Itineraries" description="The fairs and biennials worth a trip, worldwide, so you never miss the one where you are headed. Art travel for the culturally-curious, built around the calendar.">
   <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
     <p class="eyebrow">Department</p>
     <h1>Art Itineraries</h1>
-    <p class="lede prose">The world through what people make in it. For the traveller who plans a
-      trip around a biennial, a fair, or a studio worth the journey. The calendar tells you when.
-      Itineraries tell you how to go.</p>
+    <p class="lede prose">You travel, and you would rather not miss the fair everyone will be talking
+      about. Here is what is worth planning a trip around, by city, so the dates reach you before
+      the flights fill. The calendar tells you when. Itineraries tell you how to go.</p>
   </section>
+
+  <section class="wrap" style="padding-block: 1rem;">
+    <h2>What is worth the trip</h2>
+    <ul class="ops">
+      {travel.map((o) => (
+        <li class="op"><a href={`/opportunity/${o.id}`}>
+          <span class="eyebrow">{o.kind === 'fair' ? 'Fair' : 'Biennial'}</span>
+          <span class="op-title">{o.title}</span>
+          <span class="muted">{o.city}, {o.country}</span>
+          <span class="muted">{o.verified && o.deadline ? `Dates around ${o.deadline}` : o.window}</span>
+        </a></li>
+      ))}
+    </ul>
+  </section>
+
+  <style>
+    .ops { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .op { border: 1px solid var(--line); border-radius: 3px; background: var(--paper); }
+    .op a { display: grid; gap: 0.25rem; padding: 1rem; text-decoration: none; }
+    .op-title { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; }
+  </style>
   <section class="wrap" style="padding-block: 1rem 3rem;">
     <h2>Built around the calendar</h2>
     <p class="muted prose">An itinerary starts from a real date on the Global Art Calendar, a fair
