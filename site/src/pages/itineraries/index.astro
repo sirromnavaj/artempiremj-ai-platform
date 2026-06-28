@@ -1,50 +1,52 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { OPPORTUNITIES } from '../../data/calendar.ts';
-// The traveller's view: the fairs and biennials worth planning a trip around, so you do not
-// miss the one happening where you are headed. The calendar and the itinerary, one machine.
-const travel = OPPORTUNITIES
-  .filter((o) => o.kind === 'fair' || o.kind === 'biennial')
-  .sort((a, b) => (a.city < b.city ? -1 : 1));
+import { EVENTS, type ArtEvent } from '../../data/events.ts';
+const events: ArtEvent[] = [...EVENTS].sort((a, b) => ((a.start ?? '9999') < (b.start ?? '9999') ? -1 : 1));
+const MO = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fmt = (d?: string) => { if (!d) return ''; const [y, m, dd] = d.split('-'); return `${+dd} ${MO[+m - 1]} ${y}`; };
+const dates = (e: ArtEvent) => e.window ?? (e.end ? `${fmt(e.start)} to ${fmt(e.end)}` : fmt(e.start));
+const site = 'https://artempiremj.com';
+const itemList = {
+  '@context': 'https://schema.org', '@type': 'ItemList',
+  name: 'Art events worth a trip, worldwide',
+  itemListElement: events.map((e, i) => ({ '@type': 'ListItem', position: i + 1, name: e.title, url: e.url })),
+};
 ---
-<Base path="/itineraries" title="Art Itineraries" description="The fairs and biennials worth a trip, worldwide, so you never miss the one where you are headed. Art travel for the culturally-curious, built around the calendar.">
+<Base path="/itineraries" title="Art Itineraries" description="The biennials, fairs, and museum shows worth crossing the world for, worldwide, with the dates to plan around. Africa first-class. Art travel for the culturally-curious.">
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(itemList)}</script>`} />
   <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
     <p class="eyebrow">Art Itineraries</p>
     <h1>Be there the week the art is.</h1>
-    <p class="lede prose">The fairs and biennials worth crossing the world for, gathered by city. We
-      give you the dates early enough to book before the rooms fill, and the way in once you land:
-      what to see, who to meet, where the art actually is.</p>
+    <p class="lede prose">The biennials, fairs, and museum shows worth crossing the world for, with the
+      dates to plan around so you book before the rooms fill. Dakar to Venice, Lagos to New York.</p>
   </section>
 
-  <section class="wrap" style="padding-block: 1rem;">
-    <h2>The art worth crossing the world for</h2>
-    <ul class="ops">
-      {travel.map((o) => (
-        <li class="op"><a href={`/opportunity/${o.id}`}>
-          <span class="eyebrow">{o.kind === 'fair' ? 'Fair' : 'Biennial'}</span>
-          <span class="op-title">{o.title}</span>
-          <span class="muted">{o.city}, {o.country}</span>
-          <span class="muted">{o.verified && o.deadline ? `Dates around ${o.deadline}` : o.window}</span>
-        </a></li>
+  <section class="wrap" style="padding-block: 1rem 3rem;">
+    <ul class="events">
+      {events.map((e) => (
+        <li class="ev">
+          <a href={e.url} rel="noopener" target="_blank">
+            <span class="eyebrow">{e.region}{e.verified ? '' : ' · dates to confirm'}</span>
+            <span class="ev-title">{e.title}</span>
+            <span class="ev-when">{dates(e)}</span>
+            <span class="muted">{e.venue} · {e.city}, {e.country}</span>
+            <span class="ev-why">{e.why}</span>
+          </a>
+        </li>
       ))}
     </ul>
+    <p class="muted prose" style="margin-top:2rem;border-top:1px solid var(--line);padding-top:1.4rem;">
+      Dates are verified against each event’s own source before listing. Routes around the strongest
+      of these, what to see, who to meet, where the art actually is, follow next.</p>
   </section>
 
   <style>
-    .ops { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-    .op { border: 1px solid var(--line); border-radius: 3px; background: var(--paper); }
-    .op a { display: grid; gap: 0.25rem; padding: 1rem; text-decoration: none; }
-    .op-title { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; }
+    .events { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 1.1rem; }
+    .ev { border: 1px solid var(--line); border-radius: 4px; background: var(--paper); transition: border-color 0.15s; }
+    .ev:hover { border-color: var(--ember); }
+    .ev a { display: grid; gap: 0.3rem; padding: 1.3rem; text-decoration: none; }
+    .ev-title { font-family: var(--display); font-weight: 600; font-size: 1.3rem; line-height: 1.15; }
+    .ev-when { font-family: var(--sans); font-size: 0.85rem; color: var(--ember); font-weight: 600; }
+    .ev-why { font-size: 1rem; color: var(--ink-soft); margin-top: 0.2rem; }
   </style>
-  <section class="wrap" style="padding-block: 1rem 3rem;">
-    <h2>Built around the calendar</h2>
-    <p class="muted prose">An itinerary starts from a real date on the Global Art Calendar, a fair
-      in Cape Town or a biennial in Sharjah, and builds the trip around it: what to see, who to
-      meet, where the art actually is. The diaspora traveller flying in for the fair is a reader
-      we plan for by name.</p>
-    <p class="muted prose">The travel and lifestyle partners pay. The reader gets the guide, and a
-      real benefit when one is on offer. Itineraries are in development; the first routes follow
-      the calendar’s strongest dates.</p>
-    <p style="margin-top:1.5rem;"><a class="btn ghost" href="/">See the calendar</a></p>
-  </section>
 </Base>
