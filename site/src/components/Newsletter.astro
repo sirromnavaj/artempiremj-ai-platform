@@ -1,0 +1,52 @@
+---
+// The owned conversion (skill #9: newsletter is the primary conversion, the asset no
+// algorithm can throttle). Posts to the real forms worker (Resend cascade). Works
+// without JS (plain POST fallback); the island upgrades it to inline confirmation.
+export interface Props { variant?: 'panel' | 'inline'; source?: string; }
+const { variant = 'inline', source = 'site' } = Astro.props;
+// Our own endpoint, our own list (Cloudflare Pages Function -> our D1). Not a third party.
+const ENDPOINT = '/api/subscribe';
+---
+<form class={`nl nl-${variant}`} action={ENDPOINT} method="post" data-newsletter>
+  <input type="hidden" name="source" value={source} />
+  <input type="text" name="bot-field" tabindex="-1" autocomplete="off" class="bot" aria-hidden="true" />
+  <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required />
+  <button class="btn" type="submit">Subscribe</button>
+  <p class="nl-msg" role="status" aria-live="polite"></p>
+</form>
+
+<style>
+  .nl { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+  .nl input[type="email"] { flex: 1; min-width: 12rem; padding: 0.75em 1em; border: 1px solid var(--line); border-radius: 2px; font-family: var(--sans); }
+  .nl-panel input[type="email"] { border: 0; }
+  .bot { position: absolute; left: -9999px; width: 1px; height: 1px; }
+  .nl-msg { flex-basis: 100%; margin: 0.4rem 0 0; font-family: var(--sans); font-size: 0.9rem; }
+  .nl-msg[data-state="ok"] { color: var(--warm); }
+  .nl-msg[data-state="err"] { color: var(--ember); }
+</style>
+
+<script>
+  document.querySelectorAll('form[data-newsletter]').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = e.currentTarget as HTMLFormElement;
+      const msg = f.querySelector('.nl-msg') as HTMLElement;
+      const btn = f.querySelector('button') as HTMLButtonElement;
+      btn.disabled = true;
+      msg.textContent = 'One moment...';
+      msg.removeAttribute('data-state');
+      try {
+        const res = await fetch(f.action, { method: 'POST', body: new FormData(f) });
+        if (!res.ok) throw new Error(String(res.status));
+        f.reset();
+        msg.textContent = 'You are in. Look for the first one this week.';
+        msg.setAttribute('data-state', 'ok');
+      } catch {
+        msg.textContent = 'That did not go through. Try again in a moment.';
+        msg.setAttribute('data-state', 'err');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  });
+</script>

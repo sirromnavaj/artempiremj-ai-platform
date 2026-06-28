@@ -7,6 +7,7 @@ export interface Props {
   path?: string;
 }
 import '../styles/global.css';
+import Newsletter from '../components/Newsletter.astro';
 const {
   title = 'ArtempireMJ',
   description = 'The world, told through artists. A global art institution: the Calendar of open calls, fairs, residencies and grants; Spotlight features through the maker’s eye; and Art Itineraries for the culturally-curious traveller.',
@@ -16,13 +17,30 @@ const site = 'https://artempiremj.com';
 const canonical = site + path;
 const fullTitle = title === 'ArtempireMJ' ? 'ArtempireMJ · the world, told through artists' : `${title} · ArtempireMJ`;
 
+// AEO foundation: Organization + WebSite in one @graph, emitted site-wide so AI and
+// search resolve "what is ArtempireMJ" to a clean, structured entity.
 const org = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'ArtempireMJ',
-  url: site,
-  description: 'A global art institution telling the world through artists.',
-  sameAs: [],
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': site + '/#org',
+      name: 'ArtempireMJ',
+      alternateName: 'ArtempireMJ · the world, told through artists',
+      url: site,
+      description: 'A global news institution that tells the world through the artists who live it. The events that move the world, war, currency, migration, culture, told through the maker who carries the story. It keeps the Global Art Calendar of open calls, residencies, grants, fairs and biennials worldwide, and is open to artists in any medium.',
+      knowsAbout: ['world news through art', 'world events through artists', 'open calls', 'artist residencies', 'art grants', 'art fairs', 'biennials', 'African and Global South art', 'art and finance', 'art and migration', 'global art'],
+      areaServed: 'Worldwide',
+    },
+    {
+      '@type': 'WebSite',
+      '@id': site + '/#website',
+      url: site,
+      name: 'ArtempireMJ',
+      publisher: { '@id': site + '/#org' },
+      inLanguage: 'en',
+    },
+  ],
 };
 const nav = [
   { href: '/', label: 'Calendar' },
@@ -30,6 +48,7 @@ const nav = [
   { href: '/discover', label: 'DISCOVER' },
   { href: '/itineraries', label: 'Art Itineraries' },
   { href: '/studio', label: 'The Studio' },
+  { href: '/submit', label: 'Submit' },
 ];
 ---
 <!doctype html>
@@ -71,10 +90,7 @@ const nav = [
         <div>
           <p class="eyebrow">The newsletter</p>
           <p class="muted">The week in world art, told through the makers who carry it. One email.</p>
-          <form class="sub" action="/api/subscribe" method="post">
-            <input type="email" name="email" placeholder="you@email.com" aria-label="Email" required />
-            <button class="btn" type="submit">Subscribe</button>
-          </form>
+          <Newsletter variant="inline" />
         </div>
         <div>
           <p class="eyebrow">For partners</p>

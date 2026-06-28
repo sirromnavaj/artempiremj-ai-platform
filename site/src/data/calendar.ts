@@ -36,77 +36,11 @@ export const REGION_ROTATION: Record<number, Region> = {
   4: 'Asia/Middle East',
 };
 
-// Seed set: real institutions and their real cities (facts). Specific 2026 dates are
-// left to the DISCOVER radar to verify, so nothing here asserts a date we cannot stand
-// behind. These render as the structure; the radar fills verified entries.
-export const OPPORTUNITIES: Opportunity[] = [
-  {
-    id: 'rawmaterial-dakar-residency',
-    title: 'RAW Académie residency',
-    kind: 'residency',
-    organizer: 'RAW Material Company',
-    city: 'Dakar', country: 'Senegal', region: 'Africa',
-    window: 'Annual session, applications open ahead of each cohort',
-    url: 'https://www.rawmaterialcompany.org/',
-    summary: 'A residency and study programme in Dakar for artists and curators working across the continent and its diaspora.',
-    verified: false,
-  },
-  {
-    id: 'norval-sovereign-prize',
-    title: 'Sovereign African Art Prize',
-    kind: 'prize',
-    organizer: 'Norval Foundation',
-    city: 'Cape Town', country: 'South Africa', region: 'Africa',
-    window: 'Annual call',
-    url: 'https://www.norvalfoundation.org/',
-    summary: 'A continental prize recognising painting and works on paper by African artists.',
-    verified: false,
-  },
-  {
-    id: 'delfina-london-residency',
-    title: 'Delfina Foundation residency',
-    kind: 'residency',
-    organizer: 'Delfina Foundation',
-    city: 'London', country: 'United Kingdom', region: 'Europe',
-    window: 'Rolling thematic seasons',
-    url: 'https://www.delfinafoundation.com/',
-    summary: 'A London residency built around themed seasons, hosting artists, curators and writers from everywhere.',
-    verified: false,
-  },
-  {
-    id: 'skowhegan-residency',
-    title: 'Skowhegan summer residency',
-    kind: 'residency',
-    organizer: 'Skowhegan School of Painting & Sculpture',
-    city: 'Madison, Maine', country: 'United States', region: 'Americas',
-    window: 'Annual, applications in the new year',
-    url: 'https://www.skowheganart.org/',
-    summary: 'A long-running summer residency that brings together emerging artists from around the world.',
-    verified: false,
-  },
-  {
-    id: 'sharjah-biennial',
-    title: 'Sharjah Biennial',
-    kind: 'biennial',
-    organizer: 'Sharjah Art Foundation',
-    city: 'Sharjah', country: 'United Arab Emirates', region: 'Asia/Middle East',
-    window: 'Biennial cycle',
-    url: 'https://www.sharjahart.org/',
-    summary: 'One of the most significant biennials in the region, with open research and production strands.',
-    verified: false,
-  },
-  {
-    id: 'lagos-biennial',
-    title: 'Lagos Biennial',
-    kind: 'biennial',
-    organizer: 'Akete Art Foundation',
-    city: 'Lagos', country: 'Nigeria', region: 'Africa',
-    window: 'Biennial cycle, open call ahead of each edition',
-    url: 'https://www.lagosbiennial.org/',
-    summary: 'A West African biennial with an open call for artists and collectives working on its edition theme.',
-    verified: false,
-  },
-];
+// The live dataset: 58 real, sourced opportunities across the four regions
+// (research-gathered; the DISCOVER radar re-verifies before public listing).
+// See opportunities-seed.ts and the calendar-data-sources runbook for provenance.
+import { SEED } from './opportunities-seed';
+export const OPPORTUNITIES: Opportunity[] = SEED;
 
 export function byRegion(region: Region): Opportunity[] {
   return OPPORTUNITIES.filter((o) => o.region === region);

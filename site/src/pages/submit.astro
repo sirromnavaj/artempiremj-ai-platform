@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+const mediums = ['Painting', 'Photography', 'Sculpture', 'Music', 'Tattoo', 'Writing', 'Design', 'Film', 'Craft', 'Other'];
+const series = [
+  ['general', 'I am not sure yet'],
+  ['ink', 'Ink: your skin, your story'],
+  ['money-stories', 'Money Stories: money through your work'],
+  ['artist-edition', 'An Artist Edition'],
+  ['correspondent', 'I want to report from my city'],
+];
+---
+<Base path="/submit" title="Submit your story" description="Artists in any medium can submit their story to ArtempireMJ. Painter, photographer, sculptor, musician, tattoo artist, writer, designer. The world, told through the artists who live it.">
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="eyebrow">For artists</p>
+    <h1>Submit your story.</h1>
+    <p class="lede prose">A maker carries the story. That maker is you, in any medium. Painter,
+      photographer, sculptor, musician, tattoo artist, writer, designer, craftsperson. Tell us
+      what you are working on and what the world should see through it.</p>
+  </section>
+
+  <section class="wrap" style="padding-block: 1rem 3rem; max-width: 44rem;">
+    <form id="sub" action="/api/submit" method="post" class="form">
+      <input type="text" name="bot-field" tabindex="-1" autocomplete="off" class="bot" aria-hidden="true" />
+      <label>Your name<input name="name" required /></label>
+      <label>Email<input name="email" type="email" required /></label>
+      <label>Your medium
+        <select name="medium" required>
+          <option value="" disabled selected>Choose one</option>
+          {mediums.map((m) => <option value={m.toLowerCase()}>{m}</option>)}
+        </select>
+      </label>
+      <label>Where this fits (optional)
+        <select name="series">
+          {series.map(([v, l]) => <option value={v}>{l}</option>)}
+        </select>
+      </label>
+      <label>City, country (optional)<input name="location" placeholder="Lagos, Nigeria" /></label>
+      <label>A link to your work (optional)<input name="links" placeholder="portfolio or social link" /></label>
+      <label>Your story
+        <textarea name="story" rows="6" required placeholder="What are you making, and what does it carry?"></textarea>
+      </label>
+      <label class="check"><input type="checkbox" name="consent" value="1" /> You can contact me about featuring this.</label>
+      <button class="btn" type="submit">Send it</button>
+      <p class="msg" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <style>
+    .form { display: grid; gap: 1rem; }
+    .form label { display: grid; gap: 0.35rem; font-family: var(--sans); font-size: 0.9rem; color: var(--ink-soft); }
+    .form input, .form select, .form textarea { padding: 0.7em 0.9em; border: 1px solid var(--line); border-radius: 2px; font-family: var(--sans); font-size: 1rem; background: var(--paper); }
+    .form textarea { font-family: var(--serif); }
+    .check { flex-direction: row; align-items: center; gap: 0.5rem; grid-auto-flow: column; justify-content: start; }
+    .bot { position: absolute; left: -9999px; }
+    .msg { margin: 0; font-family: var(--sans); }
+    .msg[data-state="ok"] { color: var(--warm); }
+    .msg[data-state="err"] { color: var(--ember); }
+  </style>
+
+  <script>
+    const f = document.getElementById('sub') as HTMLFormElement;
+    f?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = f.querySelector('.msg') as HTMLElement;
+      const btn = f.querySelector('button') as HTMLButtonElement;
+      btn.disabled = true; msg.textContent = 'Sending...'; msg.removeAttribute('data-state');
+      try {
+        const res = await fetch(f.action, { method: 'POST', body: new FormData(f) });
+        if (!res.ok) throw new Error();
+        f.reset();
+        msg.textContent = 'Got it. We read every one. If it is right for us, we will write back.';
+        msg.setAttribute('data-state', 'ok');
+      } catch {
+        msg.textContent = 'That did not send. Try again in a moment.';
+        msg.setAttribute('data-state', 'err');
+      } finally { btn.disabled = false; }
+    });
+  </script>
+</Base>
