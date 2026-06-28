@@ -71,6 +71,7 @@ const nav = [
     </script>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ArtempireMJ" />
@@ -78,6 +79,8 @@ const nav = [
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={site + '/images/khethiwe_fnb_artjoburg_aerial.jpg'} />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="900" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={site + '/images/khethiwe_fnb_artjoburg_aerial.jpg'} />
     <set:html set:html={`<script type="application/ld+json">${JSON.stringify(org)}</script>`} />
