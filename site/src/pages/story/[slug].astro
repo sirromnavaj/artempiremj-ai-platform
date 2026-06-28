@@ -10,7 +10,8 @@ const { a } = Astro.props as { a: Article };
 const site = 'https://artempiremj.com';
 const path = `/story/${a.slug}`;
 const article = {
-  '@context': 'https://schema.org', '@type': 'Article',
+  '@context': 'https://schema.org',
+  '@type': a.series === 'The World' ? 'NewsArticle' : 'Article',
   headline: a.title, description: a.dek,
   datePublished: a.date, dateModified: a.date,
   image: a.image ? site + a.image : undefined,

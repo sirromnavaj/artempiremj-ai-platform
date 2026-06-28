@@ -1,0 +1,53 @@
+// Festivals: the searched, shareable, owned-niche content. Kenya-exhaustive first, then East
+// Africa, then the rest of Africa, then a few global anchors (the DISCOVER 1 ordering).
+// Date-verified where a confirmed upcoming edition exists; otherwise a window + verified:false.
+
+export interface Festival {
+  slug: string;
+  title: string;
+  organizer: string;
+  city: string;
+  country: string;
+  start?: string;
+  end?: string;
+  window?: string;
+  summary: string;
+  url: string;
+  region: 'Americas' | 'Europe' | 'Africa' | 'Asia/Middle East';
+  verified: boolean;
+}
+
+export const FESTIVALS: Festival[] = [
+  { slug: 'lamu-cultural-festival', title: 'Lamu Cultural Festival', organizer: 'Lamu County / Lamu Cultural Promotion Group', city: 'Lamu', country: 'Kenya', window: 'Usually late November', summary: 'A Swahili heritage festival on UNESCO-listed Lamu Island: dhow and donkey races, bao, henna, and Swahili music and food, a window into centuries-old coastal culture.', url: 'https://explorelamu.com/listing/lamu-cultural-festival', region: 'Africa', verified: false },
+  { slug: 'marsabit-lake-turkana-festival', title: 'Marsabit Lake Turkana Cultural Festival', organizer: 'Marsabit County Government', city: 'Loiyangalani', country: 'Kenya', window: 'Dates confirmed Sept to Oct', summary: 'Where the desert meets Lake Turkana, more than a dozen northern Kenyan peoples gather to dance, sing, and trade in one of Africa’s most remote cultural gatherings.', url: 'https://mbtlaketurkanafestival.co.ke/', region: 'Africa', verified: false },
+  { slug: 'blankets-and-wine-nairobi', title: 'Blankets & Wine', organizer: 'Blankets & Wine', city: 'Nairobi', country: 'Kenya', start: '2026-09-06', end: '2026-09-06', window: '2026 editions: 7 Jun, 6 Sep, 20 Dec', summary: 'East Africa’s flagship live-music picnic: Afro-fusion, soul, and the continent’s best new acts in the open air, a Nairobi institution since 2008.', url: 'https://www.musicinafrica.net/magazine/blankets-and-wine-announces-2026-nairobi-season-three-festival-dates', region: 'Africa', verified: true },
+  { slug: 'kilifi-creek-festival', title: 'Kilifi Creek Festival', organizer: 'Kilifi Creek Festival', city: 'Kilifi', country: 'Kenya', start: '2026-10-23', end: '2026-10-31', summary: 'A coastal music, art, and watersports gathering on Kilifi Creek, blending Kenyan beach culture with live performance, the ocean and a soundtrack.', url: 'https://www.kilificreekfestival.com/', region: 'Africa', verified: true },
+  { slug: 'beneath-the-baobabs', title: 'Beneath the Baobabs Festival', organizer: 'Beneath the Baobabs', city: 'Kilifi', country: 'Kenya', start: '2026-12-30', end: '2027-01-01', summary: 'Kenya’s premier New Year destination festival, set in an ancient baobab forest on the coast: electronic music, live sets, art, and wellness.', url: 'https://www.beneaththebaobabs.com/beneath-the-baobabs-festival', region: 'Africa', verified: true },
+  { slug: 'lamu-yoga-festival', title: 'Lamu Yoga and Wellbeing Festival', organizer: 'Banana House and Wellness Centre', city: 'Lamu', country: 'Kenya', start: '2026-07-14', end: '2026-07-19', window: '2026: 14-19 Jul and 4-8 Nov', summary: 'A barefoot wellness festival in the car-free lanes of Lamu Old Town: hundreds of yoga, meditation, and movement classes against Swahili island life.', url: 'https://www.lamuyoga.org/', region: 'Africa', verified: true },
+  { slug: 'rift-valley-festival', title: 'Rift Valley Festival', organizer: 'Rift Valley Festival', city: 'Naivasha', country: 'Kenya', window: 'Usually late August', summary: 'Kenya’s pioneering international music festival on the shores of Lake Naivasha: a lakeside camping weekend of African and global sounds.', url: 'https://www.musicinafrica.net/directory/rift-valley-festival', region: 'Africa', verified: false },
+  { slug: 'africa-nouveau', title: 'Africa Nouveau Festival', organizer: 'Africa Nouveau', city: 'Athi River', country: 'Kenya', window: 'Usually November', summary: 'A forward-looking Afrobubblegum festival of music, fashion, film, and art installations, camping under the stars where Nairobi’s creative future is on display.', url: 'https://www.kenyanvibe.com/africa-nouveau-festival-returns-nairobi/', region: 'Africa', verified: false },
+  { slug: 'affordable-art-show-nairobi', title: 'Affordable Art Show', organizer: 'Kenya Museum Society', city: 'Nairobi', country: 'Kenya', window: 'Usually May, and a second edition later in the year', summary: 'A twice-yearly fair at the Nairobi National Museum putting hundreds of Kenyan artists’ original works within reach of new collectors.', url: 'https://hapakenya.com/2026/04/18/the-affordable-art-show-returns-to-the-nairobi-national-museum-on-may-22-24/', region: 'Africa', verified: false },
+  { slug: 'mombasa-carnival', title: 'Mombasa Carnival', organizer: 'Mombasa County', city: 'Mombasa', country: 'Kenya', window: 'Usually November', summary: 'A street carnival down Moi Avenue where Mombasa’s many communities parade in colour, music, and dance, the coast’s biggest celebration of Kenya’s diversity.', url: 'https://www.mombasa.com/v/festivals/', region: 'Africa', verified: false },
+  { slug: 'maa-cultural-week', title: 'Maa Cultural Week', organizer: 'Narok County Government', city: 'Narok', country: 'Kenya', window: 'Annual, dates vary, near the Maasai Mara', summary: 'A celebration of the Maa-speaking peoples with warrior dances, beadwork, storytelling, and traditional sport, an immersive look at living heritage.', url: 'https://narok.go.ke/maa-cultural-week/', region: 'Africa', verified: false },
+  { slug: 'sauti-za-busara', title: 'Sauti za Busara', organizer: 'Busara Promotions', city: 'Stone Town, Zanzibar', country: 'Tanzania', window: 'Usually early February', summary: 'Africa’s friendliest music festival, in a 17th-century stone fortress in Stone Town with twenty-plus countries on the bill, by the Indian Ocean.', url: 'https://busaramusic.org/', region: 'Africa', verified: false },
+  { slug: 'nyege-nyege', title: 'Nyege Nyege Festival', organizer: 'Nyege Nyege', city: 'Jinja', country: 'Uganda', start: '2026-11-19', end: '2026-11-22', summary: 'Four days of underground and experimental African electronic music on the banks of the Nile, 300-plus artists from 40-plus countries.', url: 'https://festival.nyegenyege.com/', region: 'Africa', verified: true },
+  { slug: 'chale-wote-accra', title: 'Chale Wote Street Art Festival', organizer: 'Accra dot Alt', city: 'Accra', country: 'Ghana', start: '2026-08-10', end: '2026-08-17', summary: 'Ghana’s wildest street-art takeover: the historic Jamestown district becomes a canvas of murals, performance, fashion, and music. Free, raw, unmissable.', url: 'https://en.wikipedia.org/wiki/Chale_Wote_Street_Art_Festival', region: 'Africa', verified: true },
+  { slug: 'mtn-bushfire', title: 'MTN Bushfire Festival', organizer: 'House on Fire', city: 'Malkerns Valley', country: 'Eswatini', window: 'Usually late May', summary: 'A globally celebrated Bring Your Fire festival of music, arts, and social change in Eswatini’s lush Malkerns Valley, eco-conscious and communal.', url: 'https://www.bush-fire.com/', region: 'Africa', verified: false },
+  { slug: 'afrikaburn', title: 'AfrikaBurn', organizer: 'AfrikaBurn', city: 'Tankwa Karoo', country: 'South Africa', window: 'Usually late April to early May', summary: 'A participant-built temporary city of large-scale art, fire, and radical self-expression in the remote Tankwa Karoo desert, Africa’s answer to Burning Man.', url: 'https://www.afrikaburn.org/', region: 'Africa', verified: false },
+  { slug: 'dakart-biennale', title: 'Dak’Art, Dakar Biennale', organizer: 'Biennale de Dakar', city: 'Dakar', country: 'Senegal', start: '2026-11-19', end: '2026-12-19', summary: 'The continent’s most important contemporary-art biennale, a month-long pan-African showcase across Dakar’s museums, streets, and OFF venues.', url: 'https://biennaledakar.org/', region: 'Africa', verified: true },
+  { slug: 'felabration-lagos', title: 'Felabration', organizer: 'The New Afrika Shrine', city: 'Lagos', country: 'Nigeria', window: 'Usually mid-October', summary: 'A week-long tribute to Afrobeat pioneer Fela Kuti at the New Afrika Shrine, with nightly live music, art, and symposia, the heartbeat of Lagos’s October.', url: 'https://www.felabration.net/', region: 'Africa', verified: false },
+  { slug: 'marrakech-arts-populaires', title: 'Festival des Arts Populaires de Marrakech', organizer: 'Association le Grand Atlas', city: 'Marrakech', country: 'Morocco', start: '2026-07-02', end: '2026-07-06', summary: 'Morocco’s grand folk-arts festival filling the Palais Badii and Jemaa el-Fna with dancers, musicians, and traditions from every region.', url: 'https://vivre-marrakech.com/culture/festivals-marrakech/festival-national-arts-populaires-marrakech/', region: 'Africa', verified: true },
+  { slug: 'burning-man', title: 'Burning Man', organizer: 'Burning Man Project', city: 'Black Rock Desert', country: 'United States', start: '2026-08-30', end: '2026-09-07', summary: 'The original temporary desert metropolis of monumental art, fire, and radical self-reliance, a city that exists for one week only.', url: 'https://burningman.org/black-rock-city/', region: 'Americas', verified: true },
+  { slug: 'venice-biennale-festival', title: 'Biennale Arte, Venice', organizer: 'La Biennale di Venezia', city: 'Venice', country: 'Italy', start: '2026-05-09', end: '2026-11-22', summary: 'The world’s most prestigious contemporary-art exhibition, national pavilions and a curated show across Venice, the global benchmark for where art is heading.', url: 'https://www.labiennale.org/en/art/2026', region: 'Europe', verified: true },
+  { slug: 'edinburgh-fringe', title: 'Edinburgh Festival Fringe', organizer: 'Edinburgh Festival Fringe Society', city: 'Edinburgh', country: 'United Kingdom', start: '2026-08-07', end: '2026-08-31', summary: 'The largest performing-arts festival on earth: thousands of theatre, comedy, and cabaret shows turning every corner of Edinburgh into a stage.', url: 'https://www.edfringe.com/', region: 'Europe', verified: true },
+];
+
+// DISCOVER 1 ordering: Kenya, then East Africa, then the rest of Africa, then the world.
+export const EAST_AFRICA = ['Tanzania', 'Uganda', 'Rwanda', 'Burundi', 'Ethiopia', 'South Sudan', 'Somalia'];
+export function discoverRank(f: Festival): number {
+  if (f.country === 'Kenya') return 0;
+  if (EAST_AFRICA.includes(f.country)) return 1;
+  if (f.region === 'Africa') return 2;
+  return 3;
+}
+export function bySlug(slug: string) { return FESTIVALS.find((f) => f.slug === slug); }

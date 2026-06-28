@@ -21,11 +21,29 @@ const schema = OPPORTUNITIES.map(eventSchema);
   </figure>
 
   <section class="wrap" style="padding-block: 1rem;">
-    <h2>Global by design</h2>
-    <p class="muted prose">Coverage reaches every region, not the same few cities. Africa and the
-      Global South are first-class here, not an afterthought. The anchor is the art and the human,
-      not a single geography.</p>
+    <h2>Two tracks</h2>
+    <div class="tracks">
+      <div class="track">
+        <span class="eyebrow">Track one</span>
+        <h3>Africa, in full</h3>
+        <p class="muted">Kenya first and exhaustively, then East Africa, then the rest of the
+          continent. The festivals, fairs, residencies, and open calls our correspondents reach
+          closest. <a href="/festivals">The festivals</a> · <a href="/region/africa">African opportunities</a>.</p>
+      </div>
+      <div class="track">
+        <span class="eyebrow">Track two</span>
+        <h3>The world, on rotation</h3>
+        <p class="muted">A four-week rotation across the Americas, Europe, Africa, and Asia and the
+          Middle East, so coverage reaches every region rather than the same few cities.</p>
+      </div>
+    </div>
   </section>
+  <style>
+    .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1rem; }
+    @media (max-width: 720px) { .tracks { grid-template-columns: 1fr; } }
+    .track { padding: 1.3rem; border: 1px solid var(--line); border-radius: 4px; background: var(--cream); }
+    .track h3 { margin: 0.3rem 0 0.5rem; }
+  </style>
 
   <section class="wrap" style="padding-block: 1.5rem;">
     <h2>On the radar now</h2>

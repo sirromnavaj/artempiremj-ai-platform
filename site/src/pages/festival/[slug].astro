@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import { FESTIVALS, type Festival } from '../../data/festivals.ts';
+
+const citySlug = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+export function getStaticPaths() {
+  return FESTIVALS.map((f) => ({ params: { slug: f.slug }, props: { f } }));
+}
+const { f } = Astro.props as { f: Festival };
+const site = 'https://artempiremj.com';
+const MO = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const fmt = (d?: string) => { if (!d) return ''; const [y, m, dd] = d.split('-'); return `${+dd} ${MO[+m - 1]} ${y}`; };
+const dates = f.window ?? (f.end ? `${fmt(f.start)} to ${fmt(f.end)}` : fmt(f.start));
+const event = {
+  '@context': 'https://schema.org', '@type': 'Festival',
+  name: f.title, description: f.summary,
+  ...(f.start ? { startDate: f.start } : {}), ...(f.end ? { endDate: f.end } : {}),
+  location: { '@type': 'Place', name: f.organizer, address: { '@type': 'PostalAddress', addressLocality: f.city, addressCountry: f.country } },
+  url: f.url, organizer: { '@type': 'Organization', name: f.organizer },
+};
+const crumb = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Festivals', item: `${site}/festivals` },
+    { '@type': 'ListItem', position: 2, name: f.title, item: `${site}/festival/${f.slug}` },
+  ],
+};
+---
+<Base path={`/festival/${f.slug}`} title={`${f.title}, ${f.city}`} description={f.summary}>
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(event)}</script>`} />
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(crumb)}</script>`} />
+
+  <article class="wrap" style="padding-block: clamp(2rem,6vw,3.5rem) 2rem; max-width: 44rem;">
+    <p class="muted" style="font-family:var(--sans);font-size:0.85rem;">
+      <a href="/festivals">Festivals</a> · <a href={`/country/${citySlug(f.country)}`}>{f.country}</a>
+    </p>
+    <p class="eyebrow">Festival{f.verified ? '' : ' · dates to confirm'}</p>
+    <h1>{f.title}</h1>
+    <p class="when">{dates}</p>
+    <p class="lede prose">{f.summary}</p>
+    <p class="muted">{f.organizer} · <a href={`/city/${citySlug(f.city)}`}>{f.city}</a>, {f.country}</p>
+    <p style="margin-top:1.4rem;"><a class="btn" href={f.url} rel="noopener" target="_blank">The official site</a></p>
+
+    <hr />
+    <p class="muted">Planning the trip? <a href="/itineraries">Art Itineraries</a> builds the week around dates like this.</p>
+    <p class="muted">The week in world art, once a week. Free.</p>
+    <Newsletter variant="inline" source="festival" />
+  </article>
+
+  <style>
+    .when { font-family: var(--sans); font-weight: 600; color: var(--ember); margin: 0 0 0.6rem; }
+  </style>
+</Base>

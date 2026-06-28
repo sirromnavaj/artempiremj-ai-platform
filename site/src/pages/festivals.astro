@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import { FESTIVALS, discoverRank, type Festival } from '../data/festivals.ts';
+const site = 'https://artempiremj.com';
+const MO = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fmt = (d?: string) => { if (!d) return ''; const [y, m, dd] = d.split('-'); return `${+dd} ${MO[+m - 1]} ${y}`; };
+const when = (f: Festival) => f.window ?? (f.end ? `${fmt(f.start)} to ${fmt(f.end)}` : fmt(f.start));
+
+const groups: { key: number; label: string; note: string }[] = [
+  { key: 0, label: 'Kenya', note: 'Where we are, covered the closest.' },
+  { key: 1, label: 'East Africa', note: 'The neighbourhood: Tanzania, Uganda, and beyond.' },
+  { key: 2, label: 'Across Africa', note: 'The continent, corner to corner.' },
+  { key: 3, label: 'Around the world', note: 'The global anchors worth the long trip.' },
+];
+const sorted = [...FESTIVALS].sort((a, b) => discoverRank(a) - discoverRank(b) || (a.title < b.title ? -1 : 1));
+const grouped = groups.map((g) => ({ ...g, items: sorted.filter((f) => discoverRank(f) === g.key) }));
+const itemList = {
+  '@context': 'https://schema.org', '@type': 'ItemList', name: 'Art and cultural festivals worldwide',
+  itemListElement: sorted.map((f, i) => ({ '@type': 'ListItem', position: i + 1, name: f.title, url: `${site}/festival/${f.slug}` })),
+};
+---
+<Base path="/festivals" title="Festivals" description="Art and cultural festivals worth a trip, Kenya first, then East Africa, then the rest of Africa and the world. Dates, places, and the way in.">
+  <set:html set:html={`<script type="application/ld+json">${JSON.stringify(itemList)}</script>`} />
+  <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
+    <p class="eyebrow">Festivals</p>
+    <h1>The festivals worth showing up for.</h1>
+    <p class="lede prose">Art, music, and culture festivals across the world, Kenya first and in full, then
+      East Africa, then the rest of the continent and the global anchors. Dates verified before they
+      are listed. <a href="/list">Run one? List it.</a></p>
+  </section>
+
+  {grouped.map((g) => g.items.length > 0 && (
+    <section class="wrap" style="padding-block: 1rem;">
+      <h2>{g.label}</h2>
+      <p class="muted">{g.note}</p>
+      <ul class="fests">
+        {g.items.map((f) => (
+          <li class="fest">
+            <a href={`/festival/${f.slug}`}>
+              <span class="eyebrow">{f.city}, {f.country}{f.verified ? '' : ' · dates to confirm'}</span>
+              <span class="fest-title">{f.title}</span>
+              <span class="fest-when">{when(f)}</span>
+              <span class="muted">{f.summary}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <style>
+    .fests { list-style: none; padding: 0; margin: 0.8rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
+    .fest { border: 1px solid var(--line); border-radius: 4px; background: var(--paper); }
+    .fest:hover { border-color: var(--orange); }
+    .fest a { display: grid; gap: 0.3rem; padding: 1.2rem; text-decoration: none; }
+    .fest-title { font-family: var(--display); font-weight: 600; font-size: 1.3rem; line-height: 1.15; }
+    .fest-when { font-family: var(--sans); font-size: 0.85rem; color: var(--ember); font-weight: 600; }
+  </style>
+</Base>

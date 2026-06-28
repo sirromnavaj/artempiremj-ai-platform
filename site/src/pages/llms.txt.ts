@@ -28,6 +28,9 @@ first-class, sourced through named on-the-ground correspondents.
 
 ## For travellers
 - Fairs and biennials worth a trip, by city: https://artempiremj.com/itineraries
+- Festivals worldwide, Kenya and Africa first: https://artempiremj.com/festivals
+- Every festival as its own page: https://artempiremj.com/festival/{slug}
+- Browse by country: https://artempiremj.com/country/{country} | by city: https://artempiremj.com/city/{city} | the world map: https://artempiremj.com/worldwide
 
 ## Reporting
 - Spotlight (news and features through the maker's eye): https://artempiremj.com/spotlight

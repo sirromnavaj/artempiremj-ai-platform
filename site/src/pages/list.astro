@@ -1,17 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
 const kinds = [
-  ['open-call', 'Open call'], ['residency', 'Residency'], ['grant', 'Grant'],
-  ['fair', 'Fair'], ['biennial', 'Biennial'], ['prize', 'Prize'], ['exhibition', 'Exhibition'],
+  ['festival', 'Festival'], ['fair', 'Fair'], ['biennial', 'Biennial'], ['exhibition', 'Exhibition'],
+  ['open-call', 'Open call'], ['residency', 'Residency'], ['grant', 'Grant'], ['prize', 'Prize'],
+  ['event', 'Event (other)'],
 ];
 ---
 <Base path="/list" title="List an opportunity or event" description="Run a fair, residency, grant, open call, prize, or exhibition? List it on the Global Art Calendar. Add photos. We verify dates before publishing.">
   <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
     <p class="eyebrow">For organisers</p>
     <h1>List it on the calendar.</h1>
-    <p class="lede prose">Run a fair, residency, grant, open call, prize, or exhibition? Put it in
-      front of the artists and travellers who are looking for exactly this. Add photos. We confirm
-      the dates before it goes live, so what we publish can be trusted.</p>
+    <p class="lede prose">Run a festival, fair, residency, grant, open call, prize, exhibition, or
+      event? Put it in front of the artists and travellers looking for exactly this. Add photos. We
+      confirm the dates before it goes live, so what we publish can be trusted.</p>
   </section>
 
   <section class="wrap" style="padding-block: 1rem 3rem; max-width: 44rem;">
@@ -30,9 +31,10 @@ const kinds = [
         <label>City<input name="city" /></label>
         <label>Country<input name="country" /></label>
       </div>
+      <p class="muted" style="margin:0;">Add the dates. They are what gets you found and what we verify.</p>
       <div class="row2">
-        <label>Start or opening date<input name="start" type="date" /></label>
-        <label>Deadline (if any)<input name="deadline" type="date" /></label>
+        <label>When it happens (start date)<input name="start" type="date" /></label>
+        <label>End date or deadline<input name="deadline" type="date" /></label>
       </div>
       <label>Link (the official page)<input name="url" type="url" placeholder="https://" /></label>
       <label>What it is<textarea name="summary" rows="4" required placeholder="A sentence or two. What it offers, who it is for."></textarea></label>
