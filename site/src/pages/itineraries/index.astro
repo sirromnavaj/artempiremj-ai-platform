@@ -9,15 +9,17 @@ const travel = OPPORTUNITIES
 ---
 <Base path="/itineraries" title="Art Itineraries" description="The fairs and biennials worth a trip, worldwide, so you never miss the one where you are headed. Art travel for the culturally-curious, built around the calendar.">
   <section class="wrap" style="padding-block: clamp(2rem,6vw,4rem) 1rem;">
-    <p class="eyebrow">Department</p>
-    <h1>Art Itineraries</h1>
-    <p class="lede prose">You travel, and you would rather not miss the fair everyone will be talking
-      about. Here is what is worth planning a trip around, by city, so the dates reach you before
-      the flights fill. The calendar tells you when. Itineraries tell you how to go.</p>
+    <p class="eyebrow">Art Itineraries</p>
+    <h1>Be there the week the art is.</h1>
+    <p class="lede prose">A collector lands in Marrakech for the preview days, while the fair still
+      belongs to the people who came for it. You can travel that way too. Here is the art worth
+      crossing the world for, gathered by city, with the dates early enough to book the week before
+      the rooms fill. The calendar holds the dates. Itineraries hold the way in: what to see, who to
+      meet, where the art actually is.</p>
   </section>
 
   <section class="wrap" style="padding-block: 1rem;">
-    <h2>What is worth the trip</h2>
+    <h2>The art worth crossing the world for</h2>
     <ul class="ops">
       {travel.map((o) => (
         <li class="op"><a href={`/opportunity/${o.id}`}>
