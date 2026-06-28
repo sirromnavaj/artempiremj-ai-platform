@@ -32,6 +32,7 @@ jobs:
         working-directory: site
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: a1f976627b1d8bc321a148f635f7a866
           CI: '1'
         run: npx wrangler pages deploy --branch main
 

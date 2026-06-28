@@ -1,0 +1,45 @@
+name: ArtempireMJ discovery (free Ollama)
+
+# Weekly LLM-powered discovery on a FREE Ollama model running inside GitHub's CI (no paid API, no
+# laptop). Re-checks the source-weighting EXPLOIT hosts and extracts current/upcoming events into a
+# REVIEW QUEUE (proposed-events.json). NOTHING auto-publishes — proposals still pass the fact-verify
+# gate before they reach the live calendar. Runs locally too: OLLAMA_MODEL=gemma3:4b node scripts/discovery-ollama.mjs
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'        # weekly, Monday 04:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Ollama + pull a small free model
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          nohup ollama serve > /tmp/ollama.log 2>&1 &
+          sleep 6
+          ollama pull qwen2.5:1.5b
+
+      - name: Ollama-powered discovery -> review queue
+        env:
+          OLLAMA_HOST: http://localhost:11434
+          OLLAMA_MODEL: qwen2.5:1.5b
+          MAX_HOSTS: '8'
+        run: node scripts/discovery-ollama.mjs || true
+
+      - name: Commit proposed events (review queue, not published)
+        run: |
+          git config user.name "artempiremj-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add site/src/data/proposed-events.json 2>/dev/null || true
+          git commit -m "auto: Ollama discovery proposals [skip ci]" || echo "no changes"
+          git push || true
