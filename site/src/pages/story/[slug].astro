@@ -34,15 +34,18 @@ const article = {
     {a.byline && <p class="muted">By {a.byline}</p>}
 
     {a.image && (
-      <figure style="margin:1.5rem 0;">
-        <img src={a.image} alt={a.imageAlt} width="1200" height="800" loading="eager" decoding="async"
-          style="width:100%;height:auto;border-radius:4px;aspect-ratio:3/2;object-fit:cover;" />
-        {a.credit && <figcaption class="muted" style="margin-top:0.5rem;font-size:0.85rem;">{a.credit}</figcaption>}
+      <figure class="story-fig">
+        <img src={a.image} alt={a.imageAlt} loading="eager" decoding="async" />
+        {a.credit && <figcaption class="muted">{a.credit}</figcaption>}
       </figure>
     )}
 
     <div class="prose body">
-      {a.body.map((p) => <p>{p}</p>)}
+      {a.body.map((b) => (
+        typeof b === 'string' ? <p>{b}</p>
+        : 'h' in b ? <h2 class="sub">{b.h}</h2>
+        : <blockquote class="pull"><p>{b.quote}</p>{b.cite && <cite>{b.cite}</cite>}</blockquote>
+      ))}
     </div>
 
     <hr />
@@ -51,6 +54,13 @@ const article = {
   </article>
 
   <style>
+    .story-fig { margin: 1.5rem 0; }
+    .story-fig img { display: block; max-width: 100%; max-height: 560px; width: auto; height: auto; margin: 0 auto; border-radius: 4px; }
+    .story-fig figcaption { margin-top: 0.5rem; font-size: 0.85rem; text-align: center; }
     .body p { margin: 0 0 1.1rem; font-size: 1.12rem; line-height: 1.7; }
+    .body .sub { font-size: 1.4rem; margin: 2rem 0 0.8rem; }
+    .body .pull { margin: 1.8rem 0; padding-left: 1.2rem; border-left: 3px solid var(--orange); }
+    .body .pull p { font-family: var(--display); font-size: 1.35rem; line-height: 1.4; font-style: italic; margin: 0 0 0.4rem; }
+    .body .pull cite { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); font-style: normal; }
   </style>
 </Base>
