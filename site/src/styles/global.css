@@ -1,20 +1,25 @@
-/* ArtempireMJ — visual system, skill v3.17 (#17: one mark, warm palette, no sub-brand colours).
-   Cream + ink + warm gold + ember. A series gets a typographic label, never its own colour. */
+/* ArtempireMJ — visual system, skill v3.17. Painterly, warm, serif-led, print-derived.
+   Never minimal, never cold. Fraunces display + sepia/ember gradients, never flat black. */
 :root {
   --cream: #EFE7D6;
-  --cream-deep: #F1E8D4;
+  --cream-deep: #E8DFCC;
   --paper: #FBF7EF;
-  --ink: #0D0D0D;
-  --ink-soft: #1A1310;
-  --warm: #9A7E4A;
+  --ink: #1A1310;          /* warm near-black, the skill bars cold #0D0D0D */
+  --ink-soft: #3A2A1E;     /* mid sepia */
+  --ivory: #F1E8D4;        /* headline ivory on dark */
+  --ivory-soft: #DCD2BB;
+  --warm: #9A7E4A;         /* atmospheric gold, editorial */
   --warm-light: #BFA972;
   --ember: #C45E24;
   --line: #E2D8C2;
   --muted: #6B5F4C;
+  --sepia-grad: radial-gradient(ellipse at 50% 38%, #6B4320 0%, #3A2410 56%, #140C05 100%);
+  --ember-grad: radial-gradient(ellipse at 50% 38%, #5A4020 0%, #2E1E0C 56%, #0E0A05 100%);
 
+  --display: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --measure: 66ch;
+  --measure: 64ch;
   --pad: clamp(1rem, 4vw, 2.5rem);
 }
 
@@ -22,11 +27,16 @@
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  background: var(--paper);
+  /* a faint warm wash so the page is never flat paper */
+  background:
+    radial-gradient(ellipse at 75% -5%, rgba(196,94,36,0.06), transparent 45%),
+    radial-gradient(ellipse at 0% 0%, rgba(154,126,74,0.08), transparent 40%),
+    var(--paper);
+  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.075rem;
-  line-height: 1.6;
+  font-size: 1.08rem;
+  line-height: 1.62;
 }
 a { color: var(--ink); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { color: var(--ember); }
@@ -34,20 +44,27 @@ a:hover { color: var(--ember); }
 .wrap { max-width: 72rem; margin: 0 auto; padding-inline: var(--pad); }
 .prose { max-width: var(--measure); }
 
-h1, h2, h3 { font-family: var(--serif); line-height: 1.15; font-weight: 600; letter-spacing: -0.01em; }
-h1 { font-size: clamp(2rem, 6vw, 3.4rem); margin: 0 0 0.4em; }
-h2 { font-size: clamp(1.4rem, 3.5vw, 2.1rem); }
+h1, h2, h3 {
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+h1 { font-size: clamp(2.4rem, 7vw, 4.4rem); font-weight: 600; margin: 0 0 0.35em; }
+h2 { font-size: clamp(1.5rem, 4vw, 2.4rem); }
+h3 { font-size: 1.2rem; }
 
 /* Eyebrow = the series/department label (typographic, never a colour) */
 .eyebrow {
   font-family: var(--sans);
   font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--warm);
   font-weight: 600;
 }
-.lede { font-size: 1.2rem; color: var(--ink-soft); }
+.lede { font-size: clamp(1.2rem, 2.4vw, 1.4rem); line-height: 1.5; color: var(--ink-soft); }
 .muted { color: var(--muted); font-family: var(--sans); font-size: 0.9rem; }
 
 .btn {
@@ -55,15 +72,22 @@ h2 { font-size: clamp(1.4rem, 3.5vw, 2.1rem); }
   font-family: var(--sans);
   font-size: 0.92rem;
   font-weight: 600;
-  padding: 0.7em 1.3em;
+  padding: 0.75em 1.4em;
   border: 1px solid var(--ink);
   border-radius: 2px;
   background: var(--ink);
-  color: var(--cream);
+  color: var(--ivory);
   text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
 }
-.btn:hover { background: var(--ember); border-color: var(--ember); color: var(--cream); }
+.btn:hover { background: var(--ember); border-color: var(--ember); color: var(--ivory); }
 .btn.ghost { background: transparent; color: var(--ink); }
-.btn.ghost:hover { background: var(--ink); color: var(--cream); }
+.btn.ghost:hover { background: var(--ink); color: var(--ivory); }
+
+/* Painterly dark panel — for newsletter, feature blocks. Never flat black. */
+.panel-dark { background: var(--sepia-grad); color: var(--ivory); }
+.panel-dark h1, .panel-dark h2, .panel-dark h3 { color: var(--ivory); }
+.panel-dark .muted, .panel-dark .prose { color: var(--ivory-soft); }
+.panel-dark .eyebrow { color: var(--warm-light); }
 
 hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }
