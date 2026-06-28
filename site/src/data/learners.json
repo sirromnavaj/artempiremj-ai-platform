@@ -1,0 +1,9 @@
+{
+  "_comment": "The learnable decisions (Beta/Thompson bandits). Each ACTS only when its gauge fills (observations >= threshold); below that it OBSERVES (returns control) so we never act on noise. Thresholds are deliberately conservative for a low-traffic start. Wire ACT into the build/site once green; learner_engine updates the posteriors in 11_models/posteriors.",
+  "learners": [
+    { "name": "source-weighting", "metric": "source-obs", "threshold": 40, "control": "research-agent default order", "note": "Fed by verify-events outcomes; needs NO user traffic. First to go live." },
+    { "name": "feature-selection", "metric": "click", "threshold": 300, "control": "soonest-date-first", "note": "Which events get the hero / 'worth a trip' / featured slots." },
+    { "name": "cta-copy", "metric": "subscribe", "threshold": 150, "control": "The week in world art, once a week. Free.", "note": "Newsletter hook + CTA variants." },
+    { "name": "timing", "metric": "affiliate", "threshold": 120, "control": "Dec/Mar/May seasonal heuristic", "note": "When to push travel/affiliate." }
+  ]
+}

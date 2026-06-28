@@ -144,5 +144,31 @@ const nav = [
       .sub input { flex: 1; padding: 0.6em 0.8em; border: 1px solid var(--line); border-radius: 2px; font-family: var(--sans); }
     </style>
     <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b0d93f4cb934625bba3c44ad313ead5"}'></script>
+    <script is:inline>
+      // Interaction tracker -> /api/track (the learning layer's data). Non-blocking, no PII.
+      (function () {
+        function send(type, surface, target, meta) {
+          try {
+            var b = JSON.stringify({ type: type, surface: surface, target: target, meta: meta || null });
+            if (navigator.sendBeacon) navigator.sendBeacon('/api/track', new Blob([b], { type: 'application/json' }));
+            else fetch('/api/track', { method: 'POST', body: b, headers: { 'Content-Type': 'application/json' }, keepalive: true });
+          } catch (e) {}
+        }
+        var path = location.pathname;
+        var surface = path === '/' ? 'home' : (path.split('/')[1] || 'home');
+        send('impression', surface, path);
+        document.addEventListener('click', function (e) {
+          var a = e.target && e.target.closest && e.target.closest('a');
+          if (!a) return;
+          var rel = a.getAttribute('rel') || '', href = a.getAttribute('href') || '';
+          if (rel.indexOf('sponsored') > -1) { var h = href; try { h = new URL(a.href).host; } catch (_) {} send('affiliate', surface, h); }
+          else if (/^\/(festival|city|country|opportunity)\//.test(href)) send('click', surface, href);
+          else if (a.hasAttribute('data-cta')) send('click', surface, a.getAttribute('data-cta'));
+        }, { passive: true });
+        var q = document.getElementById('q');
+        if (q) { var t; q.addEventListener('input', function () { clearTimeout(t); t = setTimeout(function () { if (q.value.trim().length > 2) send('search', 'calendar', q.value.trim().toLowerCase().slice(0, 60)); }, 1200); }); }
+        document.querySelectorAll('form[data-newsletter]').forEach(function (f) { f.addEventListener('submit', function () { send('subscribe', surface, ''); }); });
+      })();
+    </script>
   </body>
 </html>

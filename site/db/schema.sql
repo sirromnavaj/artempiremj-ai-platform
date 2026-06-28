@@ -78,6 +78,30 @@ CREATE TABLE IF NOT EXISTS sends (
   sent_at     TEXT NOT NULL
 );
 
+-- Interaction log: the data the learning layer trains on. No PII, just events keyed to a target.
+-- The slow, compounding layer (instrument now so the posteriors have signal as traffic grows).
+CREATE TABLE IF NOT EXISTS interactions (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  ts          TEXT NOT NULL DEFAULT (datetime('now')),
+  type        TEXT NOT NULL,   -- impression | click | search | affiliate | subscribe
+  surface     TEXT,            -- home | festival | city | calendar | sticky ...
+  target      TEXT,            -- event slug | link host | query | cta id
+  meta        TEXT             -- optional JSON
+);
+CREATE INDEX IF NOT EXISTS idx_inter_type   ON interactions(type);
+CREATE INDEX IF NOT EXISTS idx_inter_target ON interactions(target);
+
+-- Bandit arms: Beta posteriors per learner (source-weighting | feature | cta | timing).
+-- alpha = successes + 1, beta = failures + 1. Thompson-sample; act only when the gauge says ready.
+CREATE TABLE IF NOT EXISTS bandit_arms (
+  learner     TEXT NOT NULL,
+  arm         TEXT NOT NULL,
+  alpha       REAL NOT NULL DEFAULT 1,
+  beta        REAL NOT NULL DEFAULT 1,
+  updated_at  TEXT NOT NULL DEFAULT (datetime('now')),
+  PRIMARY KEY (learner, arm)
+);
+
 CREATE INDEX IF NOT EXISTS idx_opp_region   ON opportunities(region);
 CREATE INDEX IF NOT EXISTS idx_opp_deadline ON opportunities(deadline);
 CREATE INDEX IF NOT EXISTS idx_sub_status   ON submissions(status);
