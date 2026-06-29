@@ -17,6 +17,11 @@ const site = 'https://artempiremj.com';
 const canonical = site + path;
 const fullTitle = title === 'ArtempireMJ' ? 'ArtempireMJ · the world, told through artists' : `${title} · ArtempireMJ`;
 
+// Search-engine verification (HTML-tag method). Paste the code GSC/Bing give you here, redeploy,
+// then click Verify. Empty = nothing rendered. This is how we open the front door to crawling.
+const GSC_VERIFY = '';   // Google Search Console: the content="..." value
+const BING_VERIFY = '';  // Bing Webmaster Tools: the msvalidate.01 value
+
 // Organization + WebSite structured data, emitted site-wide.
 const org = {
   '@context': 'https://schema.org',
@@ -72,6 +77,8 @@ const nav = [
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    {GSC_VERIFY && <meta name="google-site-verification" content={GSC_VERIFY} />}
+    {BING_VERIFY && <meta name="msvalidate.01" content={BING_VERIFY} />}
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ArtempireMJ" />
