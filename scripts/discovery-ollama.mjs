@@ -39,6 +39,20 @@ invent events or dates. Only what is actually on the page. If none qualify, retu
 PAGE TEXT:
 ${text}`;
 
+// EXPLORE arm: aggregator/listing pages (NEW sources, not in our posteriors) to surface NEW events.
+const EXPLORE_URLS = (process.env.EXPLORE_URLS || [
+  'https://allevents.in/nairobi/art',
+  'https://allevents.in/nairobi/exhibition',
+  'https://allevents.in/kenya/art',
+  'https://allevents.in/mombasa/art',
+].join(',')).split(',').filter(Boolean);
+
+// Fuzzy dedup: token-Jaccard so near-duplicates (Lamu Yoga "Wellness" vs "Wellbeing") are caught.
+const STOP = new Set(['festival', 'the', 'and', 'of', 'art', 'arts', 'fair', 'biennale', 'biennial',
+  'show', 'exhibition', 'edition', 'annual', 'de', 'la', '2024', '2025', '2026', '2027', 'week', 'days']);
+const toks = (s) => new Set((s || '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter((w) => w.length > 2 && !STOP.has(w)));
+const jaccard = (a, b) => { const i = [...a].filter((x) => b.has(x)).length; const u = new Set([...a, ...b]).size; return u ? i / u : 0; };
+
 const main = async () => {
   // proven hosts from the learned posteriors, with a representative source URL from the index
   const postFile = new URL('../site/src/data/source-posteriors.json', import.meta.url);
@@ -50,29 +64,35 @@ const main = async () => {
     .map(([h, s]) => ({ h, rel: s.alpha / (s.alpha + s.beta), n: s.alpha + s.beta - 2 }))
     .filter((x) => x.n > 0 && urlForHost[x.h]).sort((a, b) => b.rel - a.rel).slice(0, MAX_HOSTS);
 
+  // Targets = EXPLOIT (proven hosts, re-check for freshness) + EXPLORE (aggregator pages = NEW sources).
+  const targets = [
+    ...hosts.map((x) => ({ host: x.h, url: urlForHost[x.h], arm: 'exploit' })),
+    ...EXPLORE_URLS.map((u) => ({ host: hostOf(u) || u, url: u, arm: 'explore' })),
+  ];
   const proposed = [];
-  for (const { h } of hosts) {
+  for (const tgt of targets) {
     try {
-      const html = await (await fetch(urlForHost[h], { headers: { 'User-Agent': UA } })).text();
-      const out = await ollama(PROMPT(h, strip(html)));
-      for (const e of (out?.events || [])) if (e?.title) proposed.push({ ...e, host: h, source: urlForHost[h], status: 'proposed' });
-      console.log(`  ${h}: ${(out?.events || []).length} candidate(s)`);
-    } catch (e) { console.log(`  ${h}: skipped (${String(e.message).slice(0, 30)})`); }
+      const html = await (await fetch(tgt.url, { headers: { 'User-Agent': UA } })).text();
+      const out = await ollama(PROMPT(tgt.host, strip(html)));
+      for (const e of (out?.events || [])) if (e?.title) proposed.push({ ...e, host: tgt.host, source: tgt.url, arm: tgt.arm, status: 'proposed' });
+      console.log(`  [${tgt.arm}] ${tgt.host}: ${(out?.events || []).length} candidate(s)`);
+    } catch (e) { console.log(`  [${tgt.arm}] ${tgt.host}: skipped (${String(e.message).slice(0, 30)})`); }
   }
 
-  // Filter so the queue is worth reviewing: dedup vs the live calendar + self, drop non-event noise,
-  // drop past / old-year dates. A small model over-extracts; this is the cheap deterministic clean-up.
-  const norm = (x) => (x || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 28);
-  const existing = new Set(items.map((it) => norm(it.title)));
+  // Filter: FUZZY dedup vs the live calendar + self (token-Jaccard catches near-dups like Lamu Yoga
+  // "Wellness" vs "Wellbeing"), drop non-event noise, drop past / old-year dates.
+  const existingTok = items.map((it) => toks(it.title));
   const NOISE = /\b(lecture|talk|panel|press conference|behind the scenes|podcast|interview|announc|advert|\bad\b|\bnews\b|reception|vernissage|webinar|q&a|meeting|sign[- ]?up)\b/i;
   const isOld = (s) => /\b20(1\d|2[0-4])\b/.test(s) && !/\b202[5-9]\b/.test(s);
-  const seen = new Set();
+  const seenTok = [];
   const clean = proposed.filter((e) => {
-    const t = e.title || '', key = norm(t);
-    if (!key || seen.has(key) || existing.has(key)) return false;     // dedup (self + calendar)
-    if (NOISE.test(t)) return false;                                  // non-event noise
-    if (isOld(`${e.start_or_window || ''} ${t}`)) return false;       // past / old-year
-    seen.add(key); return true;
+    const t = e.title || '', tt = toks(t);
+    if (tt.size === 0) return false;
+    if (NOISE.test(t)) return false;                                       // non-event noise
+    if (isOld(`${e.start_or_window || ''} ${t}`)) return false;            // past / old-year
+    if (existingTok.some((et) => jaccard(tt, et) >= 0.5)) return false;    // already in calendar (fuzzy)
+    if (seenTok.some((st) => jaccard(tt, st) >= 0.6)) return false;        // self-dup (fuzzy)
+    seenTok.push(tt); return true;
   });
 
   fs.writeFileSync(OUT, JSON.stringify({ generated: new Date().toISOString().slice(0, 10), model: MODEL, raw: proposed.length, count: clean.length, proposed: clean }, null, 2));
