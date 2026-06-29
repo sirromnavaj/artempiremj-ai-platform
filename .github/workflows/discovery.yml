@@ -40,7 +40,7 @@ jobs:
           OLLAMA_HOST: http://localhost:11434
           OLLAMA_MODEL: qwen2.5:7b
           MAX_HOSTS: '8'
-        run: node scripts/discovery-ollama.mjs || true
+        run: node scripts/discovery-ollama.mjs
 
       - name: Commit proposed events (review queue, not published)
         run: |

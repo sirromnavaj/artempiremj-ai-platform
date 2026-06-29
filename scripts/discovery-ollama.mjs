@@ -13,6 +13,7 @@ const INDEX = process.env.INDEX || 'https://artempiremj.com/events-index.json';
 const OUT = new URL('../site/src/data/proposed-events.json', import.meta.url);
 const UA = 'Mozilla/5.0 (compatible; ArtempireMJ-Discovery/1.0; +https://artempiremj.com)';
 const MAX_HOSTS = Number(process.env.MAX_HOSTS || 8);
+const hostOf = (u) => { try { return new URL(u).host.replace(/^www\./, ''); } catch { return null; } };
 
 const strip = (html) => html
   .replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ')
