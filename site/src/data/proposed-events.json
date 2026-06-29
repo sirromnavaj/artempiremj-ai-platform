@@ -1,16 +1,117 @@
 {
   "generated": "2026-06-29",
-  "model": "qwen2.5:3b",
-  "raw": 2,
-  "count": 1,
+  "model": "qwen2.5:7b",
+  "raw": 15,
+  "count": 11,
   "proposed": [
     {
-      "title": "Lamu Yoga & Wellness Festival",
-      "start_or_window": "Usually November",
-      "city": "Lamu, East Africa",
-      "summary": "An immersive five-day transformative experience of yoga, personal development, breathwork, dance, meditation, and sound healing with over 150 classes led by over 30 teachers. Includes a variety of workshops such as energizing flows, deep meditation, breathwork, and holistic wellness sessions.",
+      "title": "16th Dakar Biennale",
+      "start_or_window": "2026-11-19/2026-12-19",
+      "city": "Dakar, Senegal",
+      "summary": "The 16th edition of the Biennale of Contemporary African Art is scheduled to take place from November 19 to December 19, 2026, in Dakar, Senegal. The event is organized by the Government of Senegal through the Ministry of Culture, Crafts, and Tourism.",
+      "host": "biennaledakar.org",
+      "source": "https://biennaledakar.org/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "Banana House Women's Wisdom Retreat",
+      "start_or_window": "2026-07-14",
+      "city": "Lamu Island, Kenya",
+      "summary": "A five-day retreat hosted by Monika Lamu, combining Art of Living breathwork, somatic work, yoga, and the natural beauty of the island for deep rest and inner reconnection.",
       "host": "lamuyoga.org",
       "source": "https://www.lamuyoga.org/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "Matatu Culture Festival",
+      "start_or_window": "2026-08-01",
+      "city": "Machakos People's Park, Nairobi",
+      "summary": "A festival celebrating Matatu culture.",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/art",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "Kutiit culture Carnivore Grounds, Nairobi",
+      "start_or_window": "2026-08-08",
+      "city": "Carnivore Grounds, Nairobi",
+      "summary": "A festival celebrating Kutiit culture.",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/art",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "JUNK FOOD FESTIVAL 2026",
+      "start_or_window": "2026-07-25",
+      "city": "Nairobi County",
+      "summary": "An event featuring junk food.",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/art",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "27th BUILDEXPO KENYA 2026",
+      "start_or_window": "2026-07-08T10:00:00",
+      "city": "Nairobi, Kenya",
+      "summary": "Kenyatta International Conference Centre Harambee Avenue P.O. Box 30746-00100 NAIROBI.",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "5th International Mega Clima KENYA HVAC R Expo",
+      "start_or_window": "2026-10-13T10:00:00",
+      "city": "Nairobi, Kenya",
+      "summary": "Sarit Centre",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "Africa Free Economic Zones Expo 2026",
+      "start_or_window": "2026-09-23T08:00:00",
+      "city": "Nairobi, Kenya",
+      "summary": "Safari Park Hotel, Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "Interplastpack Africa 2026",
+      "start_or_window": "2026-07-11T09:00:00",
+      "city": "Nairobi, Kenya",
+      "summary": "Sarit Expo Centre",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "The Winter Expo",
+      "start_or_window": "2026-10-17T09:00:00",
+      "city": "Nairobi Area, Kenya",
+      "summary": "",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "MOMBASA COLOUR FESTIVAL 2026 3RD EDITION",
+      "start_or_window": "2026-08-16T10:00:00",
+      "city": "Mombasa, Kenya",
+      "summary": "Kenya School of Revenue Administration(KESRA), Mombasa",
+      "host": "allevents.in",
+      "source": "https://allevents.in/mombasa/art",
+      "arm": "explore",
       "status": "proposed"
     }
   ]
