@@ -7,7 +7,7 @@ name: ArtempireMJ discovery (free Ollama)
 
 on:
   schedule:
-    - cron: '0 4 * * 1'        # weekly, Monday 04:00 UTC
+    - cron: '0 5 * * *'        # DAILY 05:00 UTC (events don't appear hourly; daily grows + tests without waste)
   workflow_dispatch: {}
 
 permissions:
@@ -22,17 +22,23 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install Ollama + pull a small free model
+      - name: Cache the Ollama model (so daily runs skip the re-download)
+        uses: actions/cache@v4
+        with:
+          path: ~/.ollama/models
+          key: ollama-qwen2.5-3b
+
+      - name: Install Ollama + pull the model (instant if cached)
         run: |
           curl -fsSL https://ollama.com/install.sh | sh
           nohup ollama serve > /tmp/ollama.log 2>&1 &
           sleep 6
-          ollama pull qwen2.5:1.5b
+          ollama pull qwen2.5:3b
 
       - name: Ollama-powered discovery -> review queue
         env:
           OLLAMA_HOST: http://localhost:11434
-          OLLAMA_MODEL: qwen2.5:1.5b
+          OLLAMA_MODEL: qwen2.5:3b
           MAX_HOSTS: '8'
         run: node scripts/discovery-ollama.mjs || true
 

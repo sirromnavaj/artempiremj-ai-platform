@@ -28,10 +28,13 @@ async function ollama(prompt) {
   try { return JSON.parse(response); } catch { return null; }
 }
 
-const PROMPT = (host, text) => `You read a web page from ${host} and extract REAL art events shown on it.
-Return strict JSON: {"events":[{"title","start_or_window","city","summary"}]}. Only events actually
-present on the page. Use ISO dates (YYYY-MM-DD) if a specific date is shown, else a short window like
-"Usually November". Do NOT invent events or dates. If none, return {"events":[]}.
+const PROMPT = (host, text) => `Extract REAL, UPCOMING art EVENTS from this ${host} page.
+Return strict JSON: {"events":[{"title","start_or_window","city","summary"}]}.
+INCLUDE only: festivals, art fairs, biennials, exhibitions, auctions, art prizes/open calls.
+EXCLUDE: lectures, talks, panels, press conferences, podcasts, interviews, behind-the-scenes,
+adverts, news headlines, announcements, receptions. EXCLUDE anything dated 2024 or earlier (past).
+Use ISO dates (YYYY-MM-DD) if shown, else a short season window like "Usually November". Do NOT
+invent events or dates. Only what is actually on the page. If none qualify, return {"events":[]}.
 
 PAGE TEXT:
 ${text}`;
@@ -57,7 +60,22 @@ const main = async () => {
     } catch (e) { console.log(`  ${h}: skipped (${String(e.message).slice(0, 30)})`); }
   }
 
-  fs.writeFileSync(OUT, JSON.stringify({ generated: new Date().toISOString().slice(0, 10), model: MODEL, count: proposed.length, proposed }, null, 2));
-  console.log(`\n  ${proposed.length} proposed events -> proposed-events.json (REVIEW QUEUE — fact-verify before publishing).\n`);
+  // Filter so the queue is worth reviewing: dedup vs the live calendar + self, drop non-event noise,
+  // drop past / old-year dates. A small model over-extracts; this is the cheap deterministic clean-up.
+  const norm = (x) => (x || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 28);
+  const existing = new Set(items.map((it) => norm(it.title)));
+  const NOISE = /\b(lecture|talk|panel|press conference|behind the scenes|podcast|interview|announc|advert|\bad\b|\bnews\b|reception|vernissage|webinar|q&a|meeting|sign[- ]?up)\b/i;
+  const isOld = (s) => /\b20(1\d|2[0-4])\b/.test(s) && !/\b202[5-9]\b/.test(s);
+  const seen = new Set();
+  const clean = proposed.filter((e) => {
+    const t = e.title || '', key = norm(t);
+    if (!key || seen.has(key) || existing.has(key)) return false;     // dedup (self + calendar)
+    if (NOISE.test(t)) return false;                                  // non-event noise
+    if (isOld(`${e.start_or_window || ''} ${t}`)) return false;       // past / old-year
+    seen.add(key); return true;
+  });
+
+  fs.writeFileSync(OUT, JSON.stringify({ generated: new Date().toISOString().slice(0, 10), model: MODEL, raw: proposed.length, count: clean.length, proposed: clean }, null, 2));
+  console.log(`\n  ${proposed.length} raw -> ${clean.length} after dedup + noise + date filter -> proposed-events.json (REVIEW QUEUE — fact-verify before publishing).\n`);
 };
 main().catch((e) => { console.error(e); process.exit(2); });
