@@ -1,0 +1,14 @@
+name = "artempiremj-email-intake"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+
+# Same D1 the site + newsletter use.
+[[d1_databases]]
+binding = "DB"
+database_name = "artempiremj"
+database_id = "d7cc2c09-3bcd-4af4-8fcc-fe31df71a442"
+
+[vars]
+# A VERIFIED Email Routing destination — a copy of every inbound is forwarded here so the operator
+# still sees it in Gmail.
+FORWARD_TO = "artempiremj@gmail.com"

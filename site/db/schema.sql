@@ -102,6 +102,19 @@ CREATE TABLE IF NOT EXISTS bandit_arms (
   PRIMARY KEY (learner, arm)
 );
 
+-- Inbound email captured by the email-intake Worker (tips@/submissions@/listings@). Structured so
+-- email becomes a feed for the calendar (review queue), not mail that gets lost in an inbox.
+CREATE TABLE IF NOT EXISTS email_intake (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  from_addr   TEXT,
+  to_addr     TEXT,
+  kind        TEXT,            -- tips | submissions | listings | other (the local-part)
+  subject     TEXT,
+  body        TEXT,
+  status      TEXT NOT NULL DEFAULT 'pending',  -- pending | reviewed | published | spam
+  created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE INDEX IF NOT EXISTS idx_opp_region   ON opportunities(region);
 CREATE INDEX IF NOT EXISTS idx_opp_deadline ON opportunities(deadline);
 CREATE INDEX IF NOT EXISTS idx_sub_status   ON submissions(status);
