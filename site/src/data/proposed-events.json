@@ -1,8 +1,8 @@
 {
-  "generated": "2026-07-01",
+  "generated": "2026-07-02",
   "model": "qwen2.5:3b",
-  "raw": 16,
-  "count": 11,
+  "raw": 14,
+  "count": 7,
   "proposed": [
     {
       "title": "DekBAB 2026 Applications Now Open",
@@ -35,80 +35,38 @@
       "status": "proposed"
     },
     {
-      "title": "Kutiit culture Carnivore Grounds, Nairobi",
-      "start_or_window": "Sat, 25 Jul, 2026 - 10:00 AM",
+      "title": "JUNK FOOD FESTIVAL 2026",
+      "start_or_window": "Sat, 08 Aug, 2026 - 10:00 AM",
       "city": "Nairobi",
-      "summary": "Carnival event in Nairobi",
+      "summary": "Junk Food Festival 2026 in Nairobi County",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/art",
       "arm": "explore",
       "status": "proposed"
     },
     {
-      "title": "Woza.wonderland Brooke house international",
-      "start_or_window": "Sat, 08 Aug, 2026 - 04:00 AM",
+      "title": "5th International Mega Clima KENYA HVAC R Expo",
+      "start_or_window": "13 Oct 2026 - 10:00 AM",
       "city": "Nairobi",
-      "summary": "Carnival event in Nairobi",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/art",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "3 Days Magical Safari FlyIn to Masai Mara City Square, Nairobi",
-      "start_or_window": "Thu, 20 Aug, 2026 - 07:30 AM",
-      "city": "Nairobi",
-      "summary": "Safari event in Nairobi",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/art",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "Looking for events? We have moved | Find new events at thursday.com",
-      "start_or_window": "",
-      "city": "Nairobi",
-      "summary": "Link to find new events",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/art",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "27th BUILDEXPO KENYA 2026",
-      "start_or_window": "Wed 08 Jul 2026 from 10:00 AM onwards",
-      "city": "Nairobi",
-      "summary": "Kenyatta International Conference Centre Harambee Avenue P.O. Box 30746-00100 NAIROBI.",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
       "status": "proposed"
     },
     {
-      "title": "5th International MEGA WATER KENYA Expo",
-      "start_or_window": "Tue 13 Oct 2026 from 10:00 AM onwards",
+      "title": "Africa Free Economic Zones Expo",
+      "start_or_window": "23 Sep 2026 - 08:00 AM",
       "city": "Nairobi",
-      "summary": "The Sarit Expo Centre, Nairobi",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
       "status": "proposed"
     },
     {
-      "title": "13th Power & Energy Kenya",
-      "start_or_window": "Wed 29 Jul 2026 from 10:00 AM onwards",
-      "city": "Nairobi",
-      "summary": "Carnivore Stage, Nairobi",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/exhibition",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "MOMBASA COLOUR FESTIVAL 2026 3RD EDITION",
-      "start_or_window": "Usually July - August",
+      "title": "MOMBASA COLOUR FESTIVAL 2026",
+      "start_or_window": "Sun, 16 Aug, 2026 - 10:00 AM",
       "city": "Mombasa",
-      "summary": "There are designated classes, drama workshops, and art events in Mombasa for the same.",
+      "summary": "3RD EDITION Kenya School of Revenue Administration(KESRA), Mombasa",
       "host": "allevents.in",
       "source": "https://allevents.in/mombasa/art",
       "arm": "explore",
