@@ -1,14 +1,44 @@
 {
-  "generated": "2026-07-03",
+  "generated": "2026-07-04",
   "model": "qwen2.5:3b",
-  "raw": 9,
-  "count": 5,
+  "raw": 18,
+  "count": 12,
   "proposed": [
     {
-      "title": "Frame by Frame Film Festival '26",
-      "start_or_window": "Sun, 12 Jul, 2026 - 10:00 AM",
+      "title": "DekBAB 2026 Applications Now Open",
+      "start_or_window": "1 Jul - 1 Aug 2026",
+      "city": "Bangkok",
+      "summary": "DekBAB is now accepting applications for volunteers to join as Liaisons, Artist Crew, and Docents. Applications are open from 1 July – 1 August 2026.",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "New Additions to the Artist Line-Up",
+      "start_or_window": "26 Jun 2026",
+      "city": "Bangkok",
+      "summary": "New additions to the artist line-up announcement. The countdown to the Bangkok Art Biennale 2024 begins!",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "Explore Our 10 Venues",
+      "start_or_window": "26 Jun 2026",
+      "city": "Bangkok",
+      "summary": "New additions to the artist line-up announcement. The countdown to the Bangkok Art Biennale 2024 begins!",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "Matatu Culture Festival",
+      "start_or_window": "Usually July",
       "city": "Nairobi",
-      "summary": "Century Cinemax Two Rivers Free",
+      "summary": "People's Park",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/art",
       "arm": "explore",
@@ -16,8 +46,8 @@
     },
     {
       "title": "27th BUILDEXPO KENYA 2026",
-      "start_or_window": "Wed 08 Jul 2026 from 10:00 AM onwards",
-      "city": "Nairobi, Kenya",
+      "start_or_window": "Wed, 08 Jul, 2026 - 10:00 AM",
+      "city": "Nairobi, Nairobi Area, Kenya",
       "summary": "Kenyatta International Conference Centre Harambee Avenue P.O. Box 30746-00100 NAIROBI.",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
@@ -25,27 +55,67 @@
       "status": "proposed"
     },
     {
-      "title": "2026 NAIROBI INTERNATIONAL TRADE FAIR",
-      "start_or_window": "Mon 28 Sep 2026 from 6:00 AM onwards",
-      "city": "Nairobi, Kenya",
-      "summary": "Jamhuri Park, Nairobi, Kenya, 00100",
+      "title": "5th International Mega Clima KENYA HVAC R Expo",
+      "start_or_window": "Wed, 15 Jul, 2026 - 10:00 AM",
+      "city": "Nairobi, Nairobi Area, Kenya",
+      "summary": "Sarit Centre, Nairobi",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
       "status": "proposed"
     },
     {
-      "title": "13th Power & Energy Kenya 2026",
-      "start_or_window": "Wed 29 Jul 2026 from 10:00 AM onwards",
-      "city": "Nairobi, Kenya",
-      "summary": "Carnivore Stage",
+      "title": "Africa Free Economic Zones Expo",
+      "start_or_window": "Sat, 28 Nov, 2026 - 09:00 AM",
+      "city": "Nairobi, Nairobi Area, Kenya",
+      "summary": "Safari Park Hotel, Nairobi",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
       "status": "proposed"
     },
     {
-      "title": "3RD EDITION KENYA SCHOOL OF REVENUE ADMINISTRATION (KESRA) - COLOUR FESTIVAL",
+      "title": "Interplastpack Africa 2026",
+      "start_or_window": "Thu, 20 Aug, 2026 - 10:00 AM",
+      "city": "Nairobi, Nairobi Area, Kenya",
+      "summary": "Sarit Expo Centre, Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "Solar Africa 2026",
+      "start_or_window": "Wed, 23 Sep, 2026 - 08:00 AM",
+      "city": "Nairobi, Nairobi Area, Kenya",
+      "summary": "Carnivore Grounds, Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "Paper & Tissue Africa 2026",
+      "start_or_window": "Thu, 20 Aug, 2026 - 10:00 AM",
+      "city": "Nairobi, Nairobi Area, Kenya",
+      "summary": "Sarit Expo Centre, Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "EAST AFRICA STEEL SUMMIT 2026",
+      "start_or_window": "Wed, 11 Jul, 2026 - 09:00 AM",
+      "city": "Nairobi, Nairobi Area, Kenya",
+      "summary": "Sarit Expo Centre, Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "3RD EDITION KENYA SCHOOL OF REVENUE ADMINISTRATION (KESRA) MOMBASA COLOUR FESTIVAL",
       "start_or_window": "Sun, 16 Aug, 2026 - 10:00 AM",
       "city": "Mombasa",
       "summary": "There are designated classes, drama workshops, and art events in Mombasa for the same. If you just want to be a mere spectator you can attend theatre events and art exhibitions in Mombasa too.",
