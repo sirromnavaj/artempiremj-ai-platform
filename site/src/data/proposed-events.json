@@ -1,9 +1,29 @@
 {
-  "generated": "2026-07-06",
+  "generated": "2026-07-07",
   "model": "qwen2.5:3b",
-  "raw": 9,
-  "count": 5,
+  "raw": 14,
+  "count": 9,
   "proposed": [
+    {
+      "title": "DekBAB 2026 Applications Now Open",
+      "start_or_window": "1 Jul - 1 Aug 2026",
+      "city": "Bangkok",
+      "summary": "DekBAB is now accepting applications for volunteers to join as Liaisons, Artist Crew, and Docents. Applications are open from 1 July – 1 August 2026.",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "New Additions to the Artist Line-Up",
+      "start_or_window": "Usually November",
+      "city": "Bangkok",
+      "summary": "New additions to the artist line-up announcement. No specific dates provided, but usually in November.",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
     {
       "title": "Frame by Frame Film Festival '26",
       "start_or_window": "Sat, 08 Aug, 2026 - 12:00 PM",
@@ -15,20 +35,10 @@
       "status": "proposed"
     },
     {
-      "title": "Kutiit culture Carnivore Grounds, Nairobi",
-      "start_or_window": "Sat, 25 Jul, 2026 - 10:00 AM",
-      "city": "Nairobi",
-      "summary": "Masai Mara migration safari moi avenue, Nairobi, Kenya",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/art",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
       "title": "27th BUILDEXPO KENYA 2026",
-      "start_or_window": "Wed, 08 Jul, 2026 - 10:00 AM",
+      "start_or_window": "Usually July",
       "city": "Nairobi",
-      "summary": "Kenyatta International Conference Centre Harambee Avenue P.O. Box 30746-00100 NAIROBI.",
+      "summary": "27th BUILDEXPO KENYA 2026 is happening on Wed 08 Jul 2026 from 10:00 AM onwards at Kenyatta International Conference Centre Harambee Avenue P.O. Box 30746-00100 NAIROBI.",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
@@ -36,18 +46,49 @@
     },
     {
       "title": "13th Power & Energy Kenya 2026",
-      "start_or_window": "Wed, 29 Jul, 2026 - 10:00 AM",
+      "start_or_window": "Usually July",
       "city": "Nairobi",
-      "summary": "Carnivore Stage",
+      "summary": "13th Power & Energy Kenya 2026 is happening on Wed 29 Jul 2026 from 10:00 AM onwards at Carnivore Stage, Nairobi.",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
       "status": "proposed"
     },
     {
-      "title": "3RD EDITION KENYA SCHOOL OF REVENUE ADMINISTRATION (KESRA) COLOUR FESTIVAL",
+      "title": "5th International MEGA WATER KENYA Expo",
+      "start_or_window": "Usually October",
+      "city": "Nairobi",
+      "summary": "5th International MEGA WATER KENYA Expo is happening on Tue 13 Oct 2026 from 10:00 AM onwards at The Sarit Expo Centre, Nairobi.",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "AFRICA Food Manufacturing (AFMASS) Kenya & Eastern Africa",
+      "start_or_window": "Usually July",
+      "city": "Nairobi",
+      "summary": "AFRICA Food Manufacturing (AFMASS) Kenya & Eastern Africa is happening on Wed 15 Jul 2026 from 10:00 AM onwards at Nairobi, Kenya.",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "Africa-Dubai Home Expo, Nairobi 2026",
       "start_or_window": "Usually November",
+      "city": "Nairobi",
+      "summary": "Africa-Dubai Home Expo, Nairobi 2026 is happening on Sat 28 Nov 2026 from 9:00 AM onwards at Best Western Plus Meridian Hotel, Nairobi.",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "MOMBASA COLOUR FESTIVAL 2026 3RD EDITION",
+      "start_or_window": "Sun, 16 Aug, 2026 - 10:00 AM",
       "city": "Mombasa",
+      "summary": "Kenya School of Revenue Administration(KESRA), Mombasa",
       "host": "allevents.in",
       "source": "https://allevents.in/mombasa/art",
       "arm": "explore",
