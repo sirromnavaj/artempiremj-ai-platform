@@ -1,42 +1,34 @@
 {
-  "generated": "2026-07-09",
+  "generated": "2026-07-10",
   "model": "qwen2.5:3b",
-  "raw": 10,
+  "raw": 11,
   "count": 6,
   "proposed": [
     {
-      "title": "Matatu Culture Festival",
-      "start_or_window": "Usually November",
-      "city": "Nairobi, Nairobi Area, Kenya",
-      "summary": "There are designated classes, drama workshops, and art events in Nairobi for the same. If you just want to be a mere spectator you can attend theatre events and art exhibitions in Nairobi too.",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/art",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "Frame by Frame Film Festival '26",
-      "start_or_window": "Usually November",
-      "city": "Century Cinemax Two Rivers, Nairobi, Kenya",
-      "summary": "There are designated classes, drama workshops, and art events in Nairobi for the same. If you just want to be a mere spectator you can attend theatre events and art exhibitions in Nairobi too.",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/art",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
       "title": "13th Power & Energy Kenya 2026",
-      "start_or_window": "Usually July",
+      "start_or_window": "Wed, 29 Jul, 2026 - 10:00 AM",
       "city": "Nairobi",
+      "summary": "13th Power & Energy Kenya 2026 is happening on Wed 29 Jul 2026 from 10:00 AM onwards at Carnivore Stage, Nairobi.",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
       "status": "proposed"
     },
     {
-      "title": "5th International MEGA WATER KENYA Expo",
-      "start_or_window": "Usually October",
+      "title": "Nairobi International College Fair 2026",
+      "start_or_window": "Fri, 16 Oct, 2026 - 10:00 AM",
       "city": "Nairobi",
+      "summary": "Nairobi International College Fair 2026 is happening on Fri 16 Oct 2026 from 10:00 AM onwards at Villa Rosa Kempinski, Nairobi.",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "5th International Mega Clima KENYA HVAC R Expo",
+      "start_or_window": "Tue, 13 Oct, 2026 - 10:00 AM",
+      "city": "Nairobi",
+      "summary": "5th International Mega Clima KENYA HVAC R Expo is happening on Tue 13 Oct 2026 from 10:00 AM onwards at The Sarit Expo Centre, Nairobi.",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
@@ -44,17 +36,29 @@
     },
     {
       "title": "Africa-Dubai Home Expo, Nairobi 2026",
-      "start_or_window": "Usually November",
+      "start_or_window": "Sat, 28 Nov, 2026 - 9:00 AM",
       "city": "Nairobi",
+      "summary": "Africa-Dubai Home Expo, Nairobi 2026 is happening on Sat 28 Nov 2026 from 9:00 AM onwards at Best Western Plus Meridian Hotel, Nairobi.",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
       "status": "proposed"
     },
     {
-      "title": "3RD EDITION KENYA SCHOOL OF REVENUE ADMINISTRATION (KESRA) COLOUR FESTIVAL 2026",
+      "title": "Pre-registration - Africa Real Estate Summit Awards & Expo 2026",
+      "start_or_window": "Sat, 28 Nov, 2026 - 9:00 AM",
+      "city": "Nairobi",
+      "summary": "Pre-registration - Africa Real Estate Summit Awards & Expo 2026 is happening on Sat 28 Nov 2026 from 9:00 AM onwards at Best Western Plus Meridian Hotel, Nairobi.",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "MOMBASA COLOUR FESTIVAL 2026",
       "start_or_window": "Sun, 16 Aug, 2026 - 10:00 AM",
       "city": "Mombasa",
+      "summary": "3RD EDITION Kenya School of Revenue Administration(KESRA), Mombasa",
       "host": "allevents.in",
       "source": "https://allevents.in/mombasa/art",
       "arm": "explore",
