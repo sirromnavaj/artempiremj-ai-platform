@@ -1,64 +1,71 @@
 {
-  "generated": "2026-07-10",
+  "generated": "2026-07-11",
   "model": "qwen2.5:3b",
-  "raw": 11,
-  "count": 6,
+  "raw": 12,
+  "count": 7,
   "proposed": [
     {
+      "title": "DekBAB 2026 Applications Now Open",
+      "start_or_window": "1 Jul - 1 Aug 2026",
+      "city": "Bangkok",
+      "summary": "DekBAB is now accepting applications for volunteers to join as Liaisons, Artist Crew, and Docents. Applications are open from 1 July – 1 August 2026.",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "New Additions to the Artist Line-Up",
+      "start_or_window": "Usually November",
+      "city": "Bangkok",
+      "summary": "New additions to the artist line-up announcement. No specific dates provided, but usually happens in November.",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "Matatu Culture Festival",
+      "start_or_window": "Usually November",
+      "city": "Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/art",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "Pop Up & Chill Handmaker's Market",
+      "start_or_window": "Usually November",
+      "city": "Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/art",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "Frame by Frame Film Festival '26",
+      "start_or_window": "Usually November",
+      "city": "Century Cinemax Two Rivers",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/art",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
       "title": "13th Power & Energy Kenya 2026",
-      "start_or_window": "Wed, 29 Jul, 2026 - 10:00 AM",
+      "start_or_window": "Usually July",
       "city": "Nairobi",
-      "summary": "13th Power & Energy Kenya 2026 is happening on Wed 29 Jul 2026 from 10:00 AM onwards at Carnivore Stage, Nairobi.",
+      "summary": "13th Power & Energy Kenya 2026 is happening on Wed 29 Jul 2026 from 10:00 AM onwards at Carnivore Stage, Nairobi",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
       "status": "proposed"
     },
     {
-      "title": "Nairobi International College Fair 2026",
-      "start_or_window": "Fri, 16 Oct, 2026 - 10:00 AM",
-      "city": "Nairobi",
-      "summary": "Nairobi International College Fair 2026 is happening on Fri 16 Oct 2026 from 10:00 AM onwards at Villa Rosa Kempinski, Nairobi.",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/exhibition",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "5th International Mega Clima KENYA HVAC R Expo",
-      "start_or_window": "Tue, 13 Oct, 2026 - 10:00 AM",
-      "city": "Nairobi",
-      "summary": "5th International Mega Clima KENYA HVAC R Expo is happening on Tue 13 Oct 2026 from 10:00 AM onwards at The Sarit Expo Centre, Nairobi.",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/exhibition",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "Africa-Dubai Home Expo, Nairobi 2026",
-      "start_or_window": "Sat, 28 Nov, 2026 - 9:00 AM",
-      "city": "Nairobi",
-      "summary": "Africa-Dubai Home Expo, Nairobi 2026 is happening on Sat 28 Nov 2026 from 9:00 AM onwards at Best Western Plus Meridian Hotel, Nairobi.",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/exhibition",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "Pre-registration - Africa Real Estate Summit Awards & Expo 2026",
-      "start_or_window": "Sat, 28 Nov, 2026 - 9:00 AM",
-      "city": "Nairobi",
-      "summary": "Pre-registration - Africa Real Estate Summit Awards & Expo 2026 is happening on Sat 28 Nov 2026 from 9:00 AM onwards at Best Western Plus Meridian Hotel, Nairobi.",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/exhibition",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "MOMBASA COLOUR FESTIVAL 2026",
-      "start_or_window": "Sun, 16 Aug, 2026 - 10:00 AM",
+      "title": "MOMBASA COLOUR FESTIVAL 2026 3RD EDITION",
+      "start_or_window": "Usually November - Usually December",
       "city": "Mombasa",
-      "summary": "3RD EDITION Kenya School of Revenue Administration(KESRA), Mombasa",
+      "summary": "There are designated classes, drama workshops, and art events in Mombasa for the same. If you just want to be a mere spectator you can attend theatre events and art exhibitions in Mombasa too.",
       "host": "allevents.in",
       "source": "https://allevents.in/mombasa/art",
       "arm": "explore",
