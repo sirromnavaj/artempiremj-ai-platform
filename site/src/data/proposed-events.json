@@ -1,8 +1,8 @@
 {
-  "generated": "2026-07-11",
+  "generated": "2026-07-12",
   "model": "qwen2.5:3b",
-  "raw": 12,
-  "count": 7,
+  "raw": 15,
+  "count": 10,
   "proposed": [
     {
       "title": "DekBAB 2026 Applications Now Open",
@@ -16,36 +16,29 @@
     },
     {
       "title": "New Additions to the Artist Line-Up",
-      "start_or_window": "Usually November",
+      "start_or_window": "26 Jun 2026",
       "city": "Bangkok",
-      "summary": "New additions to the artist line-up announcement. No specific dates provided, but usually happens in November.",
+      "summary": "New additions to the artist line-up announcement. The Bangkok Art Biennale (BAB) is a platform for showcasing new and emerging artists.",
       "host": "bkkartbiennale.com",
       "source": "https://www.bkkartbiennale.com/",
       "arm": "exploit",
       "status": "proposed"
     },
     {
-      "title": "Matatu Culture Festival",
-      "start_or_window": "Usually November",
-      "city": "Nairobi",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/art",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "Pop Up & Chill Handmaker's Market",
-      "start_or_window": "Usually November",
-      "city": "Nairobi",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/art",
-      "arm": "explore",
+      "title": "Explore Our 10 Venues",
+      "start_or_window": "26 Jun 2026",
+      "city": "Bangkok",
+      "summary": "Announcement about exploring the 10 venues of the Bangkok Art Biennale (BAB).",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
       "status": "proposed"
     },
     {
       "title": "Frame by Frame Film Festival '26",
       "start_or_window": "Usually November",
       "city": "Century Cinemax Two Rivers",
+      "summary": "Art & Theatre Events in Nairobi",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/art",
       "arm": "explore",
@@ -55,17 +48,52 @@
       "title": "13th Power & Energy Kenya 2026",
       "start_or_window": "Usually July",
       "city": "Nairobi",
-      "summary": "13th Power & Energy Kenya 2026 is happening on Wed 29 Jul 2026 from 10:00 AM onwards at Carnivore Stage, Nairobi",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
       "status": "proposed"
     },
     {
-      "title": "MOMBASA COLOUR FESTIVAL 2026 3RD EDITION",
-      "start_or_window": "Usually November - Usually December",
+      "title": "Africa Concours d'Elegance 2026",
+      "start_or_window": "Usually September",
+      "city": "Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "5th International Mega Clima KENYA HVAC R Expo",
+      "start_or_window": "Usually October",
+      "city": "Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "AFRICA Food Manufacturing (AFMASS) Kenya & Eastern Africa",
+      "start_or_window": "Usually July",
+      "city": "Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "Pre-registration - Africa Real Estate Summit, Awards & Expo 2026",
+      "start_or_window": "Usually November",
+      "city": "Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "MOMBASA COLOUR FESTIVAL 2026",
+      "start_or_window": "Sun, 16 Aug, 2026 - 10:00 AM",
       "city": "Mombasa",
-      "summary": "There are designated classes, drama workshops, and art events in Mombasa for the same. If you just want to be a mere spectator you can attend theatre events and art exhibitions in Mombasa too.",
+      "summary": "3RD EDITION Kenya School of Revenue Administration(KESRA), Mombasa",
       "host": "allevents.in",
       "source": "https://allevents.in/mombasa/art",
       "arm": "explore",
