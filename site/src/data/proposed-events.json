@@ -1,8 +1,8 @@
 {
-  "generated": "2026-07-13",
+  "generated": "2026-07-14",
   "model": "qwen2.5:3b",
-  "raw": 16,
-  "count": 10,
+  "raw": 13,
+  "count": 8,
   "proposed": [
     {
       "title": "DekBAB 2026 Applications Now Open",
@@ -15,30 +15,10 @@
       "status": "proposed"
     },
     {
-      "title": "New Additions to the Artist Line-Up Announcement",
-      "start_or_window": "26 Jun 2026",
-      "city": "Bangkok",
-      "summary": "Announcement of new additions to the artist line-up for Bangkok Art Biennale 2026.",
-      "host": "bkkartbiennale.com",
-      "source": "https://www.bkkartbiennale.com/",
-      "arm": "exploit",
-      "status": "proposed"
-    },
-    {
-      "title": "Explore Our 10 Venues Announcement",
-      "start_or_window": "26 Jun 2026",
-      "city": "Bangkok",
-      "summary": "Announcement of the venues where artworks will be displayed for Bangkok Art Biennale 2026.",
-      "host": "bkkartbiennale.com",
-      "source": "https://www.bkkartbiennale.com/",
-      "arm": "exploit",
-      "status": "proposed"
-    },
-    {
-      "title": "Beyond Pressure Myanmar",
+      "title": "New Additions to the Artist Line-Up",
       "start_or_window": "Usually November",
       "city": "Bangkok",
-      "summary": "An exhibition featuring works by Beyond Pressure, a group of artists from Myanmar. The exact date is not specified on the page but it falls within the usual timeframe for such exhibitions.",
+      "summary": "New additions to the artist line-up announcement. No specific dates provided, but usually announced in November for BAB events.",
       "host": "bkkartbiennale.com",
       "source": "https://www.bkkartbiennale.com/",
       "arm": "exploit",
@@ -46,7 +26,7 @@
     },
     {
       "title": "Matatu Culture Festival",
-      "start_or_window": "Usually August",
+      "start_or_window": "Usually November",
       "city": "Nairobi",
       "summary": "Art & Theatre Events in Nairobi",
       "host": "allevents.in",
@@ -56,7 +36,7 @@
     },
     {
       "title": "Frame by Frame Film Festival '26",
-      "start_or_window": "Usually July",
+      "start_or_window": "Usually November",
       "city": "Century Cinemax Two Rivers",
       "summary": "Art & Theatre Events in Nairobi",
       "host": "allevents.in",
@@ -85,20 +65,20 @@
       "status": "proposed"
     },
     {
-      "title": "Pre-registration - Africa Real Estate Summit Awards & Expo",
+      "title": "Pre-registration - Africa Real Estate Summit Awards &amp Expo 2026",
       "start_or_window": "Sat, 28 Nov, 2026 - 9:00 AM",
       "city": "Nairobi",
-      "summary": "Pre-registration - Africa Real Estate Summit Awards & Expo 2026 is happening on Sat 28 Nov 2026 from 9:00 AM onwards at Best Western Plus Meridian Hotel, Nairobi.",
+      "summary": "Pre-registration - Africa Real Estate Summit, Awards &amp Expo 2026, Nairobi is happening on Sat 28 Nov 2026 from 9:00 AM onwards at Best Western Plus Meridian Hotel, Nairobi.",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
       "arm": "explore",
       "status": "proposed"
     },
     {
-      "title": "MOMBASA COLOUR FESTIVAL 2026",
+      "title": "3RD EDITION KENYA SCHOOL OF REVENUE ADMINISTRATION (KESRA) COLOUR FESTIVAL",
       "start_or_window": "Sun, 16 Aug, 2026 - 10:00 AM",
       "city": "Mombasa",
-      "summary": "3RD EDITION Kenya School of Revenue Administration(KESRA), Mombasa 35+",
+      "summary": "Kenya School of Revenue Administration(KESRA), Mombasa",
       "host": "allevents.in",
       "source": "https://allevents.in/mombasa/art",
       "arm": "explore",
