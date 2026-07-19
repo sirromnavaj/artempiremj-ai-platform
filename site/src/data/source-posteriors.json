@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-18",
+  "updated": "2026-07-19",
   "sources": {
     "explorelamu.com": {
       "alpha": 1,
@@ -10,19 +10,19 @@
       "beta": 1
     },
     "musicinafrica.net": {
-      "alpha": 18,
-      "beta": 14
+      "alpha": 19,
+      "beta": 15
     },
     "kilificreekfestival.com": {
-      "alpha": 18,
+      "alpha": 19,
       "beta": 1
     },
     "beneaththebaobabs.com": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "lamuyoga.org": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "kenyanvibe.com": {
@@ -46,11 +46,11 @@
       "beta": 1
     },
     "festival.nyegenyege.com": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "en.wikipedia.org": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "bush-fire.com": {
@@ -62,7 +62,7 @@
       "beta": 1
     },
     "biennaledakar.org": {
-      "alpha": 67,
+      "alpha": 70,
       "beta": 1
     },
     "felabration.net": {
@@ -70,31 +70,31 @@
       "beta": 1
     },
     "vivre-marrakech.com": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "burningman.org": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "labiennale.org": {
-      "alpha": 64,
+      "alpha": 67,
       "beta": 1
     },
     "edfringe.com": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "rencontres-bamako.com": {
-      "alpha": 14,
+      "alpha": 15,
       "beta": 1
     },
     "lagos-biennial.org": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "akaafair.com": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "norvalsovereignafricanartprize.org": {
@@ -158,15 +158,15 @@
       "beta": 1
     },
     "manifesta16.org": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "tate.org.uk": {
-      "alpha": 45,
-      "beta": 23
+      "alpha": 47,
+      "beta": 24
     },
     "artbasel.com": {
-      "alpha": 45,
+      "alpha": 47,
       "beta": 1
     },
     "rijksakademie.nl": {
@@ -198,15 +198,15 @@
       "beta": 1
     },
     "skowheganart.org": {
-      "alpha": 14,
+      "alpha": 15,
       "beta": 1
     },
     "macdowell.org": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "whitney.org": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "iscp-nyc.org": {
@@ -254,15 +254,15 @@
       "beta": 4
     },
     "gwangjubiennale.org": {
-      "alpha": 23,
-      "beta": 23
+      "alpha": 24,
+      "beta": 24
     },
     "busanbiennale.org": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "bkkartbiennale.com": {
-      "alpha": 45,
+      "alpha": 47,
       "beta": 1
     },
     "artdubai.ae": {
@@ -282,7 +282,7 @@
       "beta": 1
     },
     "sharjahart.org": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "khojstudios.org": {
@@ -302,15 +302,15 @@
       "beta": 1
     },
     "artxlagos.com": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "artjoburg.com": {
-      "alpha": 20,
+      "alpha": 21,
       "beta": 4
     },
     "zeitzmocaa.museum": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "artdegypte.org": {
@@ -322,15 +322,15 @@
       "beta": 1
     },
     "houseoffriendskenya.com": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "ncai254.com": {
-      "alpha": 23,
+      "alpha": 24,
       "beta": 1
     },
     "circleartagency.com": {
-      "alpha": 22,
+      "alpha": 23,
       "beta": 1
     },
     "oneoffcontemporaryartgallery.com": {
@@ -371,22 +371,22 @@
     },
     "inemaartcenter.com": {
       "alpha": 1,
-      "beta": 15
+      "beta": 16
     },
     "addisfineart.com": {
       "alpha": 1,
       "beta": 1
     },
     "macondolitfest.org": {
-      "alpha": 20,
+      "alpha": 21,
       "beta": 1
     },
     "fablstyle.com": {
-      "alpha": 18,
+      "alpha": 19,
       "beta": 1
     },
     "bayimba.org": {
-      "alpha": 18,
+      "alpha": 19,
       "beta": 3
     },
     "kalasha.kenyafilmcommission.go.ke": {
