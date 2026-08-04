@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-03",
+  "updated": "2026-08-04",
   "sources": {
     "explorelamu.com": {
       "alpha": 1,
@@ -10,19 +10,19 @@
       "beta": 1
     },
     "musicinafrica.net": {
-      "alpha": 33,
-      "beta": 29
+      "alpha": 34,
+      "beta": 30
     },
     "kilificreekfestival.com": {
-      "alpha": 34,
+      "alpha": 35,
       "beta": 1
     },
     "beneaththebaobabs.com": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "lamuyoga.org": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "kenyanvibe.com": {
@@ -46,11 +46,11 @@
       "beta": 1
     },
     "festival.nyegenyege.com": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "en.wikipedia.org": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "bush-fire.com": {
@@ -62,7 +62,7 @@
       "beta": 1
     },
     "biennaledakar.org": {
-      "alpha": 115,
+      "alpha": 118,
       "beta": 1
     },
     "felabration.net": {
@@ -70,19 +70,19 @@
       "beta": 1
     },
     "vivre-marrakech.com": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "burningman.org": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "labiennale.org": {
-      "alpha": 112,
+      "alpha": 115,
       "beta": 1
     },
     "edfringe.com": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "rencontres-bamako.com": {
@@ -90,11 +90,11 @@
       "beta": 1
     },
     "lagos-biennial.org": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "akaafair.com": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "norvalsovereignafricanartprize.org": {
@@ -158,15 +158,15 @@
       "beta": 1
     },
     "manifesta16.org": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "tate.org.uk": {
-      "alpha": 77,
-      "beta": 39
+      "alpha": 79,
+      "beta": 40
     },
     "artbasel.com": {
-      "alpha": 77,
+      "alpha": 79,
       "beta": 1
     },
     "rijksakademie.nl": {
@@ -202,11 +202,11 @@
       "beta": 1
     },
     "macdowell.org": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "whitney.org": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "iscp-nyc.org": {
@@ -254,15 +254,15 @@
       "beta": 5
     },
     "gwangjubiennale.org": {
-      "alpha": 39,
-      "beta": 39
+      "alpha": 40,
+      "beta": 40
     },
     "busanbiennale.org": {
-      "alpha": 38,
+      "alpha": 39,
       "beta": 1
     },
     "bkkartbiennale.com": {
-      "alpha": 77,
+      "alpha": 79,
       "beta": 1
     },
     "artdubai.ae": {
@@ -282,7 +282,7 @@
       "beta": 1
     },
     "sharjahart.org": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "khojstudios.org": {
@@ -302,15 +302,15 @@
       "beta": 1
     },
     "artxlagos.com": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "artjoburg.com": {
-      "alpha": 35,
+      "alpha": 36,
       "beta": 4
     },
     "zeitzmocaa.museum": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "artdegypte.org": {
@@ -322,15 +322,15 @@
       "beta": 1
     },
     "houseoffriendskenya.com": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "ncai254.com": {
-      "alpha": 39,
+      "alpha": 40,
       "beta": 1
     },
     "circleartagency.com": {
-      "alpha": 37,
+      "alpha": 38,
       "beta": 1
     },
     "oneoffcontemporaryartgallery.com": {
@@ -371,14 +371,14 @@
     },
     "inemaartcenter.com": {
       "alpha": 1,
-      "beta": 31
+      "beta": 32
     },
     "addisfineart.com": {
       "alpha": 1,
       "beta": 1
     },
     "macondolitfest.org": {
-      "alpha": 36,
+      "alpha": 37,
       "beta": 1
     },
     "fablstyle.com": {
@@ -386,7 +386,7 @@
       "beta": 1
     },
     "bayimba.org": {
-      "alpha": 33,
+      "alpha": 34,
       "beta": 4
     },
     "kalasha.kenyafilmcommission.go.ke": {
