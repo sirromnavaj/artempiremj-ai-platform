@@ -1,8 +1,8 @@
 {
-  "generated": "2026-08-11",
+  "generated": "2026-08-12",
   "model": "qwen2.5:3b",
-  "raw": 15,
-  "count": 12,
+  "raw": 14,
+  "count": 11,
   "proposed": [
     {
       "title": "DekBAB 2026 Applications Now Open",
@@ -16,9 +16,19 @@
     },
     {
       "title": "New Additions to the Artist Line-Up",
-      "start_or_window": "Usually November",
+      "start_or_window": "26 Jun 2026",
       "city": "Bangkok",
-      "summary": "New additions to the artist line-up announcement. The exact date is not specified, but it usually happens in November.",
+      "summary": "New additions to the artist line-up announcement. The countdown to Bangkok Art Biennale 2024 begins!",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "Explore Our 10 Venues",
+      "start_or_window": "26 Jun 2026",
+      "city": "Bangkok",
+      "summary": "Exploring the 10 venues for Bangkok Art Biennale 2024. The countdown to the event begins!",
       "host": "bkkartbiennale.com",
       "source": "https://www.bkkartbiennale.com/",
       "arm": "exploit",
@@ -26,7 +36,7 @@
     },
     {
       "title": "TEEN FEST 2026",
-      "start_or_window": "Sat, 14 Nov, 2026 - 10:00 AM",
+      "start_or_window": "Usually November - Usually December",
       "city": "Nairobi",
       "summary": "Art Gallery Centre 13+ Interested",
       "host": "allevents.in",
@@ -36,29 +46,9 @@
     },
     {
       "title": "JUNK FOOD FESTIVAL 2026",
-      "start_or_window": "Thu, 20 Aug, 2026 - 12:00 AM",
+      "start_or_window": "Usually November - Usually December",
       "city": "Nairobi",
-      "summary": "Nairobi County 154+ Interested",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/art",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "HIPHOP TECHNOLOGY DAY 026",
-      "start_or_window": "Sat, 29 Aug, 2026 - 10:00 AM",
-      "city": "Nairobi",
-      "summary": "Dandora 13+ Interested",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/art",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "Masai Mara migration safari",
-      "start_or_window": "Thu, 20 Aug, 2026 - 07:30 AM",
-      "city": "Nairobi",
-      "summary": "Moia Avenue, Nairobi, Kenya 75+ Interested",
+      "summary": "Nairobi County 154+",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/art",
       "arm": "explore",
@@ -66,25 +56,7 @@
     },
     {
       "title": "Africa Concours d'Elegance 2026",
-      "start_or_window": "Usually September",
-      "city": "Nairobi",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/exhibition",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "Nairobi International College Fair 2026",
-      "start_or_window": "Usually October",
-      "city": "Nairobi",
-      "host": "allevents.in",
-      "source": "https://allevents.in/nairobi/exhibition",
-      "arm": "explore",
-      "status": "proposed"
-    },
-    {
-      "title": "Pre-registration - Africa Real Estate Summit, Awards Expo 2026",
-      "start_or_window": "Usually November",
+      "start_or_window": "Sun, 27 Sep, 2026 - 09:00 AM",
       "city": "Nairobi",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
@@ -93,7 +65,7 @@
     },
     {
       "title": "5th International MEGA WATER KENYA Expo",
-      "start_or_window": "Usually October",
+      "start_or_window": "Tue, 13 Oct, 2026 - 10:00 AM",
       "city": "Nairobi",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
@@ -102,7 +74,7 @@
     },
     {
       "title": "Africa-Dubai Home Expo, Nairobi 2026",
-      "start_or_window": "Usually November",
+      "start_or_window": "Sat, 28 Nov, 2026 - 09:00 AM",
       "city": "Nairobi",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/exhibition",
@@ -110,10 +82,29 @@
       "status": "proposed"
     },
     {
-      "title": "MOMBASA COLOUR FESTIVAL 2026",
+      "title": "40TH KENYA HOMES EXPO",
+      "start_or_window": "Thu, 19 Nov, 2026 - 08:00 AM",
+      "city": "Nairobi",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/exhibition",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "DIANI BEACH CARNIVAL 2026",
       "start_or_window": "Usually November",
       "city": "Mombasa",
-      "summary": "3RD EDITION Kenya School of Revenue Administration(KESRA), Mombasa",
+      "summary": "Diani Beach Carnival is a carnival event that takes place in Mombasa, usually during the month of November.",
+      "host": "allevents.in",
+      "source": "https://allevents.in/mombasa/art",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "9th Kenya International Cancer Conference",
+      "start_or_window": "2026-11-05 to 2026-11-10",
+      "city": "Mombasa",
+      "summary": "The 9th Kenya International Cancer Conference is a conference event that takes place in Mombasa from November 5th to November 10th, 2026.",
       "host": "allevents.in",
       "source": "https://allevents.in/mombasa/art",
       "arm": "explore",
