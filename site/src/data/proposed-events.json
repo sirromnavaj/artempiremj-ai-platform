@@ -1,14 +1,84 @@
 {
-  "generated": "2026-08-17",
+  "generated": "2026-08-18",
   "model": "qwen2.5:3b",
-  "raw": 7,
-  "count": 3,
+  "raw": 14,
+  "count": 10,
   "proposed": [
     {
-      "title": "TEEN FEST 2026",
+      "title": "New Additions to the Artist Line-Up",
       "start_or_window": "Usually November",
+      "city": "Bangkok",
+      "summary": "New additions to the artist line-up for the Bangkok Art Biennale 2026.",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "Open Call | BAB Academy x BACC TAM#7",
+      "start_or_window": "Usually November",
+      "city": "Bangkok",
+      "summary": "Open call for the BAB Academy x BACC TAM#7 project, a program to cultivate contemporary art artists.",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "Explore Our 10 Venues",
+      "start_or_window": "Usually November",
+      "city": "Bangkok",
+      "summary": "Exploring the 10 venues for the Bangkok Art Biennale 2026.",
+      "host": "bkkartbiennale.com",
+      "source": "https://www.bkkartbiennale.com/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "Lamu Yoga & Wellness Festival 4 - 8 November 2026",
+      "start_or_window": "Usually November",
+      "city": "Lamu, East Africa",
+      "summary": "An immersive five-day transformative experience of yoga, personal development, breathwork, dance, meditation, and sound healing with over 150 classes led by over 30 teachers. Includes workshops, a Swahili dinner, a dhow sail, a festival t-shirt, and a final bonfire celebration. Early bird pricing available.",
+      "host": "lamuyoga.org",
+      "source": "https://www.lamuyoga.org/",
+      "arm": "exploit",
+      "status": "proposed"
+    },
+    {
+      "title": "TEEN FEST 2026",
+      "start_or_window": "Thu, 20 Aug, 2026 - 07:30 AM",
       "city": "Nairobi",
       "summary": "Art Gallery Centre 30+ Interested",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/art",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "HIPHOP TECHNOLOGY DAY 026",
+      "start_or_window": "Sat, 29 Aug, 2026 - 06:00 PM",
+      "city": "Nairobi",
+      "summary": "For Streets or Keeps Vibanda Village",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/art",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "JUNK FOOD FESTIVAL 2026",
+      "start_or_window": "Sat, 03 Oct, 2026 - 09:30 AM",
+      "city": "Nairobi",
+      "summary": "Nairobi County 154+ Interested",
+      "host": "allevents.in",
+      "source": "https://allevents.in/nairobi/art",
+      "arm": "explore",
+      "status": "proposed"
+    },
+    {
+      "title": "Tabasamu Festival",
+      "start_or_window": "Sat, 19 Dec, 2026 - 06:00 PM",
+      "city": "Nairobi",
+      "summary": "What We Carry Kenya National Theatre",
       "host": "allevents.in",
       "source": "https://allevents.in/nairobi/art",
       "arm": "explore",
